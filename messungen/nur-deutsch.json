@@ -1,0 +1,144 @@
+{
+ "gemini_flash": [
+  {
+   "text": "Kannst du mir bitte die Milch aus der Küche bringen?",
+   "soll_uebersetzt": true,
+   "antwort": "Možeš li mi, molim te, doneti mleko iz kuhinje?",
+   "richtig": true
+  },
+  {
+   "text": "Ich sage kad pričam srpski, da vidimo da li on to isto prevodi.",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  },
+  {
+   "text": "Nemoj da brišeš sad i ti.",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  },
+  {
+   "text": "Pa dobro, da,",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  },
+  {
+   "text": "Gubičk si?",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  },
+  {
+   "text": "Ey, Nena, bleib bisschen.",
+   "soll_uebersetzt": true,
+   "antwort": "Hej, Nena, ostani malo.",
+   "richtig": true
+  },
+  {
+   "text": "Händ Sie scho z Mittag gässe?",
+   "soll_uebersetzt": true,
+   "antwort": "Jeste li već ručali?",
+   "richtig": true
+  },
+  {
+   "text": "Bring mal bitte Herdöpfel oder Buch.",
+   "soll_uebersetzt": true,
+   "antwort": "Donesi, molim te, krompir ili knjigu.",
+   "richtig": true
+  },
+  {
+   "text": "Wir nehmen auch Schüngel für die Poche.",
+   "soll_uebersetzt": true,
+   "antwort": "Uzećemo i šunku za čorbu.",
+   "richtig": true
+  },
+  {
+   "text": "bitte die 3 Häufel und die C2-Karate, und Chüngel, los die Kuchi.",
+   "soll_uebersetzt": true,
+   "antwort": "Molim te ona 3 krompira i dve šargarepe, i zeca, u kuhinju.",
+   "richtig": true
+  },
+  {
+   "text": "Äh, stell mir noch—",
+   "soll_uebersetzt": true,
+   "antwort": "E, ostavi mi još—",
+   "richtig": true
+  },
+  {
+   "text": "Hvad har vi bruget den vej med?",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  },
+  {
+   "text": "Good morning, how are you?",
+   "soll_uebersetzt": false,
+   "antwort": "[SKIP]",
+   "richtig": true
+  }
+ ],
+ "gemini_live": [
+  {
+   "text": "Kannst du mir bitte die Milch aus der Küche bringen?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": true,
+   "ton": true,
+   "ton_s": 3.08,
+   "spitze": 19928,
+   "gesprochen": "Možeš li mi, molim te, doneti mleko iz kuhinje?",
+   "richtig": true
+  },
+  {
+   "text": "Gde si bila? Pričam srpski.",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": false,
+   "ton": true,
+   "ton_s": 2.37,
+   "spitze": 25981,
+   "gesprochen": "<no speech>{pause}",
+   "richtig": false
+  },
+  {
+   "text": "Haben Sie schon zu Mittag gegessen?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": true,
+   "ton": true,
+   "ton_s": 1.82,
+   "spitze": 24120,
+   "gesprochen": "Da li ste već ručali?",
+   "richtig": true
+  },
+  {
+   "text": "Nemoj da brišeš, sad ću ja to da uradim.",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": false,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "<no speech>{pause}",
+   "richtig": true
+  },
+  {
+   "text": "Dobar dan, kako ste danas?",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": false,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "<no speech>{pause}",
+   "richtig": true
+  },
+  {
+   "text": "Wo ist mein Pass, bitte?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": true,
+   "ton": true,
+   "ton_s": 2.19,
+   "spitze": 28587,
+   "gesprochen": "Gde je moj pasoš, molim vas?",
+   "richtig": true
+  }
+ ]
+}
