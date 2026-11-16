@@ -198,6 +198,7 @@ class TranslationService : Service() {
                     setup = setup,
                     context = this@TranslationService,
                     target = conv.incomingTarget,
+                    source = conv.partnerLang,
                     transcriptionModel = transcriptionModel,
                     http = http,
                     listener = object : TranslationSession.Listener {
@@ -226,6 +227,7 @@ class TranslationService : Service() {
                 outgoing = Translator.outgoing(
                     setup = setup,
                     target = conv.outgoingTarget,
+                    source = conv.myLang,
                     transcriptionModel = transcriptionModel,
                     http = http,
                     listener = object : TranslationSession.Listener {

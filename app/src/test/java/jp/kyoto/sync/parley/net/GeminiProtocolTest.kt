@@ -10,7 +10,8 @@ import java.util.Base64
 
 class GeminiProtocolTest {
 
-    private val setup = JSONObject(GeminiProtocol.setup(Lang.SR)).getJSONObject("setup")
+    private val setup =
+        JSONObject(GeminiProtocol.setup(Lang.SR, InterpreterProtocol.instructions(Lang.SR, Lang.DE_CH))).getJSONObject("setup")
 
     @Test
     fun usesTheStableLiveModelWithSpokenAnswers() {
@@ -21,7 +22,7 @@ class GeminiProtocolTest {
     @Test
     fun sameInterpreterInstructionsAsOpenAi() {
         val text = setup.getJSONObject("systemInstruction").getJSONArray("parts").getJSONObject(0).getString("text")
-        assertEquals(InterpreterProtocol.instructions(Lang.SR), text)
+        assertEquals(InterpreterProtocol.instructions(Lang.SR, Lang.DE_CH), text)
     }
 
     /** Vorlesen statt übersetzen; mit dieser Anweisung las Gemini 8 von 8 Sätzen wortgetreu (messungen/vorlesen.py). */

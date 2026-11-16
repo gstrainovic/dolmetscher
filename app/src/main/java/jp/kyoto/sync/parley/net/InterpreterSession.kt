@@ -16,6 +16,7 @@ import okhttp3.WebSocketListener
 class InterpreterSession(
     private val apiKey: String,
     private val target: Lang,
+    private val source: Lang,
     private val transcriptionModel: String,
     private val http: OkHttpClient,
     private val listener: TranslationSession.Listener,
@@ -32,7 +33,7 @@ class InterpreterSession(
 
         ws = http.newWebSocket(req, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
-                webSocket.send(InterpreterProtocol.sessionUpdate(target, transcriptionModel))
+                webSocket.send(InterpreterProtocol.sessionUpdate(target, source, transcriptionModel))
                 listener.onOpen()
             }
 

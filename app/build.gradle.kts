@@ -27,8 +27,8 @@ android {
         applicationId = "ch.strainovic.dolmetscher"
         minSdk = 26
         targetSdk = 35
-        versionCode = 9
-        versionName = "0.5.3"
+        versionCode = 10
+        versionName = "0.5.4"
 
         // sherpa-onnx (Silero VAD) bringt Bibliotheken für vier Prozessoren mit; Handys und Emulator brauchen zwei.
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }

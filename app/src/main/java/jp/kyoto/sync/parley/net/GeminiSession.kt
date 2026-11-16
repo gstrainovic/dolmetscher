@@ -23,8 +23,8 @@ class GeminiSession(
     private val target: Lang,
     private val http: OkHttpClient,
     private val listener: TranslationSession.Listener,
-    private val trace: (String) -> Unit = {},
-    private val instructions: String = InterpreterProtocol.instructions(target),
+    private val trace: (String) -> Unit,
+    private val instructions: String,
 ) : Translator, jp.kyoto.sync.parley.audio.Vorlesesitzung {
 
     @Volatile private var ws: WebSocket? = null

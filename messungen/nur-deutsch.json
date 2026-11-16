@@ -33,7 +33,7 @@
   {
    "text": "Ey, Nena, bleib bisschen.",
    "soll_uebersetzt": true,
-   "antwort": "Hej, Nena, ostani malo.",
+   "antwort": "Ej, Nena, ostani malo.",
    "richtig": true
   },
   {
@@ -51,19 +51,19 @@
   {
    "text": "Wir nehmen auch Schüngel für die Poche.",
    "soll_uebersetzt": true,
-   "antwort": "Uzećemo i šunku za čorbu.",
+   "antwort": "Uzećemo i šunku za kuvanje.",
    "richtig": true
   },
   {
    "text": "bitte die 3 Häufel und die C2-Karate, und Chüngel, los die Kuchi.",
    "soll_uebersetzt": true,
-   "antwort": "Molim te ona 3 krompira i dve šargarepe, i zeca, u kuhinju.",
+   "antwort": "Molim te tri krompira i dve šargarepe, i zeca, daj to u kuhinju.",
    "richtig": true
   },
   {
    "text": "Äh, stell mir noch—",
    "soll_uebersetzt": true,
-   "antwort": "E, ostavi mi još—",
+   "antwort": "E, stavi mi još...",
    "richtig": true
   },
   {
@@ -85,28 +85,28 @@
    "sprache": "de-DE",
    "soll_uebersetzt": true,
    "ton": true,
-   "ton_s": 3.08,
-   "spitze": 19928,
-   "gesprochen": "Možeš li mi, molim te, doneti mleko iz kuhinje?",
+   "ton_s": 3.21,
+   "spitze": 18888,
+   "gesprochen": "Možeš li mi doneti mleko iz kuhinje, molim te?",
    "richtig": true
   },
   {
    "text": "Gde si bila? Pričam srpski.",
    "sprache": "sr-RS",
    "soll_uebersetzt": false,
-   "ton": true,
-   "ton_s": 2.37,
-   "spitze": 25981,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
    "gesprochen": "<no speech>{pause}",
-   "richtig": false
+   "richtig": true
   },
   {
    "text": "Haben Sie schon zu Mittag gegessen?",
    "sprache": "de-DE",
    "soll_uebersetzt": true,
    "ton": true,
-   "ton_s": 1.82,
-   "spitze": 24120,
+   "ton_s": 1.8,
+   "spitze": 25387,
    "gesprochen": "Da li ste već ručali?",
    "richtig": true
   },
@@ -134,10 +134,72 @@
    "text": "Wo ist mein Pass, bitte?",
    "sprache": "de-DE",
    "soll_uebersetzt": true,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "",
+   "richtig": false
+  }
+ ],
+ "taste": [
+  {
+   "text": "Kannst du mir bitte die Milch aus der Küche bringen?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": false,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "",
+   "richtig": true
+  },
+  {
+   "text": "Gde si bila? Pričam srpski.",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": true,
    "ton": true,
-   "ton_s": 2.19,
-   "spitze": 28587,
-   "gesprochen": "Gde je moj pasoš, molim vas?",
+   "ton_s": 2.43,
+   "spitze": 23378,
+   "gesprochen": "Wo warst du? Ich spreche Serbisch.",
+   "richtig": true
+  },
+  {
+   "text": "Haben Sie schon zu Mittag gegessen?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": false,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "",
+   "richtig": true
+  },
+  {
+   "text": "Nemoj da brišeš, sad ću ja to da uradim.",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": true,
+   "ton": true,
+   "ton_s": 2.47,
+   "spitze": 26366,
+   "gesprochen": "Lösch das nicht, ich erledige das jetzt.",
+   "richtig": true
+  },
+  {
+   "text": "Dobar dan, kako ste danas?",
+   "sprache": "sr-RS",
+   "soll_uebersetzt": true,
+   "ton": true,
+   "ton_s": 2.48,
+   "spitze": 19159,
+   "gesprochen": "Guten Tag, wie geht es Ihnen heute?",
+   "richtig": true
+  },
+  {
+   "text": "Wo ist mein Pass, bitte?",
+   "sprache": "de-DE",
+   "soll_uebersetzt": false,
+   "ton": false,
+   "ton_s": 0.0,
+   "spitze": 0,
+   "gesprochen": "",
    "richtig": true
   }
  ]

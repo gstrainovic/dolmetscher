@@ -13,7 +13,7 @@ import java.util.Base64
 class InterpreterProtocolTest {
 
     private fun session(target: Lang = Lang.SR) =
-        JSONObject(InterpreterProtocol.sessionUpdate(target, "gpt-realtime-whisper")).getJSONObject("session")
+        JSONObject(InterpreterProtocol.sessionUpdate(target, Lang.DE_CH, "gpt-realtime-whisper")).getJSONObject("session")
 
     @Test
     fun instructionsTellModelToOnlyTranslateIntoSerbian() {
@@ -21,6 +21,20 @@ class InterpreterProtocolTest {
         assertTrue(instructions.contains("Serbian"))
         assertTrue(instructions.contains("Swiss German"))
         assertTrue(instructions.contains("Only output the translation"))
+    }
+
+    /**
+     * Übersetzt wird nur die Sprache, aus der die Richtung kommt: beim Zuhören die des Gegenübers, bei der eigenen
+     * Taste die der Benutzerin. In 0.5.3 hiess es fest «nur Deutsch», und Gemini verschwieg Vesnas Serbisch bei der Taste.
+     */
+    @Test
+    fun instructionsTranslateOnlyTheSourceLanguageOfTheDirection() {
+        assertTrue(InterpreterProtocol.instructions(target = Lang.SR, source = Lang.DE_CH)
+            .contains("Translate German and Swiss German dialect (Schweizerdeutsch) speech into Serbian"))
+        assertTrue(InterpreterProtocol.instructions(target = Lang.DE, source = Lang.SR)
+            .contains("Translate Serbian speech into German"))
+        assertTrue(InterpreterProtocol.instructions(target = Lang.SR, source = Lang.EN)
+            .contains("Translate English speech into Serbian"))
     }
 
     @Test

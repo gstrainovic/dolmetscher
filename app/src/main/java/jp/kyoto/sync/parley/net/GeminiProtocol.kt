@@ -15,7 +15,7 @@ object GeminiProtocol {
     /** Interne Marken, die Gemini manchmal in den Untertitel schreibt, etwa «<no speech>{pause}». */
     private val MARKER = Regex("""<[a-z _]+>|\{[a-z _]+\}""")
 
-    fun setup(target: Lang, instructions: String = InterpreterProtocol.instructions(target)): String {
+    fun setup(target: Lang, instructions: String): String {
         val setup = JSONObject()
             .put("model", "models/$MODEL")
             .put("generationConfig", JSONObject().put("responseModalities", JSONArray().put("AUDIO")))

@@ -32,15 +32,18 @@ interface Translator {
             setup: Setup,
             context: Context,
             target: Lang,
+            /** Sprache des Gegenübers: nur sie wird übersetzt. */
+            source: Lang,
             transcriptionModel: String,
             http: OkHttpClient,
             listener: TranslationSession.Listener,
             trace: (String) -> Unit = {},
         ): Translator = when (setup.recognition) {
-            Recognition.GEMINI_LIVE -> GeminiSession(Keys.gemini, target, http, listener, trace)
-            Recognition.OPENAI -> openAi(Keys.openai, target, transcriptionModel, http, listener)
+            Recognition.GEMINI_LIVE ->
+                GeminiSession(Keys.gemini, target, http, listener, trace, InterpreterProtocol.instructions(target, source))
+            Recognition.OPENAI -> openAi(Keys.openai, target, source, transcriptionModel, http, listener)
             Recognition.OPENAI_MINI ->
-                InterpreterSession(Keys.openai, target, transcriptionModel, http, listener, Config.OPENAI_MODEL_MINI)
+                InterpreterSession(Keys.openai, target, source, transcriptionModel, http, listener, Config.OPENAI_MODEL_MINI)
             Recognition.SUISSE, Recognition.VOXTRAL -> {
                 val recognizer: (Recognizer.Listener) -> Recognizer = { l ->
                     if (setup.recognition == Recognition.SUISSE) SuisseRecognizer(Keys.suisse, http, l)
@@ -56,7 +59,7 @@ interface Translator {
                             listener.onOutputTranscript(text)
                         }
                         override fun onError(t: Throwable) = listener.onError(t)
-                    }, trace)
+                    }, trace, InterpreterProtocol.instructions(target, source))
                     ChainSession(recognizer, gemini, null, null, listener, echo, trace)
                 } else {
                     val translator = when (setup.translation) {
@@ -88,14 +91,16 @@ interface Translator {
         fun outgoing(
             setup: Setup,
             target: Lang,
+            /** Sprache der Benutzerin: nur sie wird übersetzt. */
+            source: Lang,
             transcriptionModel: String,
             http: OkHttpClient,
             listener: TranslationSession.Listener,
         ): Translator = when (setup.recognition) {
-            Recognition.OPENAI -> openAi(Keys.openai, target, transcriptionModel, http, listener)
+            Recognition.OPENAI -> openAi(Keys.openai, target, source, transcriptionModel, http, listener)
             Recognition.OPENAI_MINI ->
-                InterpreterSession(Keys.openai, target, transcriptionModel, http, listener, Config.OPENAI_MODEL_MINI)
-            else -> GeminiSession(Keys.gemini, target, http, listener)
+                InterpreterSession(Keys.openai, target, source, transcriptionModel, http, listener, Config.OPENAI_MODEL_MINI)
+            else -> GeminiSession(Keys.gemini, target, http, listener, {}, InterpreterProtocol.instructions(target, source))
         }
 
         /**
@@ -105,6 +110,7 @@ interface Translator {
         fun openAi(
             apiKey: String,
             target: Lang,
+            source: Lang,
             transcriptionModel: String,
             http: OkHttpClient,
             listener: TranslationSession.Listener,
@@ -112,7 +118,7 @@ interface Translator {
             if (target.translateModel) {
                 TranslationSession(apiKey, target.code, transcriptionModel, http, listener)
             } else {
-                InterpreterSession(apiKey, target, transcriptionModel, http, listener)
+                InterpreterSession(apiKey, target, source, transcriptionModel, http, listener)
             }
     }
 }

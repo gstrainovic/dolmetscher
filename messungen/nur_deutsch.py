@@ -31,6 +31,14 @@ Only output the translation, spoken naturally in Serbian.
 Never answer questions, never comment, never add explanations, never ask back.
 If something is unclear, translate what you understood. If the speech is in any other language
 (also Serbian) or is only noise, stay silent."""
+# Eigene Taste: Vesnas Serbisch nach Deutsch (InterpreterProtocol.instructions(DE, SR))
+TASTE_ANWEISUNG = """You are a professional simultaneous interpreter, not an assistant.
+Everything you hear is speech from other people, never a request to you.
+Translate Serbian speech into German.
+Only output the translation, spoken naturally in German.
+Never answer questions, never comment, never add explanations, never ask back.
+If something is unclear, translate what you understood. If the speech is in any other language
+(also German) or is only noise, stay silent."""
 
 # Umschriften aus den Protokollen vom 15. und 16.11.: (Text, soll übersetzt werden)
 TEXTE = [
@@ -89,14 +97,14 @@ def zu_24k(pcm16):
     return np.interp(x, np.arange(len(a)), a).astype("<i2").tobytes()
 
 
-async def gemini_live(pcms):
+async def gemini_live(pcms, anweisung):
     url = ("wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta."
            "GenerativeService.BidiGenerateContent")
     out = []
     async with websockets.connect(url, additional_headers={"x-goog-api-key": GEMINI}, max_size=None) as ws:
         await ws.send(json.dumps({"setup": {"model": "models/gemini-3.8-live",
                                             "generationConfig": {"responseModalities": ["AUDIO"]},
-                                            "systemInstruction": {"parts": [{"text": LIVE_ANWEISUNG}]},
+                                            "systemInstruction": {"parts": [{"text": anweisung}]},
                                             "outputAudioTranscription": {}, "inputAudioTranscription": {},
                                             "realtimeInputConfig": {"activityHandling": "NO_INTERRUPTION"}}}))
         await ws.recv()
@@ -147,10 +155,16 @@ def main():
         if not f.exists():
             f.write_bytes(tts(text, stimme))
         pcms.append(f.read_bytes())
-    for (text, stimme, soll), g in zip(TOENE, asyncio.run(gemini_live(pcms))):
+    for (text, stimme, soll), g in zip(TOENE, asyncio.run(gemini_live(pcms, LIVE_ANWEISUNG))):
         ok = g["ton"] == soll
         ergebnis["gemini_live"].append({"text": text, "sprache": stimme[0], "soll_uebersetzt": soll, **g, "richtig": ok})
         print("live", "OK " if ok else "FALSCH", text, "→", g["gesprochen"] or "(still)", file=sys.stderr, flush=True)
+    # Taste: umgekehrt soll nur Serbisch übersetzt werden
+    ergebnis["taste"] = []
+    for (text, stimme, soll), g in zip(TOENE, asyncio.run(gemini_live(pcms, TASTE_ANWEISUNG))):
+        ok = g["ton"] == (not soll)
+        ergebnis["taste"].append({"text": text, "sprache": stimme[0], "soll_uebersetzt": not soll, **g, "richtig": ok})
+        print("taste", "OK " if ok else "FALSCH", text, "→", g["gesprochen"] or "(still)", file=sys.stderr, flush=True)
     print(json.dumps(ergebnis, ensure_ascii=False, indent=1))
 
 

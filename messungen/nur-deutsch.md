@@ -12,14 +12,21 @@ Sprachen ergeben `[SKIP]`, alle deutschen und Mundart-Sätze werden übersetzt.
 ## Gemini Live allein (Ton)
 
 Drei deutsche und drei serbische Sätze von der Google-Stimme (`de-DE-Chirp3-HD-Charon`, `sr-RS-Standard-A`) in einer
-Sitzung. Deutsch wurde in allen vier Läufen übersetzt. Bei Serbisch kam Ton:
+Sitzung:
 
-| Lauf | Serbische Sätze mit Ton |
-|---|---|
-| 1 | 3 von 3 (Länge und Pegel nicht gemessen; Untertitel leer oder «<no speech detected>») |
-| 2 | 0 von 3 |
-| 3 | 0 von 3 |
-| 4 | 1 von 3 (2.4 s, Spitze 25 981, also gut hörbar; Untertitel «<no speech>{pause}») |
+| Lauf | Serbische Sätze mit Ton | Deutsche Sätze ohne Ton |
+|---|---|---|
+| 1 | 3 von 3 (Länge und Pegel nicht gemessen; Untertitel leer oder «<no speech detected>») | 0 von 3 |
+| 2 | 0 von 3 | 0 von 3 |
+| 3 | 0 von 3 | 0 von 3 |
+| 4 | 1 von 3 (2.4 s, Spitze 25 981, also gut hörbar; Untertitel «<no speech>{pause}») | 0 von 3 |
+| 5 | 0 von 3 | 1 von 3 («Wo ist mein Pass, bitte?» verschluckt) |
 
-Gemini Live schweigt also meist, spricht aber in rund einem Drittel der Fälle trotzdem. Der Untertitel legt nahe,
-dass es dann Platzhalter wie «no speech» vorliest statt einer Übersetzung; angehört wurde der Ton nicht.
+Gemini Live schweigt bei Serbisch meist, spricht aber in rund einem Drittel der Fälle trotzdem. Der Untertitel legt
+nahe, dass es dann Platzhalter wie «no speech» vorliest statt einer Übersetzung; angehört wurde der Ton nicht. Mit
+der Anweisung, fremde Sprachen auszulassen, ging zudem einmal ein deutscher Satz verloren.
+
+## Eigene Taste (Gemini Live, Serbisch nach Deutsch)
+
+Anweisung `InterpreterProtocol.instructions(DE, SR)`, dieselben sechs Sätze (Lauf 5): alle drei serbischen Sätze
+richtig übersetzt («Wo warst du? Ich spreche Serbisch.»), bei allen drei deutschen still.

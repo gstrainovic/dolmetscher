@@ -46,8 +46,10 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   laufen bei den Ketten über Gemini Live, weil Suisse Speech und Voxtral kein Serbisch erkennen. Beim Zuhören wird
   nur Deutsch und Schweizerdeutsch übersetzt: Spricht die Benutzerin selbst (Serbisch) oder jemand eine andere
   Sprache, kommt der Satz trotzdem als Text an; der Text-Übersetzer antwortet dann `[SKIP]`
-  (`InterpreterProtocol.SKIP`, `UEBERSPRINGEN` im Dienst), und die Kette liest nichts vor. Gemini Live allein
-  schweigt laut Anweisung.
+  (`InterpreterProtocol.SKIP`, `UEBERSPRINGEN` im Dienst), und die Kette liest nichts vor. Gemini Live und OpenAI
+  übersetzen je Richtung nur deren Ausgangssprache (`InterpreterProtocol.instructions(target, source)`): beim
+  Zuhören die des Gegenübers, bei der Taste die der Benutzerin. Gemini Live hält das nicht immer
+  (`messungen/nur-deutsch.md`).
   Kyrillischer Text geht gar nicht an den Übersetzer: Voxtral schreibt serbische Sätze oft kyrillisch oder erfindet
   Russisch, und Claude hält das für Russisch und übersetzt es.
 - Schlüssel: fest in der App, nicht im Repo. `werkzeuge/schluessel.sh` schreibt aus `~/.config` (`gemini/key`,
