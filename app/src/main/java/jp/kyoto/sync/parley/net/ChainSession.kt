@@ -27,6 +27,11 @@ class ChainSession(
                 trace("Echo verworfen: $text")
                 return
             }
+            if (KYRILLISCH.containsMatchIn(text)) {
+                // Die Erkennung erwartet Deutsch; Kyrillisch ist Vesnas eigenes Serbisch oder von Voxtral erfunden.
+                trace("Kyrillisch, nicht übersetzt: $text")
+                return
+            }
             listener.onInputTranscript(text + "\n")
             if (gemini != null) {
                 gemini.sendText(text)
@@ -75,5 +80,9 @@ class ChainSession(
         gemini?.close()
         worker.shutdownNow()
         voice?.close()
+    }
+
+    private companion object {
+        val KYRILLISCH = Regex("\\p{IsCyrillic}")
     }
 }

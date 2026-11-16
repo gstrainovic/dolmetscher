@@ -46,6 +46,8 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   laufen bei den Ketten über Gemini Live, weil Suisse Speech und Voxtral kein Serbisch erkennen. Spricht die
   Benutzerin beim Zuhören selbst in der Zielsprache, kommt ihr Satz trotzdem als Text an; der Text-Übersetzer
   antwortet dann `[SKIP]` (`InterpreterProtocol.SKIP`, `UEBERSPRINGEN` im Dienst), und die Kette liest nichts vor.
+  Kyrillischer Text geht gar nicht an den Übersetzer: Voxtral schreibt serbische Sätze oft kyrillisch oder erfindet
+  Russisch, und Claude hält das für Russisch und übersetzt es.
 - Schlüssel: fest in der App, nicht im Repo. `werkzeuge/schluessel.sh` schreibt aus `~/.config` (`gemini/key`,
   `suisse-speech/key`, `openai/key`, `azure-speech/key` und `region`, `dolmetscher/server-url` und `server-token`,
   `dolmetscher/mistral.env`) die ignorierte `secrets.properties`, Gradle macht daraus `BuildConfig`. Vor jedem Bau

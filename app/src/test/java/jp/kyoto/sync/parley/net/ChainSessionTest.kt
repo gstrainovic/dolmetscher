@@ -54,8 +54,11 @@ class ChainSessionTest {
             },
             gemini = null,
             translator = object : TextTranslator {
-                override fun translate(text: String) =
-                    if (text.startsWith("Nemoj")) InterpreterProtocol.SKIP else "Donesi mleko."
+                override fun translate(text: String) = when {
+                    text.startsWith("Nemoj") -> InterpreterProtocol.SKIP
+                    text.startsWith("Bring") -> "Donesi mleko."
+                    else -> "Gde je Sibila?"
+                }
             },
             voice = object : jp.kyoto.sync.parley.audio.SpeechOut {
                 override fun speak(text: String): ByteArray {
@@ -73,6 +76,9 @@ class ChainSessionTest {
             },
         )
         kette!!.onText("Nemoj da brišeš.")
+        // Voxtral schreibt Vesnas Serbisch oft kyrillisch (oder erfindet Russisch); Claude hielt das für Russisch
+        // und las «Gde je Sibila?» vor. Kyrillisch geht gar nicht erst an den Übersetzer.
+        kette!!.onText("Где сибила?")
         kette!!.onText("Bring mir die Milch.")
         org.junit.Assert.assertTrue(fertig.await(5, java.util.concurrent.TimeUnit.SECONDS))
         s.close()
