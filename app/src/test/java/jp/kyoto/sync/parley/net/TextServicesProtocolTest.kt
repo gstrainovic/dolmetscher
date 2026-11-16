@@ -66,7 +66,7 @@ class TextServicesProtocolTest {
 
     @Test
     fun azureHasAVoiceForEveryTargetTheAppOffersOrFallsBackToGerman() {
-        assertTrue(AzureProtocol.voice(Lang.DE).startsWith("de-"))
+        assertTrue(AzureProtocol.voice(Lang.DE_CH).startsWith("de-"))
         assertTrue(AzureProtocol.voice(Lang.HR).startsWith("hr-"))
     }
 }

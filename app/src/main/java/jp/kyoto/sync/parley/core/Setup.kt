@@ -34,9 +34,9 @@ data class Setup(val recognition: Recognition, val translation: Translation, val
 
     companion object {
         /**
-         * Vorgeschlagene Kette je Sprache des Gegenübers: Mundart braucht Claudes Deutung
-         * der fehlerhaften Voxtral-Umschrift, Gemini liest vor; Hochdeutsch und alles andere übersetzt Gemini Live
-         * allein (Hochdeutsch Sinn 12 von 12, erster Ton 1.5 s, docs/schweizerdeutsch-erkennung.md).
+         * Vorgeschlagene Kette je Sprache des Gegenübers: Deutsch und Mundart laufen über Voxtral und Claudes
+         * Deutung der fehlerhaften Umschrift, Gemini liest vor; nur dort hält das Auslassen fremder Sprachen sicher
+         * (messungen/nur-deutsch.md). Andere Sprachen übersetzt Gemini Live allein, weil Voxtral fest Deutsch erkennt.
          */
         fun vorschlag(partner: Lang): Setup = when (partner) {
             Lang.DE_CH -> Setup(Recognition.VOXTRAL, Translation.CLAUDE_SERVER, Voice.GEMINI_VORLESEN)

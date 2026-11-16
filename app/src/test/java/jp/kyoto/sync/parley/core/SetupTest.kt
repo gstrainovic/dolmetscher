@@ -35,18 +35,24 @@ class SetupTest {
     }
 
     /**
-     * Die Sprache des Gegenübers schlägt die Kette vor. Schweizerdeutsch braucht Claudes
-     * Deutung (Voxtral-Umschrift fehlerhaft), Hochdeutsch übersetzt Gemini Live allein (Sinn 12 von 12, 1.5 s,
-     * docs/schweizerdeutsch-erkennung.md).
+     * Die Sprache des Gegenübers schlägt die Kette vor. Deutsch und Schweizerdeutsch sind ein Eintrag mit Claudes
+     * Deutung; nur dort hält das Auslassen fremder Sprachen sicher (Gorans Entscheid 1035a, messungen/nur-deutsch.md).
+     * Andere Sprachen übersetzt Gemini Live allein, weil Voxtral fest Deutsch erkennt.
      */
     @Test
-    fun swissGermanGetsTheChainWithClaude() {
+    fun germanGetsTheChainWithClaude() {
         assertEquals(Setup(Recognition.VOXTRAL, Translation.CLAUDE_SERVER, Voice.GEMINI_VORLESEN), Setup.vorschlag(Lang.DE_CH))
     }
 
     @Test
-    fun standardGermanGetsGeminiLiveAlone() {
-        assertEquals(Recognition.GEMINI_LIVE, Setup.vorschlag(Lang.DE).recognition)
+    fun germanIsOneEntryForStandardAndSwissGerman() {
+        assertEquals(listOf(Lang.DE_CH), Lang.entries.filter { it.englishName == "German" })
+        assertEquals("Deutsch / Schweizerdeutsch", Lang.DE_CH.displayName)
+    }
+
+    @Test
+    fun otherLanguagesGetGeminiLiveAlone() {
+        assertEquals(Recognition.GEMINI_LIVE, Setup.vorschlag(Lang.EN).recognition)
     }
 
     @Test

@@ -30,9 +30,10 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   an `BuildConfig.DEBUG` koppeln: Auch die Versionen für Benutzer sind Debug-Builds. Eine Entwickler-APK nie an
   Benutzer geben.
 - Einstellungen (`ui/SettingsScreen.kt`, `core/Setup.kt`): Erkennung, Übersetzung und Stimme einzeln wählbar,
-  gespeichert je Sprache des Gegenübers. Ohne eigene Wahl gilt `Setup.vorschlag`: «Schweizerdeutsch» Voxtral +
-  Claude + «Gemini liest vor», «Deutsch» und alle anderen Gemini Live allein (Hochdeutsch Sinn 12 von 12, erster Ton
-  1.5 s, `docs/schweizerdeutsch-erkennung.md`). Erkennung: Suisse Speech, Voxtral, oder ein Modell, das alles in
+  gespeichert je Sprache des Gegenübers. Ohne eigene Wahl gilt `Setup.vorschlag`: «Deutsch / Schweizerdeutsch»
+  (ein Eintrag, `Lang.DE_CH`) Voxtral + Claude + «Gemini liest vor», weil nur dort das Auslassen fremder Sprachen
+  sicher hält (`messungen/nur-deutsch.md`); alle anderen Sprachen Gemini Live allein, weil Voxtral fest Deutsch
+  erkennt. Erkennung: Suisse Speech, Voxtral, oder ein Modell, das alles in
   einem macht (Gemini Live, OpenAI Realtime `gpt-realtime-2.1`, `gpt-realtime-2.1-mini`). Stimme: Gemini (übersetzt
   und spricht den erkannten Text in einem Schritt), «Gemini liest vor» (Gemini Live liest die Übersetzung des
   Textmodells wortgetreu vor, `audio/GeminiVorleser.kt`), Azure (`sr-Latn-RS-SophieNeural`) oder die Gratis-Stimme

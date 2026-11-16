@@ -14,9 +14,11 @@ enum class Lang(
     val translateModel: Boolean = true,
 ) {
     SR("sr", "Srpski", "Serbian", translateModel = false),
-    /** Gegenüber spricht Mundart: eigene Kette mit Claudes Deutung ([Setup.vorschlag]). */
-    DE_CH("de-CH", "Schweizerdeutsch", "German"),
-    DE("de", "Deutsch", "German"),
+    /**
+     * Hochdeutsch und Mundart in einem Eintrag: eigene Kette mit Claudes Deutung ([Setup.vorschlag]), die nur Deutsch
+     * übersetzt. Als Zielsprache (eigene Taste) spricht die App Hochdeutsch.
+     */
+    DE_CH("de-CH", "Deutsch / Schweizerdeutsch", "German"),
     EN("en", "English", "English"),
     FR("fr", "Français", "French"),
     IT("it", "Italiano", "Italian"),

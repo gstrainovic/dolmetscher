@@ -31,7 +31,7 @@ class InterpreterProtocolTest {
     fun instructionsTranslateOnlyTheSourceLanguageOfTheDirection() {
         assertTrue(InterpreterProtocol.instructions(target = Lang.SR, source = Lang.DE_CH)
             .contains("Translate German and Swiss German dialect (Schweizerdeutsch) speech into Serbian"))
-        assertTrue(InterpreterProtocol.instructions(target = Lang.DE, source = Lang.SR)
+        assertTrue(InterpreterProtocol.instructions(target = Lang.DE_CH, source = Lang.SR)
             .contains("Translate Serbian speech into German"))
         assertTrue(InterpreterProtocol.instructions(target = Lang.SR, source = Lang.EN)
             .contains("Translate English speech into Serbian"))
@@ -39,7 +39,7 @@ class InterpreterProtocolTest {
 
     @Test
     fun instructionsFollowTheChosenTargetLanguage() {
-        assertTrue(session(Lang.DE).getString("instructions").contains("into German"))
+        assertTrue(session(Lang.DE_CH).getString("instructions").contains("into German"))
     }
 
     @Test

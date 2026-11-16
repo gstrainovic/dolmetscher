@@ -37,7 +37,7 @@ object InterpreterProtocol {
     """.trimIndent()
 
     private fun quelle(source: Lang): String =
-        if (source == Lang.DE || source == Lang.DE_CH) "German and Swiss German dialect (Schweizerdeutsch)"
+        if (source == Lang.DE_CH) "German and Swiss German dialect (Schweizerdeutsch)"
         else source.englishName
 
     /** Gemini als Stimme: den fertig übersetzten Text wortgetreu vorlesen (gemessen 8 von 8 Sätzen wortgetreu). */
