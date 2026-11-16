@@ -38,12 +38,20 @@ object InterpreterProtocol {
         "You are a text-to-speech voice. Read the user's ${target.englishName} text aloud exactly as written, word for " +
             "word, in natural ${target.englishName}. Do not translate, answer, comment, add or leave out anything."
 
+    /**
+     * Antwort eines Text-Übersetzers, wenn der Satz schon in der Zielsprache ist (die Benutzerin spricht selbst):
+     * die Kette liest dann nichts vor. Muss gleich lauten wie `UEBERSPRINGEN` in `server/dienst.py`.
+     */
+    const val SKIP = "[SKIP]"
+
     /** Für Text-Übersetzer: Eingabe ist eine fehlerhafte Umschrift, Ausgabe nur die Übersetzung. */
     fun textInstructions(target: Lang): String = """
         You are an interpreter in a Swiss care home. The input is an automatic, often faulty transcript of
         spoken Swiss German or German by residents or carers. Work out what was most likely meant, using the
         earlier sentences as context, and translate it into ${target.englishName}${if (target == Lang.SR) " (Latin script)" else ""}.
         Output only the translation, in ${target.englishName}, with no explanation, no notes, no alternatives.
+        If the input is already mostly in ${target.englishName}${if (target == Lang.SR) " (or Croatian or Bosnian)" else ""},
+        output exactly $SKIP and nothing else.
     """.trimIndent()
 
     fun sessionUpdate(target: Lang, transcriptionModel: String, voice: String = "marin"): String {

@@ -43,7 +43,9 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   (`SuisseRecognizer` live, `VoxtralRecognizer` je Satz als WAV), `TextTranslator` (`ClaudeServerTranslator`,
   `GeminiFlashTranslator` mit den letzten sechs Sätzen als Zusammenhang) und `SpeechOut` (`AzureVoice`,
   `AndroidVoice` über eine WAV-Datei, damit Lautstärkeregler und Brille gleich bleiben). Eigene Sätze per Taste
-  laufen bei den Ketten über Gemini Live, weil Suisse Speech und Voxtral kein Serbisch erkennen.
+  laufen bei den Ketten über Gemini Live, weil Suisse Speech und Voxtral kein Serbisch erkennen. Spricht die
+  Benutzerin beim Zuhören selbst in der Zielsprache, kommt ihr Satz trotzdem als Text an; der Text-Übersetzer
+  antwortet dann `[SKIP]` (`InterpreterProtocol.SKIP`, `UEBERSPRINGEN` im Dienst), und die Kette liest nichts vor.
 - Schlüssel: fest in der App, nicht im Repo. `werkzeuge/schluessel.sh` schreibt aus `~/.config` (`gemini/key`,
   `suisse-speech/key`, `openai/key`, `azure-speech/key` und `region`, `dolmetscher/server-url` und `server-token`,
   `dolmetscher/mistral.env`) die ignorierte `secrets.properties`, Gradle macht daraus `BuildConfig`. Vor jedem Bau

@@ -19,16 +19,20 @@ from pydantic import BaseModel, field_validator
 SPRACHEN = {"sr": "Serbian", "de": "German", "hr": "Croatian", "bs": "Bosnian", "en": "English",
             "fr": "French", "it": "Italian"}
 LEERLAUF_S = 30 * 60
+# Antwort, wenn der Satz schon in der Zielsprache ist; die App liest dann nichts vor (InterpreterProtocol.SKIP).
+UEBERSPRINGEN = "[SKIP]"
 
 
 def anweisung(ziel: str) -> str:
     sprache = SPRACHEN.get(ziel, ziel)
     schrift = " (Latin script)" if ziel == "sr" else ""
+    verwandt = " (or Croatian or Bosnian)" if ziel == "sr" else ""
     return (
         "You are an interpreter in a Swiss care home. Every message is an automatic, often faulty transcript of "
         "spoken Swiss German or German by residents or carers. Work out what was most likely meant, using the "
         f"earlier messages of this conversation as context, and translate it into {sprache}{schrift}. "
-        f"Output only the translation, in {sprache}: no explanation, no notes, no alternatives, no other language."
+        f"Output only the translation, in {sprache}: no explanation, no notes, no alternatives, no other language. "
+        f"If the message is already mostly in {sprache}{verwandt}, output exactly {UEBERSPRINGEN} and nothing else."
     )
 
 

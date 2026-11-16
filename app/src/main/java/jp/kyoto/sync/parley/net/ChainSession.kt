@@ -37,6 +37,10 @@ class ChainSession(
                     try {
                         // Satz für Satz: der erste Satz wird gesprochen, sobald der Übersetzer ihn fertig hat.
                         translator!!.translateSentences(text) { satz ->
+                            if (satz.contains(InterpreterProtocol.SKIP)) {
+                                trace("Schon in der Zielsprache, nicht vorgelesen: $text")
+                                return@translateSentences
+                            }
                             echo.spoken(satz)
                             listener.onOutputTranscript("$satz ")
                             listener.onTranslatedAudio(voice!!.speak(satz))
