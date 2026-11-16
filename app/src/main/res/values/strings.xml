@@ -63,4 +63,19 @@
     <string name="all_in_one_hint">Dieses Modell erkennt, übersetzt und spricht in einem.</string>
     <string name="gemini_voice_hint">Gemini übersetzt und spricht in einem Schritt.</string>
     <string name="error_missing_keys">Für diese Auswahl fehlt ein Schlüssel in der App: %1$s</string>
+    <string name="error_no_headset">Keine Brille und kein Kopfhörer verbunden. Ohne Gerät übersetzt die App nicht.</string>
+    <string name="assistent_titel">Einrichtung</string>
+    <string name="assistent_bluetooth_text">Bluetooth ist ausgeschaltet. Die App braucht Bluetooth für die Brille oder den Kopfhörer.</string>
+    <string name="assistent_bluetooth_knopf">Bluetooth einschalten</string>
+    <string name="assistent_koppeln_text">Keine Brille und kein Kopfhörer verbunden. Gerät einschalten und in den Bluetooth-Einstellungen koppeln. Die App geht weiter, sobald es verbunden ist.</string>
+    <string name="assistent_koppeln_knopf">Bluetooth-Einstellungen öffnen</string>
+    <string name="assistent_geraet">Verbunden: %1$s</string>
+    <string name="assistent_test_text">Funktionstest: Ton abspielen und im Gerät hören. Dann etwas sagen, damit das Mikrofon die Stimme hört.</string>
+    <string name="assistent_test_ton_knopf">Ton abspielen</string>
+    <string name="assistent_test_gehoert">Ich höre den Ton</string>
+    <string name="assistent_test_ton_ok">Ton gehört</string>
+    <string name="assistent_test_kein_geraet">Kein Ton: Das Gerät ist nicht mehr verbunden.</string>
+    <string name="assistent_test_sprechen">Jetzt etwas sagen …</string>
+    <string name="assistent_test_stimme_ok">Mikrofon hört die Stimme</string>
+    <string name="assistent_test_kein_mikrofon">Die Mikrofon-Berechtigung fehlt. Bitte in den App-Berechtigungen erlauben.</string>
 </resources>

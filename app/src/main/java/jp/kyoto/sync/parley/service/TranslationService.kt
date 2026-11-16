@@ -9,6 +9,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo
+import android.media.AudioDeviceCallback
+import android.media.AudioDeviceInfo
+import android.media.AudioManager
+import android.os.Handler
+import android.os.Looper
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
@@ -17,6 +22,7 @@ import jp.kyoto.sync.parley.R
 import jp.kyoto.sync.parley.audio.AudioCapturer
 import jp.kyoto.sync.parley.audio.AudioPlayer
 import jp.kyoto.sync.parley.audio.Gain
+import jp.kyoto.sync.parley.audio.Geraete
 import jp.kyoto.sync.parley.BuildConfig
 import jp.kyoto.sync.parley.audio.Mitschnitt
 import jp.kyoto.sync.parley.audio.SatzAufnahme
@@ -90,6 +96,17 @@ class TranslationService : Service() {
     private var incoming: Translator? = null // 相手→自分
     private var outgoing: Translator? = null // 自分→相手
 
+    /** Trennt sich Kopfhörer oder Brille, hält die Übersetzung an; die App zeigt dann den Assistenten. */
+    private val geraeteWache = object : AudioDeviceCallback() {
+        override fun onAudioDevicesRemoved(removedDevices: Array<out AudioDeviceInfo>) {
+            if (!BuildConfig.ENTWICKLER && !Geraete.hatKopfhoerer(this@TranslationService)) {
+                protokoll?.fehler("Kopfhörer getrennt, Übersetzung angehalten")
+                stopSelf()
+            }
+        }
+    }
+    private var wacheAktiv = false
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -119,7 +136,19 @@ class TranslationService : Service() {
             return
         }
 
+        // Nie ohne Kopfhörer oder Brille übersetzen (der Assistent lässt es nicht zu, hier zur Sicherheit nochmals).
+        if (!BuildConfig.ENTWICKLER && !Geraete.hatKopfhoerer(this)) {
+            reportError(IllegalStateException(getString(R.string.error_no_headset)))
+            stopSelf()
+            return
+        }
+
         startForegroundCompat()
+        if (!wacheAktiv) {
+            (getSystemService(AUDIO_SERVICE) as AudioManager)
+                .registerAudioDeviceCallback(geraeteWache, Handler(Looper.getMainLooper()))
+            wacheAktiv = true
+        }
         SessionBus.beginSession()
         SessionBus.status.value = Status.CONNECTING
 
@@ -306,6 +335,10 @@ class TranslationService : Service() {
     }
 
     override fun onDestroy() {
+        if (wacheAktiv) {
+            (getSystemService(AUDIO_SERVICE) as AudioManager).unregisterAudioDeviceCallback(geraeteWache)
+            wacheAktiv = false
+        }
         teardown()
         scope.cancel()
         Thread { upload.flush() }.start() // letzte Zeilen (Fehler, Stopp) nicht verlieren

@@ -17,6 +17,18 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
 
 ## Aufbau
 
+- Einrichtungs-Assistent (`core/Assistent.kt`, `ui/AssistentScreen.kt`, `audio/Geraete.kt`, `audio/Testton.kt`):
+  Die App läuft nie ohne Kopfhörer oder Brille. `MainActivity` zeigt statt jeder anderen Seite den Assistenten,
+  solange `Assistent.schritt` nicht `FERTIG` ist: Bluetooth einschalten (Systemdialog), Gerät koppeln
+  (Bluetooth-Einstellungen), Funktionstest (Ton im Gerät gehört und Stimme im Mikrofon erkannt). Der Test gilt für
+  das verbundene Gerät bis zum nächsten Öffnen der App; Android vergibt nach einem Neuverbinden eine neue Kennung,
+  dann kommt der Test wieder. Als Kopfhörer zählen Bluetooth A2DP und LE, Kabel- und USB-Kopfhörer, nie
+  Lautsprecher oder Hörkapsel des Handys. Trennt sich das Gerät im Betrieb, hält `TranslationService` die
+  Übersetzung an (`geraeteWache`) und der Assistent erscheint; ohne Gerät startet der Dienst gar nicht. Der Testton
+  geht nur an den Kopfhörer und entfällt, wenn keiner verbunden ist. Benutzer können nichts überspringen; nur ein
+  Entwickler-Build (`-Pentwickler=true`, `BuildConfig.ENTWICKLER`) kommt ohne Gerät durch, etwa im Emulator. Nicht
+  an `BuildConfig.DEBUG` koppeln: Auch die Versionen für Benutzer sind Debug-Builds. Eine Entwickler-APK nie an
+  Benutzer geben.
 - Einstellungen (`ui/SettingsScreen.kt`, `core/Setup.kt`): Erkennung, Übersetzung und Stimme einzeln wählbar,
   gespeichert je Sprache des Gegenübers. Ohne eigene Wahl gilt `Setup.vorschlag`: «Schweizerdeutsch» Voxtral +
   Claude + «Gemini liest vor», «Deutsch» und alle anderen Gemini Live allein (Hochdeutsch Sinn 12 von 12, erster Ton
@@ -83,10 +95,17 @@ export ANDROID_HOME=~/Android/Sdk JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 Die APK liegt danach unter `app/build/outputs/apk/debug/app-debug.apk`. GitHub Actions und Dependabot sind
 abgeschaltet und die Workflows gelöscht; gebaut wird nur lokal. Server: `cd server && uv run pytest`.
 
+Unter Windows: JDK und SDK aus scoop (`java/temurin21-jdk`, `main/android-clt`, dazu per `sdkmanager`
+`platforms;android-35`, `build-tools;35.0.0`, `platform-tools`), in `local.properties` den SDK-Pfad mit
+Schrägstrichen (`sdk.dir=C:/Users/<name>/scoop/apps/android-clt/current`), dann in PowerShell `JAVA_HOME` und
+`ANDROID_HOME` setzen und `.\gradlew.bat testDebugUnitTest assembleDebug lintDebug`. Das sherpa-Paket lädt
+`werkzeuge/sherpa.sh`; wo Git Bash `curl` sperrt, dieselbe Adresse mit `Invoke-WebRequest` nach `app/libs` laden.
+
 ## Ausprobieren
 
 - **Laptop (Emulator):** virtuelles Gerät `dolmetscher` (Android 35, x86_64). Start mit
-  `~/Android/Sdk/emulator/emulator -avd dolmetscher`, dann `./gradlew installDebug`. Das Laptop-Mikrofon dient als
+  `~/Android/Sdk/emulator/emulator -avd dolmetscher`, dann `./gradlew installDebug -Pentwickler=true` (der
+  Emulator hat keinen Kopfhörer, ohne das Flag bleibt der Assistent stehen). Das Laptop-Mikrofon dient als
   Handymikrofon, wenn `adb emu avd hostmicon` gesetzt ist; der Ton kommt aus dem Standard-Ausgang des Laptops, also
   auch aus der Brille, wenn sie mit dem Laptop gekoppelt ist. Taugt für Oberfläche, Anbieter und Übersetzung, nicht
   für Bluetooth-Verhalten, gesperrten Bildschirm und Akku.

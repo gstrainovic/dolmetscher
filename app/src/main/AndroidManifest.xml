@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
     <!-- Bluetooth イヤホンへのルーティング選択に使用 (Android 12+) -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- Bluetooth-Zustand für den Assistenten (Android 11 und älter) -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application

@@ -41,6 +41,11 @@ android {
         )) {
             buildConfigField("String", name, "\"${secrets.getProperty(name, "")}\"")
         }
+
+        // Nur Entwickler arbeiten ohne Kopfhörer oder Brille (Emulator, Lautsprecher):
+        // ./gradlew installDebug -Pentwickler=true. Benutzer können den Assistenten nicht überspringen,
+        // deshalb nicht an BuildConfig.DEBUG gekoppelt (auch Benutzer-Versionen sind Debug-Builds).
+        buildConfigField("boolean", "ENTWICKLER", (findProperty("entwickler") == "true").toString())
     }
 
     signingConfigs {

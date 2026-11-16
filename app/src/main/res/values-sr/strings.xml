@@ -63,4 +63,19 @@
     <string name="all_in_one_hint">Ovaj model prepoznaje, prevodi i govori u jednom.</string>
     <string name="gemini_voice_hint">Gemini prevodi i govori u jednom koraku.</string>
     <string name="error_missing_keys">Za ovaj izbor u aplikaciji nedostaje ključ: %1$s</string>
+    <string name="error_no_headset">Nisu povezane ni naočare ni slušalice. Bez uređaja aplikacija ne prevodi.</string>
+    <string name="assistent_titel">Podešavanje</string>
+    <string name="assistent_bluetooth_text">Bluetooth je isključen. Aplikaciji treba Bluetooth za naočare ili slušalice.</string>
+    <string name="assistent_bluetooth_knopf">Uključi Bluetooth</string>
+    <string name="assistent_koppeln_text">Nisu povezane ni naočare ni slušalice. Uključi uređaj i upari ga u Bluetooth podešavanjima. Aplikacija nastavlja čim se poveže.</string>
+    <string name="assistent_koppeln_knopf">Otvori Bluetooth podešavanja</string>
+    <string name="assistent_geraet">Povezano: %1$s</string>
+    <string name="assistent_test_text">Provera: pusti ton i slušaj u uređaju. Zatim reci nešto da mikrofon čuje glas.</string>
+    <string name="assistent_test_ton_knopf">Pusti ton</string>
+    <string name="assistent_test_gehoert">Čujem ton</string>
+    <string name="assistent_test_ton_ok">Ton se čuje</string>
+    <string name="assistent_test_kein_geraet">Nema tona: uređaj više nije povezan.</string>
+    <string name="assistent_test_sprechen">Sada reci nešto …</string>
+    <string name="assistent_test_stimme_ok">Mikrofon čuje glas</string>
+    <string name="assistent_test_kein_mikrofon">Nedostaje dozvola za mikrofon. Dozvoli je u podešavanjima aplikacije.</string>
 </resources>

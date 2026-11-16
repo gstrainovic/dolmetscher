@@ -63,4 +63,19 @@
     <string name="all_in_one_hint">This model recognises, translates and speaks in one.</string>
     <string name="gemini_voice_hint">Gemini translates and speaks in one step.</string>
     <string name="error_missing_keys">A key is missing in the app for this choice: %1$s</string>
+    <string name="error_no_headset">No glasses or headphones connected. The app does not translate without a device.</string>
+    <string name="assistent_titel">Setup</string>
+    <string name="assistent_bluetooth_text">Bluetooth is off. The app needs Bluetooth for the glasses or headphones.</string>
+    <string name="assistent_bluetooth_knopf">Turn on Bluetooth</string>
+    <string name="assistent_koppeln_text">No glasses or headphones connected. Switch the device on and pair it in the Bluetooth settings. The app continues as soon as it is connected.</string>
+    <string name="assistent_koppeln_knopf">Open Bluetooth settings</string>
+    <string name="assistent_geraet">Connected: %1$s</string>
+    <string name="assistent_test_text">Function test: play the tone and listen in the device. Then say something so the microphone hears your voice.</string>
+    <string name="assistent_test_ton_knopf">Play tone</string>
+    <string name="assistent_test_gehoert">I hear the tone</string>
+    <string name="assistent_test_ton_ok">Tone heard</string>
+    <string name="assistent_test_kein_geraet">No tone: the device is no longer connected.</string>
+    <string name="assistent_test_sprechen">Say something now …</string>
+    <string name="assistent_test_stimme_ok">Microphone hears your voice</string>
+    <string name="assistent_test_kein_mikrofon">Microphone permission is missing. Please allow it in the app\'s permission settings.</string>
 </resources>

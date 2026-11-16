@@ -6,7 +6,7 @@ import android.media.AudioDeviceInfo
 import android.media.AudioFormat
 import android.media.AudioManager
 import android.media.AudioTrack
-import android.os.Build
+import jp.kyoto.sync.parley.core.Assistent
 import jp.kyoto.sync.parley.core.Config
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.TimeUnit
@@ -117,24 +117,14 @@ class AudioPlayer(
     private var headsetCheckedAt = 0L
     private var headsetCached = false
 
-    private fun isHeadset(it: AudioDeviceInfo) =
-        it.type == AudioDeviceInfo.TYPE_BLUETOOTH_A2DP ||
-            it.type == AudioDeviceInfo.TYPE_WIRED_HEADPHONES ||
-            it.type == AudioDeviceInfo.TYPE_WIRED_HEADSET ||
-            (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && it.type == AudioDeviceInfo.TYPE_BLE_HEADSET)
+    private fun isHeadset(it: AudioDeviceInfo) = Assistent.istKopfhoerer(it.type)
 
     /** 出力デバイスを route に合わせて優先指定する。 */
     private fun applyPreferredDevice(t: AudioTrack) {
         val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         val devices = am.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
         val target: AudioDeviceInfo? = when (route) {
-            Route.EARPHONE -> devices.firstOrNull {
-                it.type == AudioDeviceInfo.TYPE_BLUETOOTH_A2DP ||
-                    it.type == AudioDeviceInfo.TYPE_WIRED_HEADPHONES ||
-                    it.type == AudioDeviceInfo.TYPE_WIRED_HEADSET ||
-                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                        it.type == AudioDeviceInfo.TYPE_BLE_HEADSET)
-            }
+            Route.EARPHONE -> devices.firstOrNull { isHeadset(it) }
 
             Route.SPEAKER -> devices.firstOrNull {
                 it.type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER
