@@ -80,8 +80,11 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   Stille-Rahmen kommen) und spätestens nach rund 10 Minuten (`goAway`). `GeminiSession` verbindet dann still neu
   (`ReconnectPolicy`: 0.5 s, verdoppelt, nach 5 Fehlschlägen in Folge Fehlermeldung). Der Gesprächsverlauf beginnt
   dabei neu, was für reines Übersetzen nicht stört.
-- Oberfläche: Deutsch (`values`), Serbisch (`values-sr`), Englisch, Japanisch. `StringsTest` verlangt jeden Text in
-  jeder Sprache.
+- Oberfläche: unabhängig von der Handysprache serbisch, Deutsch in den Einstellungen wählbar («Sprache der App»,
+  `core/Oberflaeche.kt`, gespeichert in `AppSettings.oberflaeche`). `MainActivity` und `TranslationService` setzen
+  die Sprache in `attachBaseContext`; nach einem Wechsel lädt die Activity neu. Texte: Deutsch (`values`), Serbisch
+  in lateinischer Schrift (`values-sr`), dazu Englisch und Japanisch aus dem Original, die nicht wählbar sind.
+  `StringsTest` verlangt jeden Text in jeder Sprache.
 
 ## Bauen und testen
 

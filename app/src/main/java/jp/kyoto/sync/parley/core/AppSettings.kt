@@ -1,5 +1,6 @@
 package jp.kyoto.sync.parley.core
 
+import android.annotation.SuppressLint
 import android.content.Context
 
 /**
@@ -47,6 +48,14 @@ class AppSettings(context: Context) {
         prefs.edit().putString("${KEY_SETUP}_${partner.code}", value.encode()).apply()
     }
 
+    /** Sprache der Oberfläche; ohne Wahl Serbisch ([Oberflaeche]). Sofort gespeichert, die Activity lädt danach neu. */
+    var oberflaeche: Oberflaeche
+        get() = Oberflaeche.aus(prefs.getString(KEY_OBERFLAECHE, null))
+        @SuppressLint("ApplySharedPref") // commit: recreate() liest die Wahl gleich danach
+        set(value) {
+            prefs.edit().putString(KEY_OBERFLAECHE, value.code).commit()
+        }
+
     /** Verstärkung der App über 100 % Medienlautstärke (siehe VolumeLevel). */
     var earphoneGain: Float
         get() = prefs.getFloat(KEY_GAIN, 1.0f)
@@ -58,5 +67,6 @@ class AppSettings(context: Context) {
         private const val KEY_TRANSCRIPTION = "transcription_model"
         private const val KEY_GAIN = "earphone_gain"
         private const val KEY_SETUP = "setup"
+        private const val KEY_OBERFLAECHE = "oberflaeche"
     }
 }

@@ -80,6 +80,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    // Die Sprache der Oberfläche wählt die App selbst (Oberflaeche.kt): alle Sprachen gehören in jede Auslieferung.
+    bundle {
+        language { enableSplit = false }
+    }
     buildFeatures {
         compose = true
         buildConfig = true

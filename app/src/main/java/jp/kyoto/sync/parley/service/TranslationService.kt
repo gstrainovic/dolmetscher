@@ -34,6 +34,7 @@ import jp.kyoto.sync.parley.core.AppSettings
 import jp.kyoto.sync.parley.core.Keys
 import jp.kyoto.sync.parley.core.Config
 import jp.kyoto.sync.parley.core.Mode
+import jp.kyoto.sync.parley.core.Oberflaeche
 import jp.kyoto.sync.parley.core.Protokoll
 import jp.kyoto.sync.parley.core.ProtokollUpload
 import jp.kyoto.sync.parley.core.SessionBus
@@ -108,6 +109,9 @@ class TranslationService : Service() {
     private var wacheAktiv = false
 
     override fun onBind(intent: Intent?): IBinder? = null
+
+    // Meldungen und Benachrichtigung in der Sprache der Oberfläche.
+    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(Oberflaeche.kontext(newBase))
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {

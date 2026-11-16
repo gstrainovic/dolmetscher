@@ -78,4 +78,5 @@
     <string name="assistent_test_sprechen">Jetzt etwas sagen …</string>
     <string name="assistent_test_stimme_ok">Mikrofon hört die Stimme</string>
     <string name="assistent_test_kein_mikrofon">Die Mikrofon-Berechtigung fehlt. Bitte in den App-Berechtigungen erlauben.</string>
+    <string name="oberflaeche_label">Sprache der App</string>
 </resources>

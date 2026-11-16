@@ -39,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import jp.kyoto.sync.parley.R
 import jp.kyoto.sync.parley.core.Keys
+import jp.kyoto.sync.parley.core.Oberflaeche
 import jp.kyoto.sync.parley.core.Recognition
 import jp.kyoto.sync.parley.core.TranscriptionModel
 import jp.kyoto.sync.parley.core.Translation
@@ -47,7 +48,12 @@ import jp.kyoto.sync.parley.core.Voice
 /** Erkennung, Übersetzung und Stimme einzeln wählen; die Schlüssel sind fest eingebaut. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(vm: TranslationViewModel, onDone: () -> Unit) {
+fun SettingsScreen(
+    vm: TranslationViewModel,
+    oberflaeche: Oberflaeche,
+    onOberflaeche: (Oberflaeche) -> Unit,
+    onDone: () -> Unit,
+) {
     val setup by vm.setup.collectAsState()
     val transcription by vm.transcriptionModel.collectAsState()
 
@@ -70,6 +76,13 @@ fun SettingsScreen(vm: TranslationViewModel, onDone: () -> Unit) {
                 .padding(start = 24.dp, end = 24.dp, bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            // Sprachnamen in der eigenen Sprache, damit man zurückfindet, auch wenn man die andere nicht liest.
+            Picker(stringResource(R.string.oberflaeche_label), oberflaeche, Oberflaeche.entries, {
+                when (it) {
+                    Oberflaeche.SR -> "Srpski"
+                    Oberflaeche.DE -> "Deutsch"
+                }
+            }) { if (it != oberflaeche) onOberflaeche(it) }
             Picker(stringResource(R.string.recognition_label), setup.recognition, Recognition.entries, { it.label }) {
                 vm.setSetup(setup.copy(recognition = it))
             }

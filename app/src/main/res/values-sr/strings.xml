@@ -78,4 +78,5 @@
     <string name="assistent_test_sprechen">Sada reci nešto …</string>
     <string name="assistent_test_stimme_ok">Mikrofon čuje glas</string>
     <string name="assistent_test_kein_mikrofon">Nedostaje dozvola za mikrofon. Dozvoli je u podešavanjima aplikacije.</string>
+    <string name="oberflaeche_label">Jezik aplikacije</string>
 </resources>

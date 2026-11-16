@@ -78,4 +78,5 @@
     <string name="assistent_test_sprechen">何か話してください …</string>
     <string name="assistent_test_stimme_ok">マイクが声を拾いました</string>
     <string name="assistent_test_kein_mikrofon">マイクの権限がありません。アプリの権限設定から許可してください。</string>
+    <string name="oberflaeche_label">アプリの言語</string>
 </resources>

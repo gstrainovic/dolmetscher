@@ -78,4 +78,5 @@
     <string name="assistent_test_sprechen">Say something now …</string>
     <string name="assistent_test_stimme_ok">Microphone hears your voice</string>
     <string name="assistent_test_kein_mikrofon">Microphone permission is missing. Please allow it in the app\'s permission settings.</string>
+    <string name="oberflaeche_label">App language</string>
 </resources>

@@ -25,7 +25,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
 import jp.kyoto.sync.parley.audio.Geraete
+import jp.kyoto.sync.parley.core.AppSettings
 import jp.kyoto.sync.parley.core.Assistent
+import jp.kyoto.sync.parley.core.Oberflaeche
 import jp.kyoto.sync.parley.core.Ausgang
 import jp.kyoto.sync.parley.core.Schritt
 import jp.kyoto.sync.parley.ui.AssistentScreen
@@ -60,6 +62,9 @@ class MainActivity : ComponentActivity() {
         override fun onReceive(context: Context, intent: Intent) = geraeteLesen()
     }
 
+    // Oberfläche serbisch oder deutsch, unabhängig von der Handysprache.
+    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(Oberflaeche.kontext(newBase))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -89,7 +94,15 @@ class MainActivity : ComponentActivity() {
                             onTestBestanden = { geprueft = it },
                         )
                     }
-                    screen == "settings" -> SettingsScreen(vm = vm, onDone = { screen = "main" })
+                    screen == "settings" -> SettingsScreen(
+                        vm = vm,
+                        oberflaeche = AppSettings(this).oberflaeche,
+                        onOberflaeche = {
+                            AppSettings(this).oberflaeche = it
+                            recreate() // lädt die Texte in der neuen Sprache, die Einstellungsseite bleibt offen
+                        },
+                        onDone = { screen = "main" },
+                    )
                     screen == "history" -> HistoryScreen(vm = vm, onBack = { screen = "main" })
                     else -> TranslationScreen(
                         vm = vm,
