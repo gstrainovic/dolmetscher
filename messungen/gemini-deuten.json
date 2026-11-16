@@ -1,0 +1,170 @@
+[
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas imamo zečetinu sa pire krompirom.",
+  "ganz_s": 5.05
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Ručak u 13 sati, uvek imaju zečetinu.",
+  "ganz_s": 26.52
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "ganz_s": 5.23
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Gde ima još malo mesa?",
+  "ganz_s": 4.81
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Želite li za užinu kroasan sa puterom i džemom?",
+  "ganz_s": 2.46
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo sam prehlađen.",
+  "ganz_s": 2.77
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne želim ništa da jedem.",
+  "ganz_s": 4.7
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa stepenica?",
+  "ganz_s": 4.51
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju da me obiđe.",
+  "ganz_s": 2.25
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zaturio sam naočare. Čestitam!",
+  "ganz_s": 9.69
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li dobiti još jedan džemper?",
+  "ganz_s": 2.72
+ },
+ {
+  "modell": "gemini-3.8-flash",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Da li ste već doneli moje tablete?",
+  "ganz_s": 2.95
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas imamo zečetinu sa pire krompirom.",
+  "ganz_s": 6.62
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "U podne, u 13 časova, oni uvek imaju zečetinu.",
+  "ganz_s": 113.68
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "ganz_s": 1.56
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Gde ima još malo mesa?",
+  "ganz_s": 4.51
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Da li želite kroasan sa puterom i džemom za popodnevnu užinu?",
+  "ganz_s": 3.48
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo sam prehlađena.",
+  "ganz_s": 1.23
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne jede mi se ništa.",
+  "ganz_s": 8.21
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa stepenica?",
+  "ganz_s": 5.0
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+  "ganz_s": 1.62
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zaturila sam naočare. Čestitam.",
+  "ganz_s": 15.78
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li dobiti jaknu?",
+  "ganz_s": 11.67
+ },
+ {
+  "modell": "gemini-3.1-pro-preview",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Da li ste već doneli moje tablete?",
+  "ganz_s": 4.51
+ }
+]

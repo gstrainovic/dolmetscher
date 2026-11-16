@@ -1,0 +1,698 @@
+[
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Hüt git's Chüngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "erkannt": "Heute gibts Güngel mit Herdöpfelstock.",
+  "uebersetzung": "Danas ima piletina sa pire krompirom.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 285,
+   "input_tokens": 161,
+   "output_tokens": 124,
+   "input_token_details": {
+    "text_tokens": 123,
+    "audio_tokens": 38,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 62,
+    "audio_tokens": 62,
+    "reasoning_tokens": 36
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Mir hei früecher dihei Chüngel gha.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "erkannt": "Middenhé vriegerde hee gungle ka",
+  "uebersetzung": "Ranije smo kod kuće imali piletinu.",
+  "erster_ton_s": 1.56,
+  "usage": {
+   "total_tokens": 334,
+   "input_tokens": 215,
+   "output_tokens": 119,
+   "input_token_details": {
+    "text_tokens": 149,
+    "audio_tokens": 66,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 71,
+    "audio_tokens": 48,
+    "reasoning_tokens": 48
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Dä Chüngel im Garte frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "erkannt": "Der Küngel im Garten frisst Rüebli.",
+  "uebersetzung": "Zec u vrtu jede šargarepe.",
+  "erster_ton_s": 2.06,
+  "usage": {
+   "total_tokens": 452,
+   "input_tokens": 269,
+   "output_tokens": 183,
+   "input_token_details": {
+    "text_tokens": 174,
+    "audio_tokens": 95,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 135,
+    "audio_tokens": 48,
+    "reasoning_tokens": 112
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Wosch no chli Chüngelfleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "erkannt": "Wo schnorchle ich rüngufleisch?",
+  "uebersetzung": "Hoćeš još malo zečjeg mesa?",
+  "erster_ton_s": 1.56,
+  "usage": {
+   "total_tokens": 449,
+   "input_tokens": 317,
+   "output_tokens": 132,
+   "input_token_details": {
+    "text_tokens": 199,
+    "audio_tokens": 118,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 82,
+    "audio_tokens": 50,
+    "reasoning_tokens": 60
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Wänd Sie zum Zvieri es Gipfeli mit Anke und Konfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "erkannt": "Wenn sie zum Zweieri es Gipfeli mit Anke und Konfi",
+  "uebersetzung": "Kada ste za užinu? Ima kroasan sa puterom i džemom.",
+  "erster_ton_s": 1.94,
+  "usage": {
+   "total_tokens": 587,
+   "input_tokens": 387,
+   "output_tokens": 200,
+   "input_token_details": {
+    "text_tokens": 223,
+    "audio_tokens": 164,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 120,
+    "audio_tokens": 80,
+    "reasoning_tokens": 87
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Ich ha Buuchweh und es bitzeli Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "erkannt": "Ich habe Bauchweh. und ein bisschen Pfnüsel.",
+  "uebersetzung": "Imam bol u stomaku i malo sam prehlađen.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 606,
+   "input_tokens": 462,
+   "output_tokens": 144,
+   "input_token_details": {
+    "text_tokens": 256,
+    "audio_tokens": 206,
+    "image_tokens": 0,
+    "cached_tokens": 320,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 77,
+    "audio_tokens": 67,
+    "reasoning_tokens": 50
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "I due mi nid so guet fühle hüt, ich mag nüt ässe.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "erkannt": "Ich tue mich nicht so gut fühlen heute. Ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne prija mi ništa da jedem.",
+  "erster_ton_s": 1.75,
+  "usage": {
+   "total_tokens": 699,
+   "input_tokens": 535,
+   "output_tokens": 164,
+   "input_token_details": {
+    "text_tokens": 283,
+    "audio_tokens": 252,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 80,
+    "audio_tokens": 84,
+    "reasoning_tokens": 48
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Chönd Sie mer bitte d'Finke ufem Stägeli hole?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "erkannt": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa stepenica?",
+  "erster_ton_s": 1.71,
+  "usage": {
+   "total_tokens": 784,
+   "input_tokens": 604,
+   "output_tokens": 180,
+   "input_token_details": {
+    "text_tokens": 315,
+    "audio_tokens": 289,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 105,
+    "audio_tokens": 75,
+    "reasoning_tokens": 72
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Mini Tochter chunnt am Sunntig cho luege.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "erkannt": "Meine Tochter kommt am Sonntag schauen.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 819,
+   "input_tokens": 667,
+   "output_tokens": 152,
+   "input_token_details": {
+    "text_tokens": 348,
+    "audio_tokens": 319,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 88,
+    "audio_tokens": 64,
+    "reasoning_tokens": 59
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "I ha mi Brülle verleit, hesch se gseh?",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "erkannt": "Ich habe mijn bruiloft verleid. Hesch si gseh?",
+  "uebersetzung": "Zaturio sam naočare. Jesi ih video?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 822,
+   "input_tokens": 730,
+   "output_tokens": 92,
+   "input_token_details": {
+    "text_tokens": 377,
+    "audio_tokens": 353,
+    "image_tokens": 0,
+    "cached_tokens": 640,
+    "cached_tokens_details": {
+     "text_tokens": 320,
+     "audio_tokens": 320,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 38,
+    "audio_tokens": 54,
+    "reasoning_tokens": 11
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Mir isch es chalt, chönnt ich no e Tschope ha?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "erkannt": "Mir ist es kalt. Könnte ich neue Jobben haben?",
+  "uebersetzung": "Hladno mi je, mogu li dobiti još jednu jaknu?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 937,
+   "input_tokens": 793,
+   "output_tokens": 144,
+   "input_token_details": {
+    "text_tokens": 404,
+    "audio_tokens": 389,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 76,
+    "audio_tokens": 68,
+    "reasoning_tokens": 47
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Hend Sie mini Tablette scho brocht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "erkannt": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Da li ste mi već doneli moje tablete?",
+  "erster_ton_s": 1.66,
+  "usage": {
+   "total_tokens": 964,
+   "input_tokens": 849,
+   "output_tokens": 115,
+   "input_token_details": {
+    "text_tokens": 433,
+    "audio_tokens": 416,
+    "image_tokens": 0,
+    "cached_tokens": 768,
+    "cached_tokens_details": {
+     "text_tokens": 384,
+     "audio_tokens": 384,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 61,
+    "audio_tokens": 54,
+    "reasoning_tokens": 36
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Hüt git's Chüngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "erkannt": "heute gibt Güngel mit Herdöpfelstock.",
+  "uebersetzung": "Evo, ima poslastica s pireom od krompira.",
+  "erster_ton_s": 1.89,
+  "usage": {
+   "total_tokens": 480,
+   "input_tokens": 161,
+   "output_tokens": 319,
+   "input_token_details": {
+    "text_tokens": 123,
+    "audio_tokens": 38,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 259,
+    "audio_tokens": 60,
+    "reasoning_tokens": 230
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Mir hei früecher dihei Chüngel gha.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "erkannt": "Middenhee vroeg de hee gungle ka",
+  "uebersetzung": "Ranije smo imali najviše te koke.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 427,
+   "input_tokens": 218,
+   "output_tokens": 209,
+   "input_token_details": {
+    "text_tokens": 152,
+    "audio_tokens": 66,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 154,
+    "audio_tokens": 55,
+    "reasoning_tokens": 130
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Dä Chüngel im Garte frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "erkannt": "Der Küngel im Garten frisst Rüebli.",
+  "uebersetzung": "Kokice u vrtu jedu repu.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 438,
+   "input_tokens": 271,
+   "output_tokens": 167,
+   "input_token_details": {
+    "text_tokens": 176,
+    "audio_tokens": 95,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 120,
+    "audio_tokens": 47,
+    "reasoning_tokens": 95
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Wosch no chli Chüngelfleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "erkannt": "Wo schnorchle ich rungufleisch?",
+  "uebersetzung": "Hoćeš još malo mesa od koke?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 473,
+   "input_tokens": 319,
+   "output_tokens": 154,
+   "input_token_details": {
+    "text_tokens": 201,
+    "audio_tokens": 118,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 101,
+    "audio_tokens": 53,
+    "reasoning_tokens": 78
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Wänd Sie zum Zvieri es Gipfeli mit Anke und Konfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "erkannt": "Wenn Sie zum Zweieri ein Gipfeli mit Anke und Konfi",
+  "uebersetzung": "Ako ode kod Zvirija, jedno pecivo sa Anke i Kroplom.",
+  "erster_ton_s": 1.97,
+  "usage": {
+   "total_tokens": 690,
+   "input_tokens": 388,
+   "output_tokens": 302,
+   "input_token_details": {
+    "text_tokens": 224,
+    "audio_tokens": 164,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 232,
+    "audio_tokens": 70,
+    "reasoning_tokens": 200
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Ich ha Buuchweh und es bitzeli Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "erkannt": "Ich habe Bauchweh. Und ein bisschen Pfnüsel.",
+  "uebersetzung": "Bolovi me stomak i malo sam šmrcav.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 730,
+   "input_tokens": 462,
+   "output_tokens": 268,
+   "input_token_details": {
+    "text_tokens": 256,
+    "audio_tokens": 206,
+    "image_tokens": 0,
+    "cached_tokens": 192,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 219,
+    "audio_tokens": 49,
+    "reasoning_tokens": 193
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "I due mi nid so guet fühle hüt, ich mag nüt ässe.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "erkannt": "Ich tue mich nicht so gut fühlen heute. Ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne mogu ništa da jedem.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 667,
+   "input_tokens": 535,
+   "output_tokens": 132,
+   "input_token_details": {
+    "text_tokens": 283,
+    "audio_tokens": 252,
+    "image_tokens": 0,
+    "cached_tokens": 320,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 52,
+    "audio_tokens": 80,
+    "reasoning_tokens": 22
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Chönd Sie mer bitte d'Finke ufem Stägeli hole?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "erkannt": "Können Sie mir bitte die Finken auf dem Stägeli holen?",
+  "uebersetzung": "Možete li mi molim vas uzeti ptice sa stepeništa?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 770,
+   "input_tokens": 602,
+   "output_tokens": 168,
+   "input_token_details": {
+    "text_tokens": 313,
+    "audio_tokens": 289,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 105,
+    "audio_tokens": 63,
+    "reasoning_tokens": 74
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Mini Tochter chunnt am Sunntig cho luege.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "erkannt": "Meine Tochter kommt am Sonntag schauen.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju da pogleda.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 816,
+   "input_tokens": 663,
+   "output_tokens": 153,
+   "input_token_details": {
+    "text_tokens": 344,
+    "audio_tokens": 319,
+    "image_tokens": 0,
+    "cached_tokens": 320,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 105,
+    "audio_tokens": 48,
+    "reasoning_tokens": 76
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "I ha mi Brülle verleit, hesch se gseh?",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "erkannt": "Ich habe mijn bruiloftverleid. Hersig se",
+  "uebersetzung": "Izgubila sam naočare, jeste li ih videli?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 874,
+   "input_tokens": 726,
+   "output_tokens": 148,
+   "input_token_details": {
+    "text_tokens": 373,
+    "audio_tokens": 353,
+    "image_tokens": 0,
+    "cached_tokens": 512,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 256,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 99,
+    "audio_tokens": 49,
+    "reasoning_tokens": 70
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Mir isch es chalt, chönnt ich no e Tschope ha?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "erkannt": "Mir ist es kalt. Könnt ich noch eine Jacke haben?",
+  "uebersetzung": "Meni je hladno, mogu li još jednu čašu?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 938,
+   "input_tokens": 791,
+   "output_tokens": 147,
+   "input_token_details": {
+    "text_tokens": 402,
+    "audio_tokens": 389,
+    "image_tokens": 0,
+    "cached_tokens": 640,
+    "cached_tokens_details": {
+     "text_tokens": 320,
+     "audio_tokens": 320,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 90,
+    "audio_tokens": 57,
+    "reasoning_tokens": 62
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Hend Sie mini Tablette scho brocht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "erkannt": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li mi već doneli tablete?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 966,
+   "input_tokens": 846,
+   "output_tokens": 120,
+   "input_token_details": {
+    "text_tokens": 430,
+    "audio_tokens": 416,
+    "image_tokens": 0,
+    "cached_tokens": 576,
+    "cached_tokens_details": {
+     "text_tokens": 320,
+     "audio_tokens": 256,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 79,
+    "audio_tokens": 41,
+    "reasoning_tokens": 57
+   }
+  }
+ }
+]

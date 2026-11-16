@@ -1,0 +1,458 @@
+[
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "gesprochen": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "erster_ton_s": 0.77,
+  "ton_s": 5.0,
+  "usage": {
+   "total_tokens": 259,
+   "input_tokens": 77,
+   "output_tokens": 182,
+   "input_token_details": {
+    "text_tokens": 77,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 81,
+    "audio_tokens": 101,
+    "reasoning_tokens": 40
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Uzimamo i zečetinu za ovu nedelju.",
+  "gesprochen": "Uzimamo i zečetinu za ovu nedelju.",
+  "erster_ton_s": 0.7,
+  "ton_s": 2.6,
+  "usage": {
+   "total_tokens": 247,
+   "input_tokens": 125,
+   "output_tokens": 122,
+   "input_token_details": {
+    "text_tokens": 125,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 64,
+    "cached_tokens_details": {
+     "text_tokens": 64,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 69,
+    "audio_tokens": 53,
+    "reasoning_tokens": 42
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Dva krompira i jednu šargarepu.",
+  "gesprochen": "Dva krompira i jednu šargarepu.",
+  "erster_ton_s": 0.99,
+  "ton_s": 2.4,
+  "usage": {
+   "total_tokens": 256,
+   "input_tokens": 160,
+   "output_tokens": 96,
+   "input_token_details": {
+    "text_tokens": 160,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 48,
+    "audio_tokens": 48,
+    "reasoning_tokens": 22
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Iz kuhinje.",
+  "gesprochen": "Iz kuhinje.",
+  "erster_ton_s": 0.59,
+  "ton_s": 0.9,
+  "usage": {
+   "total_tokens": 240,
+   "input_tokens": 187,
+   "output_tokens": 53,
+   "input_token_details": {
+    "text_tokens": 187,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 34,
+    "audio_tokens": 19,
+    "reasoning_tokens": 19
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "I zeca, molim te.",
+  "gesprochen": "I zeca, molim te.",
+  "erster_ton_s": 0.58,
+  "ton_s": 1.2,
+  "usage": {
+   "total_tokens": 258,
+   "input_tokens": 210,
+   "output_tokens": 48,
+   "input_token_details": {
+    "text_tokens": 210,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 24,
+    "audio_tokens": 24,
+    "reasoning_tokens": 6
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "gesprochen": "Imam bolove u stomaku i malo kijavicu.",
+  "erster_ton_s": 0.96,
+  "ton_s": 2.9,
+  "usage": {
+   "total_tokens": 345,
+   "input_tokens": 241,
+   "output_tokens": 104,
+   "input_token_details": {
+    "text_tokens": 241,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 192,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 47,
+    "audio_tokens": 57,
+    "reasoning_tokens": 20
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "gesprochen": "Da li biste mi, molim vas, doneli papuče sa stepenica?",
+  "erster_ton_s": 0.94,
+  "ton_s": 3.1,
+  "usage": {
+   "total_tokens": 387,
+   "input_tokens": 281,
+   "output_tokens": 106,
+   "input_token_details": {
+    "text_tokens": 281,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 192,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 44,
+    "audio_tokens": 62,
+    "reasoning_tokens": 11
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "gesprochen": "Moja ćerka dolazi u nedelju u posetu.",
+  "erster_ton_s": 0.58,
+  "ton_s": 2.4,
+  "usage": {
+   "total_tokens": 421,
+   "input_tokens": 325,
+   "output_tokens": 96,
+   "input_token_details": {
+    "text_tokens": 325,
+    "audio_tokens": 0,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 48,
+    "audio_tokens": 48,
+    "reasoning_tokens": 19
+   }
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "gesprochen": "",
+  "erster_ton_s": 0.44,
+  "ton_s": 7.8,
+  "usage": {
+   "promptTokenCount": 616,
+   "responseTokenCount": 206,
+   "totalTokenCount": 822,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 369
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 222
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 206
+    }
+   ],
+   "thoughtsTokenCount": 81
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Uzimamo i zečetinu za ovu nedelju.",
+  "gesprochen": "Uzimamo i zečetinu za ovu nedelju.",
+  "erster_ton_s": 0.35,
+  "ton_s": 3.2,
+  "usage": {
+   "promptTokenCount": 847,
+   "responseTokenCount": 87,
+   "totalTokenCount": 934,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 382
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 428
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 87
+    }
+   ],
+   "thoughtsTokenCount": 57
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Dva krompira i jednu šargarepu.",
+  "gesprochen": "Dva krompira i jednu šargarepu.",
+  "erster_ton_s": 0.72,
+  "ton_s": 2.8,
+  "usage": {
+   "promptTokenCount": 977,
+   "responseTokenCount": 75,
+   "totalTokenCount": 1052,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 407
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 515
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 75
+    }
+   ],
+   "thoughtsTokenCount": 46
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Iz kuhinje.",
+  "gesprochen": "Iz kuhinje.",
+  "erster_ton_s": 0.42,
+  "ton_s": 1.2,
+  "usage": {
+   "promptTokenCount": 1084,
+   "responseTokenCount": 37,
+   "totalTokenCount": 1121,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 423
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 590
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 37
+    }
+   ],
+   "thoughtsTokenCount": 33
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "I zeca, molim te.",
+  "gesprochen": "I zeca, molim te.",
+  "erster_ton_s": 0.43,
+  "ton_s": 1.9,
+  "usage": {
+   "promptTokenCount": 1147,
+   "responseTokenCount": 55,
+   "totalTokenCount": 1202,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 435
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 627
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 55
+    }
+   ],
+   "thoughtsTokenCount": 44
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "gesprochen": "Imam bolove u stomaku i malo kijavicu.",
+  "erster_ton_s": 0.44,
+  "ton_s": 3.5,
+  "usage": {
+   "promptTokenCount": 1237,
+   "responseTokenCount": 94,
+   "totalTokenCount": 1331,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 456
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 682
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 94
+    }
+   ],
+   "thoughtsTokenCount": 70
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "gesprochen": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "erster_ton_s": 0.38,
+  "ton_s": 3.9,
+  "usage": {
+   "promptTokenCount": 1377,
+   "responseTokenCount": 104,
+   "totalTokenCount": 1481,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 486
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 776
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 104
+    }
+   ],
+   "thoughtsTokenCount": 54
+  }
+ },
+ {
+  "modell": "gemini-3.8-live",
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "gesprochen": "Moja ćerka dolazi u nedelju u posetu.",
+  "erster_ton_s": 0.51,
+  "ton_s": 3.4,
+  "usage": {
+   "promptTokenCount": 1530,
+   "responseTokenCount": 91,
+   "totalTokenCount": 1621,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 517
+    },
+    {
+     "modality": "AUDIO",
+     "tokenCount": 880
+    }
+   ],
+   "responseTokensDetails": [
+    {
+     "modality": "AUDIO",
+     "tokenCount": 91
+    }
+   ],
+   "thoughtsTokenCount": 54
+  }
+ }
+]

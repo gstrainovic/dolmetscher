@@ -1,0 +1,290 @@
+[
+ {
+  "modell": "haiku",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Küngel mit Herdöpfelstock → Kunigel mit Kartoffelstock",
+  "erstes_s": 0.97,
+  "ganz_s": 1.27
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Podne, 13 časova, Heigengel K.",
+  "erstes_s": 0.88,
+  "ganz_s": 1.17
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "erstes_s": 2.31,
+  "ganz_s": 2.45
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Gde je još malo mesa?",
+  "erstes_s": 1.33,
+  "ganz_s": 1.4
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Hoćete uz kafu kifle sa puterom i krompirom?",
+  "erstes_s": 1.06,
+  "ganz_s": 1.5
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo sam prehlađen.",
+  "erstes_s": 1.52,
+  "ganz_s": 1.66
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam dobro. Ne želim ništa da jedem.",
+  "erstes_s": 1.27,
+  "ganz_s": 1.44
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa mosta?",
+  "erstes_s": 1.6,
+  "ganz_s": 1.78
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju da me obiđe.",
+  "erstes_s": 1.22,
+  "ganz_s": 1.3
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zaručila sam se. Srdačne čestitke.",
+  "erstes_s": 2.76,
+  "ganz_s": 2.91
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li dobiti još jednu deku?",
+  "erstes_s": 1.27,
+  "ganz_s": 1.43
+ },
+ {
+  "modell": "haiku",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li već doneli moje tablete?",
+  "erstes_s": 1.23,
+  "ganz_s": 1.37
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas ima knedle od krompira, pa još pileće pečenje sa pire krompirom.\n\nHmm — treba samo prevod: „Danas imamo piletinu sa pireom od krompira.“\n\nIspravka, konačan prevod:\n\nDanas imamo piletinu sa pireom od krompira.",
+  "erstes_s": 0.64,
+  "ganz_s": 2.07
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Ručak je u 13 časova, gospođa K.",
+  "erstes_s": 0.67,
+  "ganz_s": 1.09
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "erstes_s": 0.61,
+  "ganz_s": 1.05
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Gde ima još malo mesa?",
+  "erstes_s": 0.97,
+  "ganz_s": 1.05
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Želite li uz doručak (užinu) kiflicu sa puterom i marmeladom?",
+  "erstes_s": 0.87,
+  "ganz_s": 1.33
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo sam nazebao/nazebla (imam kijavicu).",
+  "erstes_s": 0.9,
+  "ganz_s": 1.4
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne jede mi se ništa.",
+  "erstes_s": 1.18,
+  "ganz_s": 1.39
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa trema (sa stepeništa)?",
+  "erstes_s": 0.9,
+  "ganz_s": 1.35
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+  "erstes_s": 1.05,
+  "ganz_s": 1.31
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zagubio/zagubila sam naočare. Čestitam!",
+  "erstes_s": 3.09,
+  "ganz_s": 3.24
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li dobiti još jednu jaknu?",
+  "erstes_s": 1.36,
+  "ganz_s": 1.54
+ },
+ {
+  "modell": "sonnet",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li mi već doneli tablete?",
+  "erstes_s": 0.95,
+  "ganz_s": 1.1
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas ima zečetine s pireom od krompira.",
+  "erstes_s": 0.79,
+  "ganz_s": 1.74
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Ručak je u 13 časova, Heigengel K.",
+  "erstes_s": 5.29,
+  "ganz_s": 5.4
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "erstes_s": 0.67,
+  "ganz_s": 1.24
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Ima li još malo mesa?",
+  "erstes_s": 0.78,
+  "ganz_s": 1.14
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Želite li za užinu kroasan s puterom i džemom?",
+  "erstes_s": 1.16,
+  "ganz_s": 1.66
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i imam malo kijavicu.",
+  "erstes_s": 0.96,
+  "ganz_s": 1.48
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne mogu ništa da jedem.",
+  "erstes_s": 0.74,
+  "ganz_s": 1.26
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče iz hodnika?",
+  "erstes_s": 1.53,
+  "ganz_s": 1.93
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Ćerka mi dolazi u posetu u nedelju.",
+  "erstes_s": 0.77,
+  "ganz_s": 1.25
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zametnuo/la sam negde naočare.",
+  "erstes_s": 3.7,
+  "ganz_s": 3.96
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li dobiti još jedan džemper?",
+  "erstes_s": 1.85,
+  "ganz_s": 2.25
+ },
+ {
+  "modell": "opus",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li mi već doneli tablete?",
+  "erstes_s": 0.77,
+  "ganz_s": 1.22
+ }
+]

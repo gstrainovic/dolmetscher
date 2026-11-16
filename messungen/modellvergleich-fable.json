@@ -1,0 +1,98 @@
+[
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas ima zečetine sa pire krompirom.",
+  "erstes_s": 2.77,
+  "ganz_s": 3.57
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Mittag, 13 Uhr, die Heigengel K.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "U podne, u 13 sati, dolazi rodbina.",
+  "erstes_s": 7.17,
+  "ganz_s": 7.32
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Der Küngel im Garten frisst Rüebli.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepu.",
+  "erstes_s": 2.36,
+  "ganz_s": 3.01
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Wo ist noch ein bisschen Fleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Hoćeš li još malo mesa?",
+  "erstes_s": 4.3,
+  "ganz_s": 4.32
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Želite li za užinu kiflu sa puterom i džemom?",
+  "erstes_s": 2.92,
+  "ganz_s": 3.2
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i imam malo kijavicu.",
+  "erstes_s": 2.48,
+  "ganz_s": 3.16
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro. Ne jede mi se ništa.",
+  "erstes_s": 2.18,
+  "ganz_s": 2.86
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li, molim Vas, da mi donesete papuče sa stepenica?",
+  "erstes_s": 4.33,
+  "ganz_s": 4.35
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Meine Tochter kommt am Sonntag schauen.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+  "erstes_s": 2.94,
+  "ganz_s": 3.45
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "uebersetzung": "Zaturio sam negde naočare. Jeste li ih možda videli?",
+  "erstes_s": 6.54,
+  "ganz_s": 6.76
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je. Mogu li da dobijem još jednu jaknu?",
+  "erstes_s": 2.87,
+  "ganz_s": 3.44
+ },
+ {
+  "modell": "claude-fable-5-2",
+  "umschrift": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li mi već doneli tablete?",
+  "erstes_s": 2.18,
+  "ganz_s": 2.74
+ }
+]

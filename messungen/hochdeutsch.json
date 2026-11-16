@@ -1,0 +1,386 @@
+[
+ {
+  "vorlage": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "voxtral": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.33,
+  "gemini_live": {
+   "uebersetzung": "Danas je na meniju zečetina sa pire krompirom.",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 740,
+    "responseTokenCount": 87,
+    "totalTokenCount": 827,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 423
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 290
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 87
+     }
+    ],
+    "thoughtsTokenCount": 235
+   }
+  }
+ },
+ {
+  "vorlage": "Wir hatten früher zu Hause Kaninchen.",
+  "voxtral": "Wir hatten früher zu Hause Kaninchen.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.29,
+  "gemini_live": {
+   "uebersetzung": "Ranije smo imali zečeve kod kuće.",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 927,
+    "responseTokenCount": 71,
+    "totalTokenCount": 998,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 447
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 435
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 71
+     }
+    ],
+    "thoughtsTokenCount": 58
+   }
+  }
+ },
+ {
+  "vorlage": "Das Kaninchen im Garten frisst Karotten.",
+  "voxtral": "Das Kaninchen im Garten frisst Karotten.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.57,
+  "gemini_live": {
+   "uebersetzung": "Zec u bašti jede šargarepu.",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 1103,
+    "responseTokenCount": 75,
+    "totalTokenCount": 1178,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 468
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 574
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 75
+     }
+    ],
+    "thoughtsTokenCount": 133
+   }
+  }
+ },
+ {
+  "vorlage": "Willst du noch etwas Kaninchenfleisch?",
+  "voxtral": "Willst du noch etwas Kaninchenfleisch?",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.3,
+  "gemini_live": {
+   "uebersetzung": "Hoćeš li još zečijeg mesa?",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 1273,
+    "responseTokenCount": 67,
+    "totalTokenCount": 1340,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 490
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 706
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 67
+     }
+    ],
+    "thoughtsTokenCount": 90
+   }
+  }
+ },
+ {
+  "vorlage": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "voxtral": "Wollen Sie zum Zwieri ein Gipfeli mit Butter und Konfitüre?",
+  "wer_voxtral": 0.1,
+  "voxtral_s": 0.66,
+  "gemini_live": {
+   "uebersetzung": "Da li želite kroasan sa puterom i džemom za užinu?",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 1491,
+    "responseTokenCount": 96,
+    "totalTokenCount": 1587,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 519
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 879
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 96
+     }
+    ],
+    "thoughtsTokenCount": 99
+   }
+  }
+ },
+ {
+  "vorlage": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "voxtral": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.36,
+  "gemini_live": {
+   "uebersetzung": "Boli me stomak i malo sam prehlađen.",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 1951,
+    "responseTokenCount": 77,
+    "totalTokenCount": 2028,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 783
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1057
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 77
+     }
+    ],
+    "thoughtsTokenCount": 172
+   }
+  }
+ },
+ {
+  "vorlage": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "voxtral": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 1.32,
+  "gemini_live": {
+   "uebersetzung": "Ne osećam se baš najbolje danas, ne mogu ništa da jedem.",
+   "erster_ton_s": 1.7,
+   "usage": {
+    "promptTokenCount": 2150,
+    "responseTokenCount": 111,
+    "totalTokenCount": 2261,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 809
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1212
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 111
+     }
+    ],
+    "thoughtsTokenCount": 333
+   }
+  }
+ },
+ {
+  "vorlage": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "voxtral": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.33,
+  "gemini_live": {
+   "uebersetzung": "Možete li mi, molim vas, doneti papuče sa stepenica?",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 2147,
+    "responseTokenCount": 100,
+    "totalTokenCount": 2247,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 605
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1393
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 100
+     }
+    ],
+    "thoughtsTokenCount": 114
+   }
+  }
+ },
+ {
+  "vorlage": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "voxtral": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.3,
+  "gemini_live": {
+   "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 2362,
+    "responseTokenCount": 79,
+    "totalTokenCount": 2441,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 632
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1563
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 79
+     }
+    ],
+    "thoughtsTokenCount": 74
+   }
+  }
+ },
+ {
+  "vorlage": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "voxtral": "Ich habe meine Brille verlegt. Hast du sie gesehen?",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.49,
+  "gemini_live": {
+   "uebersetzung": "Zagubio sam naočare. Jesi li ih video?",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 2573,
+    "responseTokenCount": 82,
+    "totalTokenCount": 2655,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 659
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1729
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 82
+     }
+    ],
+    "thoughtsTokenCount": 112
+   }
+  }
+ },
+ {
+  "vorlage": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "voxtral": "Mir ist kalt. Könnte ich noch eine Jacke haben?",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.38,
+  "gemini_live": {
+   "uebersetzung": "Hladno mi je, mogu li dobiti još jednu jaknu?",
+   "erster_ton_s": 1.51,
+   "usage": {
+    "promptTokenCount": 3022,
+    "responseTokenCount": 89,
+    "totalTokenCount": 3111,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 921
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 1898
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 89
+     }
+    ],
+    "thoughtsTokenCount": 89
+   }
+  }
+ },
+ {
+  "vorlage": "Haben Sie meine Tabletten schon gebracht?",
+  "voxtral": "Haben Sie meine Tabletten schon gebracht?",
+  "wer_voxtral": 0.0,
+  "voxtral_s": 0.42,
+  "gemini_live": {
+   "uebersetzung": "Da li ste već doneli moje lekove?",
+   "erster_ton_s": 1.52,
+   "usage": {
+    "promptTokenCount": 3210,
+    "responseTokenCount": 61,
+    "totalTokenCount": 3271,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 945
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 2044
+     }
+    ],
+    "responseTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 61
+     }
+    ],
+    "thoughtsTokenCount": 140
+   }
+  }
+ }
+]

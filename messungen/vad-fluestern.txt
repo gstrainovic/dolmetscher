@@ -1,0 +1,9 @@
+2026-11-16_00-37-49.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-38-36.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-38-37.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-39-07.wav silerox1=0.0s silerox4=0.8s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-39-10.wav silerox1=0.0s silerox4=0.6s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-39-12.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-39-27.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-39-33.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s
+2026-11-16_00-50-32.wav silerox1=0.0s silerox4=0.0s tenx1=0.0s tenx4=0.0s

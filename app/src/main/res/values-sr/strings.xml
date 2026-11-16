@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prevodilac</string>
+
+    <!-- Opšte -->
+    <string name="action_back">Nazad</string>
+    <string name="action_delete">Obriši</string>
+    <string name="action_cancel">Otkaži</string>
+
+    <!-- Glavni ekran -->
+    <string name="cd_stop">Zaustavi</string>
+    <string name="cd_history">Istorija</string>
+    <string name="cd_settings">Podešavanja</string>
+    <string name="cd_swap_lang">Zameni jezike</string>
+    <string name="label_you">Ja</string>
+    <string name="label_partner">Sagovornik</string>
+    <string name="target_arrow">→ %1$s</string>
+    <string name="caption_partner_placeholder">Ovde se pojavljuje prevod sagovornika</string>
+    <string name="caption_you_placeholder">Ovde se pojavljuje tvoj prevod</string>
+    <string name="status_connecting">Povezivanje…</string>
+    <string name="status_idle">Zaustavljeno</string>
+    <string name="status_speaking">Ti govoriš</string>
+    <string name="status_listening">Prevodim sagovornika</string>
+    <string name="status_error">Greška</string>
+    <string name="error_prefix">⚠ %1$s</string>
+    <string name="hint_speaking">Govori sada (pusti da ponovo slušaš)</string>
+    <string name="hint_hold_to_talk">Drži pritisnuto da bi govorila</string>
+    <string name="hint_tap_to_start">Dodirni za početak</string>
+    <string name="cd_start">Počni</string>
+    <string name="new_conversation">Novi razgovor (sačuvaj u istoriju i obriši)</string>
+    <string name="volume_label">Jačina zvuka</string>
+    <string name="volume_hint">Iznad 100 %% aplikacija dodatno pojačava.</string>
+
+    <!-- API ključ -->
+
+    <!-- Istorija -->
+    <string name="history_title">Istorija razgovora</string>
+    <string name="cd_delete_all">Obriši sve</string>
+    <string name="history_empty">Još nema istorije</string>
+    <string name="delete_all_title">Obriši sve</string>
+    <string name="delete_all_message">Obrisati celu sačuvanu istoriju?</string>
+    <string name="delete_one_title">Obriši</string>
+    <string name="delete_one_message">Obrisati ovaj razgovor?</string>
+    <string name="history_langs">Ja: %1$s  ・  Sagovornik: %2$s</string>
+    <string name="detail_partner">Sagovornik → %1$s</string>
+    <string name="detail_you">Ja → %1$s</string>
+    <string name="empty_text">(ništa)</string>
+
+    <!-- Obaveštenje i servis -->
+    <string name="notif_channel_name">Prevod uživo</string>
+    <string name="notif_running">Prevod uživo je aktivan</string>
+    <string name="error_no_mic_permission">Nedostaje dozvola za mikrofon. Dozvoli je u podešavanjima aplikacije.</string>
+
+    <!-- Izbor jezika, titlovi, model prepoznavanja -->
+    <string name="cd_select_language">Izaberi jezik</string>
+    <string name="label_original">Original</string>
+    <string name="transcription_model_label">Model prepoznavanja (za originalni tekst)</string>
+    <string name="detail_partner_source">Sagovornik (original)</string>
+    <string name="detail_you_source">Ja (original)</string>
+    <string name="recognition_label">Prepoznavanje</string>
+    <string name="translation_label">Prevod</string>
+    <string name="voice_label">Glas</string>
+    <string name="all_in_one_hint">Ovaj model prepoznaje, prevodi i govori u jednom.</string>
+    <string name="gemini_voice_hint">Gemini prevodi i govori u jednom koraku.</string>
+    <string name="error_missing_keys">Za ovaj izbor u aplikaciji nedostaje ključ: %1$s</string>
+</resources>

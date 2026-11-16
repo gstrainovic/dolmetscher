@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dolmetscher</string>
+
+    <!-- Allgemein -->
+    <string name="action_back">Zurück</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_cancel">Abbrechen</string>
+
+    <!-- Hauptbildschirm -->
+    <string name="cd_stop">Stopp</string>
+    <string name="cd_history">Verlauf</string>
+    <string name="cd_settings">Einstellungen</string>
+    <string name="cd_swap_lang">Sprachen tauschen</string>
+    <string name="label_you">Ich</string>
+    <string name="label_partner">Gegenüber</string>
+    <string name="target_arrow">→ %1$s</string>
+    <string name="caption_partner_placeholder">Hier erscheint die Übersetzung des Gegenübers</string>
+    <string name="caption_you_placeholder">Hier erscheint die Übersetzung von dir</string>
+    <string name="status_connecting">Verbinde…</string>
+    <string name="status_idle">Gestoppt</string>
+    <string name="status_speaking">Du sprichst</string>
+    <string name="status_listening">Übersetze das Gegenüber</string>
+    <string name="status_error">Fehler</string>
+    <string name="error_prefix">⚠ %1$s</string>
+    <string name="hint_speaking">Jetzt sprechen (loslassen, um wieder zuzuhören)</string>
+    <string name="hint_hold_to_talk">Gedrückt halten, um selbst zu sprechen</string>
+    <string name="hint_tap_to_start">Tippen zum Starten</string>
+    <string name="cd_start">Starten</string>
+    <string name="new_conversation">Neues Gespräch (im Verlauf speichern und leeren)</string>
+    <string name="volume_label">Lautstärke</string>
+    <string name="volume_hint">Über 100 %% verstärkt die App zusätzlich.</string>
+
+    <!-- API-Schlüssel -->
+
+    <!-- Verlauf -->
+    <string name="history_title">Gesprächsverlauf</string>
+    <string name="cd_delete_all">Alles löschen</string>
+    <string name="history_empty">Noch kein Verlauf</string>
+    <string name="delete_all_title">Alles löschen</string>
+    <string name="delete_all_message">Den ganzen gespeicherten Verlauf löschen?</string>
+    <string name="delete_one_title">Löschen</string>
+    <string name="delete_one_message">Dieses Gespräch löschen?</string>
+    <string name="history_langs">Ich: %1$s  ・  Gegenüber: %2$s</string>
+    <string name="detail_partner">Gegenüber → %1$s</string>
+    <string name="detail_you">Ich → %1$s</string>
+    <string name="empty_text">(nichts)</string>
+
+    <!-- Benachrichtigung und Dienst -->
+    <string name="notif_channel_name">Live-Übersetzung</string>
+    <string name="notif_running">Live-Übersetzung läuft</string>
+    <string name="error_no_mic_permission">Die Mikrofon-Berechtigung fehlt. Bitte in den App-Berechtigungen erlauben.</string>
+
+    <!-- Sprachwahl, Untertitel, Erkennungsmodell -->
+    <string name="cd_select_language">Sprache wählen</string>
+    <string name="label_original">Original</string>
+    <string name="transcription_model_label">Erkennungsmodell (für den Originaltext)</string>
+    <string name="detail_partner_source">Gegenüber (Original)</string>
+    <string name="detail_you_source">Ich (Original)</string>
+    <string name="recognition_label">Erkennung</string>
+    <string name="translation_label">Übersetzung</string>
+    <string name="voice_label">Stimme</string>
+    <string name="all_in_one_hint">Dieses Modell erkennt, übersetzt und spricht in einem.</string>
+    <string name="gemini_voice_hint">Gemini übersetzt und spricht in einem Schritt.</string>
+    <string name="error_missing_keys">Für diese Auswahl fehlt ein Schlüssel in der App: %1$s</string>
+</resources>

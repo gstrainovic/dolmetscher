@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Interpreter</string>
+
+    <!-- Common -->
+    <string name="action_back">Back</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+
+    <!-- Main screen -->
+    <string name="cd_stop">Stop</string>
+    <string name="cd_history">History</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_swap_lang">Swap languages</string>
+    <string name="label_you">You</string>
+    <string name="label_partner">Partner</string>
+    <string name="target_arrow">→ %1$s</string>
+    <string name="caption_partner_placeholder">The other person\'s speech will be translated here</string>
+    <string name="caption_you_placeholder">Your speech will be translated here</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_idle">Stopped</string>
+    <string name="status_speaking">You are speaking</string>
+    <string name="status_listening">Translating the other person</string>
+    <string name="status_error">Error</string>
+    <string name="error_prefix">⚠ %1$s</string>
+    <string name="hint_speaking">Speak now (release to go back to listening)</string>
+    <string name="hint_hold_to_talk">Hold to talk</string>
+    <string name="hint_tap_to_start">Tap to start</string>
+    <string name="cd_start">Start</string>
+    <string name="new_conversation">New conversation (save to history &amp; clear)</string>
+    <string name="volume_label">Volume</string>
+    <string name="volume_hint">Above 100 %% the app amplifies further.</string>
+
+    <!-- API key setup screen -->
+
+    <!-- History screen -->
+    <string name="history_title">Conversation history</string>
+    <string name="cd_delete_all">Delete all</string>
+    <string name="history_empty">No history yet</string>
+    <string name="delete_all_title">Delete all</string>
+    <string name="delete_all_message">This will delete all saved conversation history. Are you sure?</string>
+    <string name="delete_one_title">Delete</string>
+    <string name="delete_one_message">Delete this conversation?</string>
+    <string name="history_langs">You: %1$s  ・  Partner: %2$s</string>
+    <string name="detail_partner">Partner → %1$s</string>
+    <string name="detail_you">You → %1$s</string>
+    <string name="empty_text">(none)</string>
+
+    <!-- Notification / service -->
+    <string name="notif_channel_name">Live translation</string>
+    <string name="notif_running">Live translation running</string>
+    <string name="error_no_mic_permission">Microphone permission is missing. Please allow it in the app\'s permission settings.</string>
+
+    <!-- Language picker / bilingual captions / transcription model -->
+    <string name="cd_select_language">Select language</string>
+    <string name="label_original">Original</string>
+    <string name="transcription_model_label">Transcription model (for original captions)</string>
+    <string name="detail_partner_source">Partner (original)</string>
+    <string name="detail_you_source">You (original)</string>
+    <string name="recognition_label">Recognition</string>
+    <string name="translation_label">Translation</string>
+    <string name="voice_label">Voice</string>
+    <string name="all_in_one_hint">This model recognises, translates and speaks in one.</string>
+    <string name="gemini_voice_hint">Gemini translates and speaks in one step.</string>
+    <string name="error_missing_keys">A key is missing in the app for this choice: %1$s</string>
+</resources>

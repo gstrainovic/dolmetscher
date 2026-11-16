@@ -1,0 +1,134 @@
+[
+ {
+  "dialekt": "zurich",
+  "mundart": "Hüt git's Chüngel mit Herdöpfelstock.",
+  "vorlage": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "Suisse": "Heute gibt es Chüngel mit Kartoffelstock.",
+  "Voxtral": "Heute gibt es Küngel mit Herdöpfelstock.",
+  "Voxtral+Wortschatz": "Heute gibt's Chüngel mit Herdöpfelstock.",
+  "wer_Suisse": 0.17,
+  "wer_Voxtral": 0.33,
+  "wer_Voxtral+Wortschatz": 0.67
+ },
+ {
+  "dialekt": "bern",
+  "mundart": "Mir hei früecher dihei Chüngel gha.",
+  "vorlage": "Wir hatten früher zu Hause Kaninchen.",
+  "Suisse": "Mireille, früher der Hegungler K.",
+  "Voxtral": "Mittag, 13 Uhr, die Heigengel K.",
+  "Voxtral+Wortschatz": "Middenhij vriegt de hei gungelka.",
+  "wer_Suisse": 0.83,
+  "wer_Voxtral": 1.0,
+  "wer_Voxtral+Wortschatz": 1.0
+ },
+ {
+  "dialekt": "zurich",
+  "mundart": "Dä Chüngel im Garte frisst Rüebli.",
+  "vorlage": "Das Kaninchen im Garten frisst Karotten.",
+  "Suisse": "Der Chüngel im Garten frisst Rüebli.",
+  "Voxtral": "Der Küngel im Garten frisst Rüebli.",
+  "Voxtral+Wortschatz": "Der Chüngel im Garten frisst Rüebli.",
+  "wer_Suisse": 0.5,
+  "wer_Voxtral": 0.5,
+  "wer_Voxtral+Wortschatz": 0.5
+ },
+ {
+  "dialekt": "bern",
+  "mundart": "Wosch no chli Chüngelfleisch?",
+  "vorlage": "Willst du noch etwas Kaninchenfleisch?",
+  "Suisse": "Wo ist noch die Chüngel-Fleisch?",
+  "Voxtral": "Wo ist noch ein bisschen Fleisch?",
+  "Voxtral+Wortschatz": "Wo ist noch ein bisschen Fleisch?",
+  "wer_Suisse": 0.8,
+  "wer_Voxtral": 1.0,
+  "wer_Voxtral+Wortschatz": 1.0
+ },
+ {
+  "dialekt": "zurich",
+  "mundart": "Wänd Sie zum Zvieri es Gipfeli mit Anke und Konfi?",
+  "vorlage": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "Suisse": "Wenn Sie zum Zviri ein Gipfeli mit Anke und Konfi—",
+  "Voxtral": "Wollen Sie zum Zwiri ein Gipfelchen mit Anke und Krumfi?",
+  "Voxtral+Wortschatz": "Wollen Sie zum Zvieri ein Gipfeli mit Anke und Konfi?",
+  "wer_Suisse": 0.4,
+  "wer_Voxtral": 0.4,
+  "wer_Voxtral+Wortschatz": 0.2
+ },
+ {
+  "dialekt": "zurich",
+  "mundart": "Ich ha Buuchweh und es bitzeli Pfnüsel.",
+  "vorlage": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "Suisse": "Ich habe Bauchweh, und ein bisschen Pfnüsel.",
+  "Voxtral": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "Voxtral+Wortschatz": "Ich habe Bauchweh und ein bisschen Pfnüsel.",
+  "wer_Suisse": 0.14,
+  "wer_Voxtral": 0.14,
+  "wer_Voxtral+Wortschatz": 0.14
+ },
+ {
+  "dialekt": "basel",
+  "mundart": "I due mi nid so guet fühle hüt, ich mag nüt ässe.",
+  "vorlage": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "Suisse": "Ich tue mich nicht so gut fühlen heute. Ich mag nichts essen.",
+  "Voxtral": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "Voxtral+Wortschatz": "Ich fühle mich heute nicht so gut. Ich mag nichts essen.",
+  "wer_Suisse": 0.36,
+  "wer_Voxtral": 0.0,
+  "wer_Voxtral+Wortschatz": 0.0
+ },
+ {
+  "dialekt": "luzern",
+  "mundart": "Chönd Sie mer bitte d'Finke ufem Stägeli hole?",
+  "vorlage": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "Suisse": "Können Sie mir bitte die Finke auf dem Stägeli holen?",
+  "Voxtral": "Können Sie mir bitte die Finken auf dem Steg holen?",
+  "Voxtral+Wortschatz": "Können Sie mir bitte die Finke auf dem Stägeli holen?",
+  "wer_Suisse": 0.3,
+  "wer_Voxtral": 0.3,
+  "wer_Voxtral+Wortschatz": 0.3
+ },
+ {
+  "dialekt": "zurich",
+  "mundart": "Mini Tochter chunnt am Sunntig cho luege.",
+  "vorlage": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "Suisse": "Meine Tochter kommt am Sonntag schauen.",
+  "Voxtral": "Meine Tochter kommt am Sonntag schauen.",
+  "Voxtral+Wortschatz": "Meine Tochter kommt am Sonntag schauen.",
+  "wer_Suisse": 0.29,
+  "wer_Voxtral": 0.29,
+  "wer_Voxtral+Wortschatz": 0.29
+ },
+ {
+  "dialekt": "bern",
+  "mundart": "I ha mi Brülle verleit, hesch se gseh?",
+  "vorlage": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "Suisse": "Ich habe meine Brille verlegt. Hast du sie gesehen?",
+  "Voxtral": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "Voxtral+Wortschatz": "Ich habe mich brüllen verleiht. Herzlichen Glückwunsch.",
+  "wer_Suisse": 0.0,
+  "wer_Voxtral": 0.78,
+  "wer_Voxtral+Wortschatz": 0.78
+ },
+ {
+  "dialekt": "basel",
+  "mundart": "Mir isch es chalt, chönnt ich no e Tschope ha?",
+  "vorlage": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "Suisse": "Mir ist es kalt, könnte ich noch einen Choppen haben?",
+  "Voxtral": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "Voxtral+Wortschatz": "Mir ist es kalt. Könnte ich noch einen Job haben?",
+  "wer_Suisse": 0.33,
+  "wer_Voxtral": 0.33,
+  "wer_Voxtral+Wortschatz": 0.33
+ },
+ {
+  "dialekt": "luzern",
+  "mundart": "Hend Sie mini Tablette scho brocht?",
+  "vorlage": "Haben Sie meine Tabletten schon gebracht?",
+  "Suisse": "Haben Sie meine Tabletten schon gebracht?",
+  "Voxtral": "Haben Sie meine Tabletten schon gebracht?",
+  "Voxtral+Wortschatz": "Haben Sie meine Tabletten schon gebracht?",
+  "wer_Suisse": 0.0,
+  "wer_Voxtral": 0.0,
+  "wer_Voxtral+Wortschatz": 0.0
+ }
+]

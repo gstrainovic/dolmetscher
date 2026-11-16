@@ -1,0 +1,31 @@
+*.iml
+.gradle/
+.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# API-Schlüssel für die App (werkzeuge/schluessel.sh), nie ins Repo
+secrets.properties
+# sherpa-onnx (49 MB), lädt werkzeuge/sherpa.sh
+/app/libs/*.aar
+server/.venv/
+__pycache__/
+.pytest_cache/
+/app/build/
+
+# 動作確認用スクリーンショット（コミット不要）
+/device-shot*.png
+
+# Claude Code local settings
+.claude/
+
+# 署名関連の秘密情報（絶対にコミットしない）
+keystore.properties
+*.jks
+*.keystore
+
+# Kotlin compiler cache (build artifact)
+.kotlin/

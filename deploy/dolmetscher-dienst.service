@@ -1,0 +1,17 @@
+[Unit]
+Description=Dolmetscher-Dienst: Claude über das Claude-Code-Abo übersetzt erkannte Sätze für die App
+After=network-online.target docker.service
+
+[Service]
+User=debian
+WorkingDirectory=/home/debian/dolmetscher-dienst
+# DOLMETSCHER_TOKEN (Zugang der App) und CLAUDE_CODE_OAUTH_TOKEN (aus `claude setup-token`)
+EnvironmentFile=/home/debian/.config/dolmetscher/env
+Environment=PATH=/home/debian/.local/bin:/usr/local/bin:/usr/bin:/bin
+# Nur auf dem Gateway des Docker-Netzes caddy-zusatz; Caddy macht HTTPS
+ExecStart=/home/debian/.local/bin/uv run --no-dev uvicorn dienst:app --host 192.168.32.1 --port 8792
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

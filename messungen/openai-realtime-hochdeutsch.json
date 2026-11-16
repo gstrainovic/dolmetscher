@@ -1,0 +1,698 @@
+[
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "erkannt": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas ima zečetine sa krompir pireom.",
+  "erster_ton_s": 1.66,
+  "usage": {
+   "total_tokens": 277,
+   "input_tokens": 151,
+   "output_tokens": 126,
+   "input_token_details": {
+    "text_tokens": 123,
+    "audio_tokens": 28,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 74,
+    "audio_tokens": 52,
+    "reasoning_tokens": 47
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Wir hatten früher zu Hause Kaninchen.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "erkannt": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Ranije smo kod kuće imali zečeve.",
+  "erster_ton_s": 1.6,
+  "usage": {
+   "total_tokens": 323,
+   "input_tokens": 203,
+   "output_tokens": 120,
+   "input_token_details": {
+    "text_tokens": 150,
+    "audio_tokens": 53,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 63,
+    "audio_tokens": 57,
+    "reasoning_tokens": 37
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Das Kaninchen im Garten frisst Karotten.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "erkannt": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u bašti jede šargarepe.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 374,
+   "input_tokens": 257,
+   "output_tokens": 117,
+   "input_token_details": {
+    "text_tokens": 176,
+    "audio_tokens": 81,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 61,
+    "audio_tokens": 56,
+    "reasoning_tokens": 36
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Willst du noch etwas Kaninchenfleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "erkannt": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Hoćeš još malo zečetine?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 385,
+   "input_tokens": 306,
+   "output_tokens": 79,
+   "input_token_details": {
+    "text_tokens": 201,
+    "audio_tokens": 105,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 36,
+    "audio_tokens": 43,
+    "reasoning_tokens": 15
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "erkannt": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Da li želite za užinu kroasan sa puterom i džemom?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 528,
+   "input_tokens": 372,
+   "output_tokens": 156,
+   "input_token_details": {
+    "text_tokens": 224,
+    "audio_tokens": 148,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 81,
+    "audio_tokens": 75,
+    "reasoning_tokens": 50
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "erkannt": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo sam prehlađen, curi mi nos.",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 568,
+   "input_tokens": 436,
+   "output_tokens": 132,
+   "input_token_details": {
+    "text_tokens": 255,
+    "audio_tokens": 181,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 42,
+    "audio_tokens": 90,
+    "reasoning_tokens": 11
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "erkannt": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osećam baš dobro, ne prija mi ništa da jedem.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 634,
+   "input_tokens": 499,
+   "output_tokens": 135,
+   "input_token_details": {
+    "text_tokens": 286,
+    "audio_tokens": 213,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 57,
+    "audio_tokens": 78,
+    "reasoning_tokens": 25
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "erkannt": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti papuče sa stepenica?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 682,
+   "input_tokens": 560,
+   "output_tokens": 122,
+   "input_token_details": {
+    "text_tokens": 318,
+    "audio_tokens": 242,
+    "image_tokens": 0,
+    "cached_tokens": 384,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 46,
+    "audio_tokens": 76,
+    "reasoning_tokens": 13
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "erkannt": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u posetu u nedelju.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 729,
+   "input_tokens": 621,
+   "output_tokens": 108,
+   "input_token_details": {
+    "text_tokens": 351,
+    "audio_tokens": 270,
+    "image_tokens": 0,
+    "cached_tokens": 384,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 40,
+    "audio_tokens": 68,
+    "reasoning_tokens": 11
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "erkannt": "Ich habe meine Brille verlegt. Hast du sie gesehen?",
+  "uebersetzung": "Zaturio sam naočare, jesi li ih video?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 798,
+   "input_tokens": 684,
+   "output_tokens": 114,
+   "input_token_details": {
+    "text_tokens": 380,
+    "audio_tokens": 304,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 54,
+    "audio_tokens": 60,
+    "reasoning_tokens": 26
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "erkannt": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je, da li bih mogao da dobijem još jednu jaknu?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 875,
+   "input_tokens": 747,
+   "output_tokens": 128,
+   "input_token_details": {
+    "text_tokens": 408,
+    "audio_tokens": 339,
+    "image_tokens": 0,
+    "cached_tokens": 640,
+    "cached_tokens_details": {
+     "text_tokens": 384,
+     "audio_tokens": 256,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 48,
+    "audio_tokens": 80,
+    "reasoning_tokens": 15
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1",
+  "mundart": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "erkannt": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Da li ste već doneli moje tablete?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 884,
+   "input_tokens": 804,
+   "output_tokens": 80,
+   "input_token_details": {
+    "text_tokens": 441,
+    "audio_tokens": 363,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 33,
+    "audio_tokens": 47,
+    "reasoning_tokens": 11
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "gemeint": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "erkannt": "Heute gibt es Kaninchen mit Kartoffelstock.",
+  "uebersetzung": "Danas imamo zec sa pireom od krompira.",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 243,
+   "input_tokens": 151,
+   "output_tokens": 92,
+   "input_token_details": {
+    "text_tokens": 123,
+    "audio_tokens": 28,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 33,
+    "audio_tokens": 59,
+    "reasoning_tokens": 6
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Wir hatten früher zu Hause Kaninchen.",
+  "gemeint": "Wir hatten früher zu Hause Kaninchen.",
+  "erkannt": "Wir hatten früher zu Hause Kaninchen.",
+  "uebersetzung": "Imali smo ranije kod kuće zeca.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 283,
+   "input_tokens": 203,
+   "output_tokens": 80,
+   "input_token_details": {
+    "text_tokens": 150,
+    "audio_tokens": 53,
+    "image_tokens": 0,
+    "cached_tokens": 128,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 35,
+    "audio_tokens": 45,
+    "reasoning_tokens": 12
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Das Kaninchen im Garten frisst Karotten.",
+  "gemeint": "Das Kaninchen im Garten frisst Karotten.",
+  "erkannt": "Das Kaninchen im Garten frisst Karotten.",
+  "uebersetzung": "Zec u vrtu jede mrkvu.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 342,
+   "input_tokens": 256,
+   "output_tokens": 86,
+   "input_token_details": {
+    "text_tokens": 175,
+    "audio_tokens": 81,
+    "image_tokens": 0,
+    "cached_tokens": 192,
+    "cached_tokens_details": {
+     "text_tokens": 128,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 40,
+    "audio_tokens": 46,
+    "reasoning_tokens": 18
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Willst du noch etwas Kaninchenfleisch?",
+  "gemeint": "Willst du noch etwas Kaninchenfleisch?",
+  "erkannt": "Willst du noch etwas Kaninchenfleisch?",
+  "uebersetzung": "Hoćeš li još malo zečjeg mesa?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 448,
+   "input_tokens": 304,
+   "output_tokens": 144,
+   "input_token_details": {
+    "text_tokens": 199,
+    "audio_tokens": 105,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 94,
+    "audio_tokens": 50,
+    "reasoning_tokens": 71
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "gemeint": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "erkannt": "Wollen Sie zum Zvieri ein Gipfeli mit Butter und Konfitüre?",
+  "uebersetzung": "Želite li kod Zvierija jednu kiflu sa maslacem i džemom?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 607,
+   "input_tokens": 372,
+   "output_tokens": 235,
+   "input_token_details": {
+    "text_tokens": 224,
+    "audio_tokens": 148,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 157,
+    "audio_tokens": 78,
+    "reasoning_tokens": 121
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "gemeint": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "erkannt": "Ich habe Bauchweh und ein bisschen Schnupfen.",
+  "uebersetzung": "Boli me stomak i malo imam prehladu (završava se u nosu).",
+  "erster_ton_s": 1.8,
+  "usage": {
+   "total_tokens": 720,
+   "input_tokens": 438,
+   "output_tokens": 282,
+   "input_token_details": {
+    "text_tokens": 257,
+    "audio_tokens": 181,
+    "image_tokens": 0,
+    "cached_tokens": 384,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 128,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 206,
+    "audio_tokens": 76,
+    "reasoning_tokens": 171
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "gemeint": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "erkannt": "Ich fühle mich heute nicht so gut, ich mag nichts essen.",
+  "uebersetzung": "Danas se ne osjećam baš tako dobro, ništa mi ne prija da jedem.",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 641,
+   "input_tokens": 505,
+   "output_tokens": 136,
+   "input_token_details": {
+    "text_tokens": 292,
+    "audio_tokens": 213,
+    "image_tokens": 0,
+    "cached_tokens": 256,
+    "cached_tokens_details": {
+     "text_tokens": 192,
+     "audio_tokens": 64,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 56,
+    "audio_tokens": 80,
+    "reasoning_tokens": 24
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "gemeint": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "erkannt": "Können Sie mir bitte die Hausschuhe auf der Treppe holen?",
+  "uebersetzung": "Možete li mi, molim vas, doneti kućne papuče sa stepeništa?",
+  "erster_ton_s": 1.52,
+  "usage": {
+   "total_tokens": 704,
+   "input_tokens": 566,
+   "output_tokens": 138,
+   "input_token_details": {
+    "text_tokens": 324,
+    "audio_tokens": 242,
+    "image_tokens": 0,
+    "cached_tokens": 448,
+    "cached_tokens_details": {
+     "text_tokens": 256,
+     "audio_tokens": 192,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 52,
+    "audio_tokens": 86,
+    "reasoning_tokens": 13
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "gemeint": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "erkannt": "Meine Tochter kommt am Sonntag zu Besuch.",
+  "uebersetzung": "Moja ćerka dolazi u nedelju u posetu.",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 758,
+   "input_tokens": 631,
+   "output_tokens": 127,
+   "input_token_details": {
+    "text_tokens": 361,
+    "audio_tokens": 270,
+    "image_tokens": 0,
+    "cached_tokens": 576,
+    "cached_tokens_details": {
+     "text_tokens": 320,
+     "audio_tokens": 256,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 80,
+    "audio_tokens": 47,
+    "reasoning_tokens": 51
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "gemeint": "Ich habe meine Brille verlegt, hast du sie gesehen?",
+  "erkannt": "Ich habe meine Brille verlegt. Hast du sie gesehen?",
+  "uebersetzung": "Naočare sam izgubila. Jesi li ih video?",
+  "erster_ton_s": 1.63,
+  "usage": {
+   "total_tokens": 970,
+   "input_tokens": 694,
+   "output_tokens": 276,
+   "input_token_details": {
+    "text_tokens": 390,
+    "audio_tokens": 304,
+    "image_tokens": 0,
+    "cached_tokens": 0,
+    "cached_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 214,
+    "audio_tokens": 62,
+    "reasoning_tokens": 187
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "gemeint": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "erkannt": "Mir ist kalt, könnte ich noch eine Jacke haben?",
+  "uebersetzung": "Hladno mi je, mogu li dobiti još jednu jaknu?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 858,
+   "input_tokens": 756,
+   "output_tokens": 102,
+   "input_token_details": {
+    "text_tokens": 417,
+    "audio_tokens": 339,
+    "image_tokens": 0,
+    "cached_tokens": 640,
+    "cached_tokens_details": {
+     "text_tokens": 384,
+     "audio_tokens": 256,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 42,
+    "audio_tokens": 60,
+    "reasoning_tokens": 13
+   }
+  }
+ },
+ {
+  "modell": "gpt-realtime-2.1-mini",
+  "mundart": "Haben Sie meine Tabletten schon gebracht?",
+  "gemeint": "Haben Sie meine Tabletten schon gebracht?",
+  "erkannt": "Haben Sie meine Tabletten schon gebracht?",
+  "uebersetzung": "Jeste li moje tablete već doneli?",
+  "erster_ton_s": 1.51,
+  "usage": {
+   "total_tokens": 927,
+   "input_tokens": 809,
+   "output_tokens": 118,
+   "input_token_details": {
+    "text_tokens": 446,
+    "audio_tokens": 363,
+    "image_tokens": 0,
+    "cached_tokens": 704,
+    "cached_tokens_details": {
+     "text_tokens": 384,
+     "audio_tokens": 320,
+     "image_tokens": 0
+    }
+   },
+   "output_token_details": {
+    "text_tokens": 72,
+    "audio_tokens": 46,
+    "reasoning_tokens": 50
+   }
+  }
+ }
+]

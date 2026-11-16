@@ -1,0 +1,410 @@
+[
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 0.75,
+  "zurueck": "A molim te donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 0.62,
+  "zurueck": "Imam bolove u stomaku i malu kijavicu.",
+  "wortfehler": 0.14
+ },
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 0.7,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 0.72,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 0.72,
+  "zurueck": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-kore",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 0.62,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 0.59,
+  "zurueck": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 0.49,
+  "zurueck": "Imam bolove u stomaku i malu kijavicu.",
+  "wortfehler": 0.14
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 0.49,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 0.47,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 0.77,
+  "zurueck": "Gospođo Moler, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "google-chirp3-hd-charon",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 0.56,
+  "zurueck": "Ne brinite, sve je u redu, sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 0.51,
+  "zurueck": "Molim te donesi iz kuhinje dva krompira tri šargarepe i zečetinu",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 0.41,
+  "zurueck": "Imam bolove u stomaku i malo kijavicu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 0.23,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 0.43,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 0.49,
+  "zurueck": "Gospođo Maler, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "google-standard-b",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 0.35,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 3.56,
+  "zurueck": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 3.35,
+  "zurueck": "Imam bolove u stomaku i malo kijavicu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 3.19,
+  "zurueck": "Da li biste mi, molim vas, doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 3.07,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 3.13,
+  "zurueck": "Gospođo Miler, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "gemini-3.8-flash-tts",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 3.51,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 2.58,
+  "zurueck": "Molim te donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 1.96,
+  "zurueck": "Imam bolove u stomaku i malokrvicu.",
+  "wortfehler": 0.29
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 2.01,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 1.59,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 2.47,
+  "zurueck": "Gospođo Miler, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "gemini-3.8-flash-lite-tts",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 2.5,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 2.34,
+  "zurueck": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 1.28,
+  "zurueck": "imam bolove u stomaku i malo kijavicu",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 1.22,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 1.16,
+  "zurueck": "Moja ćerka dolazi u nedelju u posetu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 2.64,
+  "zurueck": "Gospođo Miler, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "elevenlabs-v3",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 1.45,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-multilingual-v2",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "elevenlabs-flash-v2.5",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "fehler": "Client error '400 Bad Request' for url 'https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM?output_format=mp3_44100_128'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 0,
+  "vorlage": "Molim te, donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "sekunden": 0.4,
+  "zurueck": "Molim te donesi iz kuhinje dva krompira, tri šargarepe i zečetinu.",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 1,
+  "vorlage": "Imam bolove u stomaku i malo kijavicu.",
+  "sekunden": 0.25,
+  "zurueck": "Imam bolove u stomaku i malu kijavicu",
+  "wortfehler": 0.14
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 2,
+  "vorlage": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "sekunden": 0.19,
+  "zurueck": "Da li biste mi molim vas doneli papuče sa stepenica?",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 3,
+  "vorlage": "Moja ćerka dolazi u nedelju u posetu.",
+  "sekunden": 0.16,
+  "zurueck": "moja ćerka dolazi u nedelju u posetu",
+  "wortfehler": 0.0
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 4,
+  "vorlage": "Gospođo Müller, vreme je za vaše tablete. Hoćete li čašu vode?",
+  "sekunden": 0.24,
+  "zurueck": "Gospođo Mur, vreme je za vaše tablete, hoćete li čašu vode?",
+  "wortfehler": 0.09
+ },
+ {
+  "stimme": "piper-serbski-institut",
+  "satz": 5,
+  "vorlage": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "sekunden": 0.26,
+  "zurueck": "Ne brinite, sve je u redu. Sestra dolazi za pet minuta.",
+  "wortfehler": 0.0
+ }
+]
