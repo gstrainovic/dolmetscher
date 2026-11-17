@@ -238,7 +238,10 @@ private fun HistoryDetail(session: ChatSession, onBack: () -> Unit) {
             if (session.mySourceText.isNotBlank()) {
                 DetailBlock(stringResource(R.string.detail_you_source), session.mySourceText)
             }
-            DetailBlock(stringResource(R.string.detail_you, langName(session.partnerLang)), session.myText)
+            // Eigene Sätze stehen nur in älteren Gesprächen.
+            if (session.myText.isNotBlank()) {
+                DetailBlock(stringResource(R.string.detail_you, langName(session.partnerLang)), session.myText)
+            }
         }
     }
 }

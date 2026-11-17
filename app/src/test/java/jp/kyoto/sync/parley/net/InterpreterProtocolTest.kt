@@ -23,10 +23,7 @@ class InterpreterProtocolTest {
         assertTrue(instructions.contains("Only output the translation"))
     }
 
-    /**
-     * Übersetzt wird nur die Sprache, aus der die Richtung kommt: beim Zuhören die des Gegenübers, bei der eigenen
-     * Taste die der Benutzerin. In 0.5.3 hiess es fest «nur Deutsch», und Gemini verschwieg Vesnas Serbisch bei der Taste.
-     */
+    /** Übersetzt wird nur die gewählte Sprache des Gegenübers, nicht fest Deutsch. */
     @Test
     fun instructionsTranslateOnlyTheSourceLanguageOfTheDirection() {
         assertTrue(InterpreterProtocol.instructions(target = Lang.SR, source = Lang.DE_CH)

@@ -33,7 +33,6 @@ import jp.kyoto.sync.parley.audio.Route
 import jp.kyoto.sync.parley.core.AppSettings
 import jp.kyoto.sync.parley.core.Keys
 import jp.kyoto.sync.parley.core.Config
-import jp.kyoto.sync.parley.core.Mode
 import jp.kyoto.sync.parley.core.Oberflaeche
 import jp.kyoto.sync.parley.core.Protokoll
 import jp.kyoto.sync.parley.core.ProtokollUpload
@@ -55,19 +54,11 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
 /**
- * 双方向同時通訳のフォアグラウンドサービス。
+ * Vordergrunddienst für das Dolmetschen in eine Richtung: Mikrofon = Stimme des Gegenübers →
+ * incoming (übersetzt in die Sprache der Benutzerin) → Kopfhörer. Eigene Sätze der Benutzerin
+ * werden nicht übersetzt.
  *
- * 設計（ハウリング回避のため、まずは半二重 / プッシュトゥトーク）:
- *  - Mode.LISTENING: マイク=相手の声 → incoming(訳:自分言語) → イヤホン
- *  - Mode.SPEAKING : マイク=自分の声 → outgoing(訳:相手言語) → スピーカー
- *
- * マイクのフレームは現在の Mode のセッションだけに流すので、スピーカー出力が
- * マイクへ回り込むハウリングを構造的に防げる。
- *
- * API キーは [ApiKeyStore] から読み出し、各セッションに直接渡す（BYOK）。
- *
- * 半二重ゆえ片方向が落ちると通訳は成立しないため、致命的エラーでは [fatalError] で
- * 全リソースを解放して停止する（マイクを開いたまま放置しない）。
+ * Bei einem schweren Fehler gibt [fatalError] alles frei und hält an (Mikrofon nie offen lassen).
  */
 class TranslationService : Service() {
 
@@ -92,10 +83,8 @@ class TranslationService : Service() {
         http.newCall(req).execute().use { it.isSuccessful }
     }
     private var earphonePlayer: AudioPlayer? = null // incoming → 自分の耳
-    private var speakerPlayer: AudioPlayer? = null   // outgoing → 相手へ
 
     private var incoming: Translator? = null // 相手→自分
-    private var outgoing: Translator? = null // 自分→相手
 
     /** Trennt sich Kopfhörer oder Brille, hält die Übersetzung an; die App zeigt dann den Assistenten. */
     private val geraeteWache = object : AudioDeviceCallback() {
@@ -117,10 +106,6 @@ class TranslationService : Service() {
         when (intent?.action) {
             ACTION_START -> start()
             ACTION_STOP -> stopSelf()
-            ACTION_SET_MODE -> {
-                val m = intent.getStringExtra(EXTRA_MODE)?.let { Mode.valueOf(it) } ?: Mode.LISTENING
-                SessionBus.mode.value = m
-            }
             // intent == null（START_NOT_STICKY 後の異常再起動など）や未知の action は何もしない。
         }
         // リアルタイム通訳はマイクとユーザー操作が前提。OS に勝手に再起動させない。
@@ -192,7 +177,6 @@ class TranslationService : Service() {
                 }
 
                 earphonePlayer = AudioPlayer(this@TranslationService, Route.EARPHONE).apply { start() }
-                speakerPlayer = AudioPlayer(this@TranslationService, Route.SPEAKER).apply { start() }
 
                 incoming = Translator.incoming(
                     setup = setup,
@@ -224,31 +208,7 @@ class TranslationService : Service() {
                     trace = log::info,
                 ).also { it.connect() }
 
-                outgoing = Translator.outgoing(
-                    setup = setup,
-                    target = conv.outgoingTarget,
-                    source = conv.myLang,
-                    transcriptionModel = transcriptionModel,
-                    http = http,
-                    listener = object : TranslationSession.Listener {
-                        override fun onTranslatedAudio(pcm16: ByteArray) {
-                            speakerPlayer?.write(pcm16) // 自分の訳はスピーカーへ
-                            wiedergabe.wrote(pcm16)
-                        }
-
-                        override fun onOutputTranscript(text: String) {
-                            SessionBus.appendMyTranscript(text)
-                        }
-
-                        // 自分の原文は表示しない: 出力（訳）音声がスピーカーから流れ、本体マイクへ
-                        // 回り込んで（エコー）原文へ混入するため（例:「こんにちは。Guten Tag.」）。
-                        // 相手方向はイヤホン出力なのでエコーしにくく、原文を表示する。
-                        override fun onError(t: Throwable) = fatalError(t)
-                    },
-                ).also { it.connect() }
-
-                // マイク取り込み開始。現在の Mode に応じて送り先を切り替える。
-                // Beim Zuhören nur Ton schicken, wenn jemand spricht (Kosten).
+                // Nur Ton schicken, wenn jemand spricht (Kosten).
                 // Aufnahmen nur in Testversionen: sie enthalten echte Gespräche.
                 val aufnahme = SatzAufnahme(java.io.File(filesDir, "aufnahmen")).takeIf { BuildConfig.DEBUG }
                 // Silero mit 24 dB Verstärkung, Schwellen 0.3 und 0.15 in SpeechGate (messungen/vad_simulation.py).
@@ -276,15 +236,11 @@ class TranslationService : Service() {
                 capturer = AudioCapturer(
                     onFrame = { frame ->
                         roh?.add(frame)
-                        when (SessionBus.mode.value) {
-                            // Über den Handylautsprecher nimmt das Mikrofon die eigene Übersetzung auf
-                            // (Echo im Test): dann während der Wiedergabe nicht zuhören. Mit Brille
-                            // oder Kopfhörer weiter zuhören, sonst geht der Rest des Satzes verloren, wenn
-                            // das Gegenüber weiterspricht; ein Echo fängt dort EchoFilter am Text ab.
-                            Mode.LISTENING ->
-                                if (!wiedergabe.busy() || earphonePlayer?.headset() == true) gate.feed(frame)
-                            Mode.SPEAKING -> outgoing?.sendAudio(frame)
-                        }
+                        // Über den Handylautsprecher nimmt das Mikrofon die eigene Übersetzung auf
+                        // (Echo im Test): dann während der Wiedergabe nicht zuhören. Mit Brille
+                        // oder Kopfhörer weiter zuhören, sonst geht der Rest des Satzes verloren, wenn
+                        // das Gegenüber weiterspricht; ein Echo fängt dort EchoFilter am Text ab.
+                        if (!wiedergabe.busy() || earphonePlayer?.headset() == true) gate.feed(frame)
                     },
                     onError = { t -> fatalError(t) },
                 ).also { it.start() }
@@ -313,9 +269,7 @@ class TranslationService : Service() {
         capturer?.stop(); capturer = null
         mitschnitt?.close(); mitschnitt = null
         incoming?.close(); incoming = null
-        outgoing?.close(); outgoing = null
         earphonePlayer?.stop(); earphonePlayer = null
-        speakerPlayer?.stop(); speakerPlayer = null
     }
 
     private fun startForegroundCompat() {
@@ -361,8 +315,6 @@ class TranslationService : Service() {
         private const val NOTIF_ID = 1
         const val ACTION_START = "jp.kyoto.sync.parley.START"
         const val ACTION_STOP = "jp.kyoto.sync.parley.STOP"
-        const val ACTION_SET_MODE = "jp.kyoto.sync.parley.SET_MODE"
-        const val EXTRA_MODE = "mode"
 
         fun start(ctx: Context) = ctx.startForegroundService(
             Intent(ctx, TranslationService::class.java).setAction(ACTION_START),
@@ -370,12 +322,6 @@ class TranslationService : Service() {
 
         fun stop(ctx: Context) = ctx.startService(
             Intent(ctx, TranslationService::class.java).setAction(ACTION_STOP),
-        )
-
-        fun setMode(ctx: Context, mode: Mode) = ctx.startService(
-            Intent(ctx, TranslationService::class.java)
-                .setAction(ACTION_SET_MODE)
-                .putExtra(EXTRA_MODE, mode.name),
         )
     }
 }

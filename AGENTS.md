@@ -43,14 +43,14 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   `TranslationSession` für Ziele von `gpt-realtime-translate`) oder `ChainSession` aus `Recognizer`
   (`SuisseRecognizer` live, `VoxtralRecognizer` je Satz als WAV), `TextTranslator` (`ClaudeServerTranslator`,
   `GeminiFlashTranslator` mit den letzten sechs Sätzen als Zusammenhang) und `SpeechOut` (`AzureVoice`,
-  `AndroidVoice` über eine WAV-Datei, damit Lautstärkeregler und Brille gleich bleiben). Eigene Sätze per Taste
-  laufen bei den Ketten über Gemini Live, weil Suisse Speech und Voxtral kein Serbisch erkennen. Beim Zuhören wird
-  nur Deutsch und Schweizerdeutsch übersetzt: Spricht die Benutzerin selbst (Serbisch) oder jemand eine andere
+  `AndroidVoice` über eine WAV-Datei, damit Lautstärkeregler und Brille gleich bleiben). Die App übersetzt nur in
+  eine Richtung, vom Gegenüber in die Sprache der Benutzerin; eigene Sätze der Benutzerin übersetzt sie nicht, es
+  gibt keine Sprechtaste und keinen Tausch der Sprachen. Der grosse Knopf startet und stoppt das Zuhören. Übersetzt
+  wird nur Deutsch und Schweizerdeutsch: Spricht die Benutzerin selbst (Serbisch) oder jemand eine andere
   Sprache, kommt der Satz trotzdem als Text an; der Text-Übersetzer antwortet dann `[SKIP]`
   (`InterpreterProtocol.SKIP`, `UEBERSPRINGEN` im Dienst), und die Kette liest nichts vor. Gemini Live und OpenAI
-  übersetzen je Richtung nur deren Ausgangssprache (`InterpreterProtocol.instructions(target, source)`): beim
-  Zuhören die des Gegenübers, bei der Taste die der Benutzerin. Gemini Live hält das nicht immer
-  (`messungen/nur-deutsch.md`).
+  übersetzen nur die Sprache des Gegenübers (`InterpreterProtocol.instructions(target, source)`). Gemini Live hält
+  das nicht immer (`messungen/nur-deutsch.md`).
   Kyrillischer Text geht gar nicht an den Übersetzer: Voxtral schreibt serbische Sätze oft kyrillisch oder erfindet
   Russisch, und Claude hält das für Russisch und übersetzt es.
 - Schlüssel: fest in der App, nicht im Repo. `werkzeuge/schluessel.sh` schreibt aus `~/.config` (`gemini/key`,
@@ -68,7 +68,7 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
 - Ton: Aufnahme über das Handymikrofon, Wiedergabe als Medienton (`USAGE_MEDIA`) über Bluetooth A2DP. Deshalb gilt
   nur die Medienlautstärke. Der Regler auf dem Hauptbildschirm (`audio/VolumeLevel.kt`) stellt bis 100 % die
   Medienlautstärke und verstärkt darüber in der App (`audio/Gain.kt`, bis 300 %).
-- Sprecherkennung (`audio/SpeechGate.kt`): Beim Zuhören geht Ton nur an den Anbieter, wenn jemand spricht, zwei
+- Sprecherkennung (`audio/SpeechGate.kt`): Ton geht nur an den Anbieter, wenn jemand spricht, zwei
   Rahmen in Folge, mit einer halben Sekunde Vorlauf und 0.6 Sekunden Nachlauf; danach `Translator.endOfSpeech()`.
   Ob gesprochen wird, entscheidet Silero VAD mit 24 dB Verstärkung davor (`audio/SileroSprache.kt`), nicht die
   Lautstärke: Eine eigene Pegelschwelle verlor geflüsterte Sätze. Öffnen ab Wahrscheinlichkeit 0.3, offen bleiben
@@ -78,7 +78,7 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   als Rückfall, wenn das Modell nicht lädt («FEHLER Silero VAD nicht geladen» im Protokoll). Silero läuft über
   sherpa-onnx; `werkzeuge/sherpa.sh` lädt das Paket (49 MB, nicht im Repo) nach `app/libs` und die Modelle nach
   `app/src/main/assets`, vor dem ersten Bau ausführen. Jeder Satz geht auf volle Lautstärke gebracht an Voxtral
-  (`audio/Lautheit.kt`). Beim Sprechen per Taste geht alles durch. Kosten in `docs/varianten.md`.
+  (`audio/Lautheit.kt`). Kosten in `docs/varianten.md`.
 - Testhilfen nur in Debug-Versionen (`BuildConfig.DEBUG`): jeder Satz als WAV in `files/aufnahmen`, der ganze
   Mikrofonton in `files/aufnahmen/mitschnitt.pcm` (16 kHz, höchstens 10 Minuten), die VAD-Wahrscheinlichkeit alle
   5 s im Protokoll. Holen mit `adb exec-out run-as ch.strainovic.dolmetscher cat files/aufnahmen/<datei>`.

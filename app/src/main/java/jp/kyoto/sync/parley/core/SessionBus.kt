@@ -7,27 +7,19 @@ import kotlinx.coroutines.flow.update
 enum class Status { IDLE, CONNECTING, RUNNING, ERROR }
 
 /**
- * 入出力モード（ハウリング回避のため半二重 / プッシュトゥトーク）。
- * - LISTENING: マイク=相手の声 → 自分言語に訳してイヤホンへ
- * - SPEAKING : マイク=自分の声 → 相手言語に訳してスピーカーへ
- */
-enum class Mode { LISTENING, SPEAKING }
-
-/**
  * Service と UI を繋ぐ軽量な状態バス。
  *
  * 雛形のため object（プロセス内シングルトン）で簡素に実装している。
  * 規模が大きくなったら Repository + DI（Hilt 等）への置き換えを推奨。
  *
- * 字幕は WebSocket 受信スレッド（incoming/outgoing で別スレッド）から更新されるため、
+ * 字幕は WebSocket 受信スレッドから更新されるため、
  * 追記は [update] によるアトミックな compare-and-set で行う。さらに長時間セッションで
  * 文字列が無限に伸びて再コンポーズが重くなるのを防ぐため、上限で古い側を間引く。
  *
- * 各方向で「訳文（output）」と「原文（source/input）」の2系統を持つ（バイリンガル字幕）。
+ * 「訳文（output）」と「原文（source/input）」の2系統を持つ（バイリンガル字幕）。
  */
 object SessionBus {
     val status = MutableStateFlow(Status.IDLE)
-    val mode = MutableStateFlow(Mode.LISTENING)
     val conversation = MutableStateFlow(Conversation.DEFAULT)
 
     /** Verstärkung der Übersetzung in den Kopfhörern (1.0 = unverändert), live einstellbar. */
@@ -39,12 +31,6 @@ object SessionBus {
     /** 相手の発話の原文（ソース言語）字幕 */
     val partnerSourceTranscript = MutableStateFlow("")
 
-    /** 自分の発話を相手言語に訳した字幕（訳文・スピーカー側） */
-    val myTranscript = MutableStateFlow("")
-
-    /** 自分の発話の原文（ソース言語）字幕 */
-    val mySourceTranscript = MutableStateFlow("")
-
     val errorMessage = MutableStateFlow<String?>(null)
 
     /** 現在の会話の開始時刻(epoch ms)。0 は未開始/クリア済み。履歴保存の ID にも使う。 */
@@ -54,14 +40,8 @@ object SessionBus {
     /** 相手の訳文字幕にデルタを追記（スレッドセーフ・上限あり）。 */
     fun appendPartnerTranscript(delta: String) = append(partnerTranscript, delta)
 
-    /** 自分の訳文字幕にデルタを追記（スレッドセーフ・上限あり）。 */
-    fun appendMyTranscript(delta: String) = append(myTranscript, delta)
-
     /** 相手の原文字幕にデルタを追記。 */
     fun appendPartnerSource(delta: String) = append(partnerSourceTranscript, delta)
-
-    /** 自分の原文字幕にデルタを追記。 */
-    fun appendMySource(delta: String) = append(mySourceTranscript, delta)
 
     private fun append(flow: MutableStateFlow<String>, delta: String) {
         if (delta.isEmpty()) return
@@ -90,8 +70,6 @@ object SessionBus {
     private fun clearTranscripts() {
         partnerTranscript.value = ""
         partnerSourceTranscript.value = ""
-        myTranscript.value = ""
-        mySourceTranscript.value = ""
         errorMessage.value = null
     }
 

@@ -16,7 +16,7 @@ enum class Lang(
     SR("sr", "Srpski", "Serbian", translateModel = false),
     /**
      * Hochdeutsch und Mundart in einem Eintrag: eigene Kette mit Claudes Deutung ([Setup.vorschlag]), die nur Deutsch
-     * übersetzt. Als Zielsprache (eigene Taste) spricht die App Hochdeutsch.
+     * übersetzt. Als Zielsprache spricht die App Hochdeutsch.
      */
     DE_CH("de-CH", "Deutsch / Schweizerdeutsch", "German"),
     EN("en", "English", "English"),
@@ -42,8 +42,8 @@ enum class Lang(
 /**
  * Sprachpaar eines Gesprächs.
  *
- * - incoming (Gegenüber → ich): Stimme des Gegenübers in [myLang] übersetzt, in die Kopfhörer
- * - outgoing (ich → Gegenüber): eigene Stimme in [partnerLang] übersetzt, über den Lautsprecher
+ * Nur eine Richtung (Gegenüber → ich): Stimme des Gegenübers in [myLang] übersetzt, in die
+ * Kopfhörer. Eigene Sätze werden nicht übersetzt.
  *
  * Die Ausgangssprache erkennt das Modell selbst; angegeben wird nur die Zielsprache.
  */
@@ -52,7 +52,6 @@ data class Conversation(
     val partnerLang: Lang,
 ) {
     val incomingTarget: Lang get() = myLang
-    val outgoingTarget: Lang get() = partnerLang
 
     companion object {
         /** Benutzer hört Serbisch, das Gegenüber spricht Deutsch oder Schweizerdeutsch. */

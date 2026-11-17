@@ -10,23 +10,15 @@ class ConversationTest {
         val c = Conversation.JA_EN
         assertEquals(Lang.JA, c.myLang)
         assertEquals(Lang.EN, c.partnerLang)
-        // incoming（相手→自分）は自分言語、outgoing（自分→相手）は相手言語。
+        // Nur eine Richtung: das Gegenüber wird in die Sprache der Benutzerin übersetzt.
         assertEquals(Lang.JA, c.incomingTarget)
-        assertEquals(Lang.EN, c.outgoingTarget)
-    }
-
-    @Test
-    fun swappedTargets() {
-        val c = Conversation(myLang = Lang.EN, partnerLang = Lang.JA)
-        assertEquals(Lang.EN, c.incomingTarget)
-        assertEquals(Lang.JA, c.outgoingTarget)
     }
 
     @Test
     fun vesnaHearsSerbianWhenSomeoneSpeaksGerman() {
         val c = Conversation.DEFAULT
         assertEquals(Lang.SR, c.incomingTarget)
-        assertEquals(Lang.DE_CH, c.outgoingTarget)
+        assertEquals(Lang.DE_CH, c.partnerLang)
     }
 
     @Test

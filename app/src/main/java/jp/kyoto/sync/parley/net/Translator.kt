@@ -14,7 +14,7 @@ import jp.kyoto.sync.parley.core.Voice
 import okhttp3.OkHttpClient
 
 /**
- * Eine Übersetzungsrichtung: hört Ton (24 kHz PCM16 mono) und liefert übersetzten Ton und
+ * Die Übersetzungsrichtung Gegenüber → Benutzerin: hört Ton (24 kHz PCM16 mono) und liefert übersetzten Ton und
  * Untertitel an den [TranslationSession.Listener].
  */
 interface Translator {
@@ -82,25 +82,6 @@ interface Translator {
                     ChainSession(recognizer, null, translator, voice, listener, echo, trace)
                 }
             }
-        }
-
-        /**
-         * Eigene Sätze (Taste): Suisse Speech und Voxtral erkennen kein Serbisch, deshalb laufen
-         * sie bei den Ketten direkt über Gemini Live; sonst über dasselbe Modell wie das Zuhören.
-         */
-        fun outgoing(
-            setup: Setup,
-            target: Lang,
-            /** Sprache der Benutzerin: nur sie wird übersetzt. */
-            source: Lang,
-            transcriptionModel: String,
-            http: OkHttpClient,
-            listener: TranslationSession.Listener,
-        ): Translator = when (setup.recognition) {
-            Recognition.OPENAI -> openAi(Keys.openai, target, source, transcriptionModel, http, listener)
-            Recognition.OPENAI_MINI ->
-                InterpreterSession(Keys.openai, target, source, transcriptionModel, http, listener, Config.OPENAI_MODEL_MINI)
-            else -> GeminiSession(Keys.gemini, target, http, listener, {}, InterpreterProtocol.instructions(target, source))
         }
 
         /**

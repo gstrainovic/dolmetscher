@@ -1,7 +1,7 @@
 # Dolmetscher
 
 Android-App, die Deutsch und Schweizerdeutsch hört und die serbische Übersetzung in Bluetooth-Kopfhörer oder eine
-Audio-Brille spricht. Erkennung (Suisse Speech, Voxtral, Gemini Live, OpenAI Realtime), Übersetzung (Claude über
+Audio-Brille spricht, nur in diese Richtung (anders als Parley ohne Sprechtaste für eigene Sätze). Erkennung (Suisse Speech, Voxtral, Gemini Live, OpenAI Realtime), Übersetzung (Claude über
 einen eigenen Dienst in `server/`, Gemini Flash) und Stimme sind einzeln wählbar. Aufbau, Bauen und Testen:
 `AGENTS.md`; Messungen und Anbietervergleiche: `docs/`.
 

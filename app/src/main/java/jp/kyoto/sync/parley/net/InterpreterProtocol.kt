@@ -23,8 +23,8 @@ sealed interface InterpreterEvent {
 object InterpreterProtocol {
 
     /**
-     * Dolmetscher-Anweisung für eine Richtung: übersetzt nur [source] (beim Zuhören die Sprache des Gegenübers, bei
-     * der eigenen Taste die der Benutzerin) und schweigt bei allem anderen, auch bei der eigenen Stimme der Benutzerin.
+     * Dolmetscher-Anweisung: übersetzt nur [source] (die Sprache des Gegenübers) und schweigt bei allem anderen, auch
+     * bei der eigenen Stimme der Benutzerin.
      */
     fun instructions(target: Lang, source: Lang): String = """
         You are a professional simultaneous interpreter, not an assistant.

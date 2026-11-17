@@ -10,7 +10,6 @@ import jp.kyoto.sync.parley.core.ChatSession
 import jp.kyoto.sync.parley.core.Conversation
 import jp.kyoto.sync.parley.core.HistoryRepository
 import jp.kyoto.sync.parley.core.Lang
-import jp.kyoto.sync.parley.core.Mode
 import jp.kyoto.sync.parley.core.SessionBus
 import jp.kyoto.sync.parley.core.Setup
 import jp.kyoto.sync.parley.core.TranscriptionModel
@@ -81,12 +80,9 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     val status = SessionBus.status
-    val mode = SessionBus.mode
     val conversation = SessionBus.conversation
     val partnerTranscript = SessionBus.partnerTranscript
     val partnerSourceTranscript = SessionBus.partnerSourceTranscript
-    val myTranscript = SessionBus.myTranscript
-    val mySourceTranscript = SessionBus.mySourceTranscript
     val errorMessage = SessionBus.errorMessage
 
     // --- 設定 ---
@@ -116,12 +112,6 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
         setupNachladen()
     }
 
-    fun swapDirection() {
-        val c = SessionBus.conversation.value
-        SessionBus.conversation.value = Conversation(myLang = c.partnerLang, partnerLang = c.myLang)
-        setupNachladen()
-    }
-
     // --- セッション制御 ---
 
     fun start() {
@@ -139,10 +129,6 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
         persistCurrent()
         SessionBus.clearCurrent()
     }
-
-    fun pttDown() = TranslationService.setMode(getApplication(), Mode.SPEAKING)
-
-    fun pttUp() = TranslationService.setMode(getApplication(), Mode.LISTENING)
 
     // --- 履歴 ---
 
@@ -172,12 +158,8 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
     private fun persistCurrent() {
         val startedAt = SessionBus.currentStartedAt
         val partner = SessionBus.partnerTranscript.value
-        val mine = SessionBus.myTranscript.value
         val partnerSource = SessionBus.partnerSourceTranscript.value
-        val mineSource = SessionBus.mySourceTranscript.value
-        val allBlank = partner.isBlank() && mine.isBlank() &&
-            partnerSource.isBlank() && mineSource.isBlank()
-        if (startedAt == 0L || allBlank) return
+        if (startedAt == 0L || (partner.isBlank() && partnerSource.isBlank())) return
         val conv = SessionBus.conversation.value
         val session = ChatSession(
             id = startedAt.toString(),
@@ -185,9 +167,8 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
             myLang = conv.myLang.code,
             partnerLang = conv.partnerLang.code,
             partnerText = partner,
-            myText = mine,
+            myText = "", // eigene Sätze werden nicht übersetzt; gefüllt nur in älteren Gesprächen
             partnerSourceText = partnerSource,
-            mySourceText = mineSource,
         )
         viewModelScope.launch {
             history.upsert(session)

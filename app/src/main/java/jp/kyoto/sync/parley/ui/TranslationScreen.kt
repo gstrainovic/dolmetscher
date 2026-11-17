@@ -9,7 +9,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,16 +28,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Stop
-import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -63,14 +59,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import jp.kyoto.sync.parley.R
 import jp.kyoto.sync.parley.core.Lang
-import jp.kyoto.sync.parley.core.Mode
 import jp.kyoto.sync.parley.core.Status
 import jp.kyoto.sync.parley.ui.theme.ParleyBrand
 import jp.kyoto.sync.parley.ui.theme.ParleyEmerald
@@ -84,12 +78,9 @@ fun TranslationScreen(
     onOpenHistory: () -> Unit,
 ) {
     val status by vm.status.collectAsState()
-    val mode by vm.mode.collectAsState()
     val conv by vm.conversation.collectAsState()
     val partnerText by vm.partnerTranscript.collectAsState()
     val partnerSource by vm.partnerSourceTranscript.collectAsState()
-    val myText by vm.myTranscript.collectAsState()
-    val mySource by vm.mySourceTranscript.collectAsState()
     val error by vm.errorMessage.collectAsState()
     val volume by vm.volume.collectAsState()
     LaunchedEffect(Unit) { vm.refreshVolume() }
@@ -138,7 +129,6 @@ fun TranslationScreen(
                 enabled = idle,
                 onSelectMy = vm::setMyLang,
                 onSelectPartner = vm::setPartnerLang,
-                onSwap = vm::swapDirection,
             )
             Spacer(Modifier.height(8.dp))
             VolumeBar(volume = volume, onChange = vm::setVolume)
@@ -149,28 +139,16 @@ fun TranslationScreen(
                 target = stringResource(R.string.target_arrow, conv.myLang.displayName),
                 icon = Icons.Filled.Headphones,
                 accent = MaterialTheme.colorScheme.secondary,
-                active = running && mode == Mode.LISTENING,
+                active = running,
                 text = partnerText,
                 source = partnerSource,
                 placeholder = stringResource(R.string.caption_partner_placeholder),
                 modifier = Modifier.weight(1f),
             )
-            Spacer(Modifier.height(12.dp))
-            CaptionCard(
-                role = stringResource(R.string.label_you),
-                target = stringResource(R.string.target_arrow, conv.partnerLang.displayName),
-                icon = Icons.Filled.Mic,
-                accent = MaterialTheme.colorScheme.tertiary,
-                active = running && mode == Mode.SPEAKING,
-                text = myText,
-                source = mySource,
-                placeholder = stringResource(R.string.caption_you_placeholder),
-                modifier = Modifier.weight(1f),
-            )
 
             Spacer(Modifier.height(14.dp))
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                StatusPill(status, mode)
+                StatusPill(status)
             }
 
             error?.let {
@@ -188,17 +166,14 @@ fun TranslationScreen(
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 HeroButton(
                     status = status,
-                    speaking = mode == Mode.SPEAKING,
                     onStart = vm::start,
-                    onSpeakStart = vm::pttDown,
-                    onSpeakEnd = vm::pttUp,
+                    onStop = vm::stop,
                 )
             }
             Text(
                 text = when {
                     connecting -> stringResource(R.string.status_connecting)
-                    running && mode == Mode.SPEAKING -> stringResource(R.string.hint_speaking)
-                    running -> stringResource(R.string.hint_hold_to_talk)
+                    running -> stringResource(R.string.hint_tap_to_stop)
                     else -> stringResource(R.string.hint_tap_to_start)
                 },
                 style = MaterialTheme.typography.labelLarge,
@@ -206,8 +181,7 @@ fun TranslationScreen(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
             )
-            val hasContent = partnerText.isNotEmpty() || myText.isNotEmpty() ||
-                partnerSource.isNotEmpty() || mySource.isNotEmpty()
+            val hasContent = partnerText.isNotEmpty() || partnerSource.isNotEmpty()
             if (idle && hasContent) {
                 TextButton(
                     onClick = vm::newConversation,
@@ -266,7 +240,6 @@ private fun LanguageSelector(
     enabled: Boolean,
     onSelectMy: (Lang) -> Unit,
     onSelectPartner: (Lang) -> Unit,
-    onSwap: () -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -279,9 +252,6 @@ private fun LanguageSelector(
             onSelect = onSelectMy,
             modifier = Modifier.weight(1f),
         )
-        FilledTonalIconButton(onClick = onSwap, enabled = enabled) {
-            Icon(Icons.Filled.SwapHoriz, contentDescription = stringResource(R.string.cd_swap_lang))
-        }
         LangDropdown(
             label = stringResource(R.string.label_partner),
             selected = partnerLang,
@@ -443,7 +413,7 @@ private fun LiveDot(color: Color) {
 }
 
 @Composable
-private fun StatusPill(status: Status, mode: Mode) {
+private fun StatusPill(status: Status) {
     val dotColor: Color
     val label: String
     when (status) {
@@ -455,10 +425,7 @@ private fun StatusPill(status: Status, mode: Mode) {
             dotColor = ParleySky
             label = stringResource(R.string.status_connecting)
         }
-        Status.RUNNING -> if (mode == Mode.SPEAKING) {
-            dotColor = MaterialTheme.colorScheme.tertiary
-            label = stringResource(R.string.status_speaking)
-        } else {
+        Status.RUNNING -> {
             dotColor = MaterialTheme.colorScheme.secondary
             label = stringResource(R.string.status_listening)
         }
@@ -486,10 +453,8 @@ private fun StatusPill(status: Status, mode: Mode) {
 @Composable
 private fun HeroButton(
     status: Status,
-    speaking: Boolean,
     onStart: () -> Unit,
-    onSpeakStart: () -> Unit,
-    onSpeakEnd: () -> Unit,
+    onStop: () -> Unit,
 ) {
     val running = status == Status.RUNNING
     val connecting = status == Status.CONNECTING
@@ -503,7 +468,8 @@ private fun HeroButton(
     )
 
     Box(modifier = Modifier.size(176.dp), contentAlignment = Alignment.Center) {
-        if (running && speaking) {
+        // Pulsiert, solange die App zuhört.
+        if (running) {
             Box(
                 Modifier
                     .size(120.dp + 52.dp * pulse)
@@ -512,27 +478,14 @@ private fun HeroButton(
             )
         }
 
-        val brush = if (running && speaking) ParleyBrand.activeGradient else ParleyBrand.gradient
-        val interactionMod = if (running) {
-            Modifier.pointerInput(Unit) {
-                detectTapGestures(
-                    onPress = {
-                        onSpeakStart()
-                        tryAwaitRelease()
-                        onSpeakEnd()
-                    },
-                )
-            }
-        } else {
-            Modifier.clickable(enabled = !connecting) { onStart() }
-        }
+        val brush = if (running) ParleyBrand.activeGradient else ParleyBrand.gradient
 
         Box(
             modifier = Modifier
                 .size(116.dp)
                 .clip(CircleShape)
                 .background(brush)
-                .then(interactionMod),
+                .clickable(enabled = !connecting) { if (running) onStop() else onStart() },
             contentAlignment = Alignment.Center,
         ) {
             when {
@@ -542,8 +495,8 @@ private fun HeroButton(
                     modifier = Modifier.size(36.dp),
                 )
                 running -> Icon(
-                    Icons.Filled.Mic,
-                    contentDescription = stringResource(R.string.hint_hold_to_talk),
+                    Icons.Filled.Stop,
+                    contentDescription = stringResource(R.string.cd_stop),
                     tint = Color.White,
                     modifier = Modifier.size(44.dp),
                 )
