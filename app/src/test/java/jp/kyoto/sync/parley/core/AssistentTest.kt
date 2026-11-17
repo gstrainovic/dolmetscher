@@ -22,7 +22,19 @@ class AssistentTest {
         ausgaenge: List<Ausgang> = listOf(lautsprecher, brille),
         geprueft: Int? = brille.id,
         entwickler: Boolean = false,
-    ) = Assistent.schritt(bluetoothAn, ausgaenge, geprueft, entwickler)
+        laeuft: Boolean = false,
+    ) = Assistent.schritt(bluetoothAn, ausgaenge, geprueft, entwickler, laeuft)
+
+    @Test
+    fun laeuftDieUebersetzungSchonKommtDieHauptseiteOhneNeuenTest() {
+        // Nach Schliessen und Wiederöffnen der App muss der Stopp-Knopf erreichbar sein.
+        assertEquals(Schritt.FERTIG, schritt(geprueft = null, laeuft = true))
+    }
+
+    @Test
+    fun auchBeiLaufenderUebersetzungNieOhneGeraet() {
+        assertEquals(Schritt.KOPPELN, schritt(ausgaenge = listOf(lautsprecher), geprueft = null, laeuft = true))
+    }
 
     @Test
     fun ohneBluetoothUndOhneKabelKopfhoererZuerstBluetoothEinschalten() {

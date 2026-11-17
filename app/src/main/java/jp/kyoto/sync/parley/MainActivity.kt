@@ -19,6 +19,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -30,6 +31,8 @@ import jp.kyoto.sync.parley.core.Assistent
 import jp.kyoto.sync.parley.core.Oberflaeche
 import jp.kyoto.sync.parley.core.Ausgang
 import jp.kyoto.sync.parley.core.Schritt
+import jp.kyoto.sync.parley.core.SessionBus
+import jp.kyoto.sync.parley.core.Status
 import jp.kyoto.sync.parley.ui.AssistentScreen
 import jp.kyoto.sync.parley.ui.HistoryScreen
 import jp.kyoto.sync.parley.ui.SettingsScreen
@@ -80,7 +83,10 @@ class MainActivity : ComponentActivity() {
                 var screen by rememberSaveable { mutableStateOf("main") }
                 // Gerät, dessen Funktionstest seit dem Öffnen der App bestanden ist.
                 var geprueft by rememberSaveable { mutableStateOf<Int?>(null) }
-                val schritt = Assistent.schritt(bluetoothAn, ausgaenge, geprueft, BuildConfig.ENTWICKLER)
+                // Läuft die Übersetzung im Hintergrund weiter, gleich zur Hauptseite mit dem Stopp-Knopf.
+                val status by SessionBus.status.collectAsState()
+                val laeuft = status == Status.RUNNING || status == Status.CONNECTING
+                val schritt = Assistent.schritt(bluetoothAn, ausgaenge, geprueft, BuildConfig.ENTWICKLER, laeuft)
 
                 when {
                     schritt != Schritt.FERTIG -> {

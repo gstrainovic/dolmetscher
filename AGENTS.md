@@ -22,7 +22,9 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   solange `Assistent.schritt` nicht `FERTIG` ist: Bluetooth einschalten (Systemdialog), Gerät koppeln
   (Bluetooth-Einstellungen), Funktionstest (Ton im Gerät gehört und Stimme im Mikrofon erkannt). Der Test gilt für
   das verbundene Gerät bis zum nächsten Öffnen der App; Android vergibt nach einem Neuverbinden eine neue Kennung,
-  dann kommt der Test wieder. Als Kopfhörer zählen Bluetooth A2DP und LE, Kabel- und USB-Kopfhörer, nie
+  dann kommt der Test wieder. Läuft die Übersetzung beim Öffnen schon (App geschlossen, Dienst läuft weiter),
+  entfällt der Test, damit der Stopp-Knopf erreichbar ist. Die Benachrichtigung des Dienstes öffnet die App und hat
+  einen Knopf «Stopp». Als Kopfhörer zählen Bluetooth A2DP und LE, Kabel- und USB-Kopfhörer, nie
   Lautsprecher oder Hörkapsel des Handys. Trennt sich das Gerät im Betrieb, hält `TranslationService` die
   Übersetzung an (`geraeteWache`) und der Assistent erscheint; ohne Gerät startet der Dienst gar nicht. Der Testton
   geht nur an den Kopfhörer und entfällt, wenn keiner verbunden ist. Benutzer können nichts überspringen; nur ein

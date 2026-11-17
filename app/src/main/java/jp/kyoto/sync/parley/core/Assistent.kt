@@ -32,14 +32,22 @@ object Assistent {
 
     /**
      * @param geprueft Kennung des Geräts, dessen Funktionstest in dieser Sitzung bestanden ist, sonst null.
+     * @param laeuft Die Übersetzung läuft schon (App geschlossen und wieder geöffnet): kein neuer Test, damit der
+     *   Stopp-Knopf erreichbar bleibt. Ohne Gerät läuft der Dienst nie, der Test vor dem Start genügt.
      */
-    fun schritt(bluetoothAn: Boolean, ausgaenge: List<Ausgang>, geprueft: Int?, entwickler: Boolean): Schritt {
+    fun schritt(
+        bluetoothAn: Boolean,
+        ausgaenge: List<Ausgang>,
+        geprueft: Int?,
+        entwickler: Boolean,
+        laeuft: Boolean = false,
+    ): Schritt {
         if (entwickler) return Schritt.FERTIG
         val geraet = kopfhoerer(ausgaenge)
         return when {
             geraet == null && !bluetoothAn -> Schritt.BLUETOOTH
             geraet == null -> Schritt.KOPPELN
-            geraet.id != geprueft -> Schritt.TEST
+            geraet.id != geprueft && !laeuft -> Schritt.TEST
             else -> Schritt.FERTIG
         }
     }

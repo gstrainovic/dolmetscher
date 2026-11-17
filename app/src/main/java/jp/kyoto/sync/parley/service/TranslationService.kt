@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -18,6 +19,7 @@ import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import jp.kyoto.sync.parley.MainActivity
 import jp.kyoto.sync.parley.R
 import jp.kyoto.sync.parley.audio.AudioCapturer
 import jp.kyoto.sync.parley.audio.AudioPlayer
@@ -280,11 +282,24 @@ class TranslationService : Service() {
                 NotificationChannel(channelId, getString(R.string.notif_channel_name), NotificationManager.IMPORTANCE_LOW),
             )
         }
+        // Antippen öffnet die App, «Stopp» beendet die Übersetzung auch bei geschlossener App.
+        val oeffnen = PendingIntent.getActivity(
+            this, 0,
+            Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
+        val stoppen = PendingIntent.getService(
+            this, 1,
+            Intent(this, TranslationService::class.java).setAction(ACTION_STOP),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
         val notif: Notification = NotificationCompat.Builder(this, channelId)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.notif_running))
             .setSmallIcon(R.drawable.ic_notification)
             .setOngoing(true)
+            .setContentIntent(oeffnen)
+            .addAction(0, getString(R.string.cd_stop), stoppen)
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
