@@ -36,8 +36,11 @@ class GeminiProtocolTest {
     }
 
     @Test
-    fun speakerContinuingDoesNotCutOffTheTranslation() {
-        assertEquals("NO_INTERRUPTION", setup.getJSONObject("realtimeInputConfig").getString("activityHandling"))
+    fun aSilentTurnDoesNotBlockTheNextSentence() {
+        // Mit NO_INTERRUPTION blieb Gemini nach einer stillen Antwort («<no speech>») hängen und übersetzte
+        // nichts mehr (messungen/gemini-live-haenger.md); die Unterbrechung durch neue Sprache beendet sie.
+        assertTrue(!setup.has("realtimeInputConfig") ||
+            setup.getJSONObject("realtimeInputConfig").optString("activityHandling") != "NO_INTERRUPTION")
     }
 
     @Test
@@ -107,6 +110,24 @@ class GeminiProtocolTest {
             listOf(InterpreterEvent.OutputTranscript("Želite li čaj?")),
             GeminiProtocol.parse("""{"serverContent":{"outputTranscription":{"text":"Želite li čaj?{pause}"}}}"""),
         )
+    }
+
+    @Test
+    fun markersSplitAcrossMessagesDoNotShowUpInTheSubtitles() {
+        // Gesehen auf Vesnas Handy: «<no » und «speech>{pause}» in zwei Nachrichten.
+        val filter = GeminiProtocol.Untertitelfilter()
+        assertEquals("", filter.feed("<no "))
+        assertEquals("", filter.feed("speech>{pause}"))
+        assertEquals("Možeš li ", filter.feed("Možeš li "))
+        assertEquals("mleko?", filter.feed("mleko?{pa"))
+        assertEquals("", filter.feed("use}"))
+    }
+
+    @Test
+    fun anAngleBracketWithoutMarkerIsNotSwallowed() {
+        val filter = GeminiProtocol.Untertitelfilter()
+        assertEquals("a ", filter.feed("a < b"))
+        assertEquals("< b\n", filter.feed("\n"))
     }
 
     @Test

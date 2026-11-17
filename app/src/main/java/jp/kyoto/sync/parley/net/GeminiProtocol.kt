@@ -15,6 +15,24 @@ object GeminiProtocol {
     /** Interne Marken, die Gemini manchmal in den Untertitel schreibt, etwa «<no speech>{pause}». */
     private val MARKER = Regex("""<[a-z _]+>|\{[a-z _]+\}""")
 
+    /** Unvollständiger Anfang einer Marke am Ende eines Stücks, etwa «<no » oder «{pa». */
+    private val ANFANG = Regex("""[<{][a-z _]*$""")
+
+    /**
+     * Entfernt Marken auch dann, wenn Gemini sie auf mehrere Nachrichten verteilt: Ein angefangenes «<…» oder «{…»
+     * am Ende wird zurückgehalten, bis es sich schliesst oder eine neue Zeile kommt.
+     */
+    class Untertitelfilter {
+        private var rest = ""
+
+        fun feed(stueck: String): String {
+            val text = (rest + stueck).replace(MARKER, "")
+            val offen = if (text.endsWith("\n")) null else ANFANG.find(text)
+            rest = offen?.value.orEmpty()
+            return if (offen == null) text else text.substring(0, offen.range.first)
+        }
+    }
+
     fun setup(target: Lang, instructions: String): String {
         val setup = JSONObject()
             .put("model", "models/$MODEL")
@@ -25,8 +43,9 @@ object GeminiProtocol {
             )
             .put("inputAudioTranscription", JSONObject())
             .put("outputAudioTranscription", JSONObject())
-            // Spricht das Gegenüber weiter, läuft die Übersetzung zu Ende.
-            .put("realtimeInputConfig", JSONObject().put("activityHandling", "NO_INTERRUPTION"))
+            // Kein NO_INTERRUPTION: Damit blieb Gemini nach einer stillen Antwort («<no speech>») hängen
+            // (messungen/gemini-live-haenger.md). Neue Sprache unterbricht nur die Erzeugung; der Ton ist dann
+            // meist schon ganz da und läuft in der App zu Ende.
             // Ohne Verdichtung endet eine reine Tonsitzung nach rund 15 Minuten.
             .put("contextWindowCompression", JSONObject().put("slidingWindow", JSONObject()))
         return JSONObject().put("setup", setup).toString()

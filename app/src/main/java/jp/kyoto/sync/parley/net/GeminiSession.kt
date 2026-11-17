@@ -30,6 +30,7 @@ class GeminiSession(
     @Volatile private var ws: WebSocket? = null
     private val policy = ReconnectPolicy()
     private val handler = Handler(Looper.getMainLooper())
+    private val untertitel = GeminiProtocol.Untertitelfilter()
 
     // Sätze erst nach setupComplete schicken; vorher (Aufbau, Neuverbindung) festhalten statt verlieren.
     private val texts = ReadyQueue<String> { t ->
@@ -79,7 +80,8 @@ class GeminiSession(
         for (e in GeminiProtocol.parse(text)) {
             when (e) {
                 is InterpreterEvent.Audio -> listener.onTranslatedAudio(e.pcm16)
-                is InterpreterEvent.OutputTranscript -> listener.onOutputTranscript(e.text)
+                is InterpreterEvent.OutputTranscript ->
+                    untertitel.feed(e.text).takeIf { it.isNotEmpty() }?.let(listener::onOutputTranscript)
                 is InterpreterEvent.InputTranscript -> listener.onInputTranscript(e.text)
                 is InterpreterEvent.Error -> listener.onError(RuntimeException(e.message))
             }
