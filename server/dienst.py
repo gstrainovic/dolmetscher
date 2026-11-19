@@ -2,8 +2,9 @@
 
 Die App schickt je erkanntem Satz `{"sitzung", "ziel", "text"}`. Je Sitzung bleibt eine Claude-Sitzung offen,
 damit Claude den Gesprächsverlauf kennt und fehlerhafte Umschriften aus dem Zusammenhang deuten kann (gemessen:
-1.3 bis 2 Sekunden je Satz, `docs/schweizerdeutsch-erkennung.md`). Unbenutzte Sitzungen schliessen nach
-30 Minuten. Zugang nur mit dem Token aus `DOLMETSCHER_TOKEN`.
+1.3 bis 2 Sekunden je Satz, `docs/schweizerdeutsch-erkennung.md`). Gespräche bleiben nur im Speicher: Stopp in der
+App schliesst die Sitzung (`/beenden`), unbenutzte schliessen nach 30 Minuten, Claude Code legt keine Abschrift ab,
+und der Dienst schreibt weder Text noch Protokoll auf die Platte. Zugang nur mit dem Token aus `DOLMETSCHER_TOKEN`.
 
 Start: `uv run uvicorn dienst:app --host 127.0.0.1 --port 8090`
 """
@@ -66,8 +67,10 @@ class ClaudeAbo:
         await self._aufraeumen()
         if sitzung not in self.sitzungen:
             modell = os.environ.get("DOLMETSCHER_MODELL", "haiku")
+            # Keine Abschrift der Sitzung unter ~/.claude/projects: das Gespräch lebt nur im Speicher.
             opt = ClaudeAgentOptions(model=modell, system_prompt=anweisung(ziel), tools=[], setting_sources=[],
-                                     max_turns=1, include_partial_messages=True)
+                                     max_turns=1, include_partial_messages=True,
+                                     extra_args={"no-session-persistence": None})
             c = ClaudeSDKClient(options=opt)
             await c.connect()
             self.sitzungen[sitzung] = (c, asyncio.Lock(), time.time())
@@ -84,6 +87,15 @@ class ClaudeAbo:
                     await c.disconnect()
                 except Exception:
                     pass
+
+    async def beenden(self, sitzung: str):
+        """Stopp in der App: Sitzung samt Gesprächsverlauf sofort verwerfen."""
+        eintrag = self.sitzungen.pop(sitzung, None)
+        if eintrag:
+            try:
+                await eintrag[0].disconnect()
+            except Exception:
+                pass
 
     async def vorwaermen(self, sitzung: str, ziel: str):
         """Claude-Sitzung anlegen und einmal antworten lassen, bevor der erste Satz kommt: Erst nach der ersten
@@ -140,8 +152,8 @@ class ClaudeAbo:
         return out.strip()
 
 
-class Protokollzeilen(BaseModel):
-    zeilen: list[str]
+class Ende(BaseModel):
+    sitzung: str
 
 
 def erstelle_app(claude) -> FastAPI:
@@ -186,12 +198,9 @@ def erstelle_app(claude) -> FastAPI:
 
         return StreamingResponse(rest(), media_type="text/plain; charset=utf-8")
 
-    @app.post("/protokoll", dependencies=[Depends(pruefe_token)])
-    async def protokoll(p: Protokollzeilen):
-        """Laufprotokoll der App, damit es ohne adb lesbar ist."""
-        datei = os.environ.get("DOLMETSCHER_PROTOKOLL", os.path.expanduser("~/dolmetscher-protokoll.txt"))
-        with open(datei, "a", encoding="utf-8") as f:
-            f.writelines(z.replace("\n", " ") + "\n" for z in p.zeilen)
+    @app.post("/beenden", dependencies=[Depends(pruefe_token)])
+    async def beenden(e: Ende):
+        await claude.beenden(e.sitzung)
         return {"ok": True}
 
     @app.get("/gesund")

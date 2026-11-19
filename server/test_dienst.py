@@ -156,23 +156,66 @@ def test_leerer_text_wird_abgelehnt(client):
     assert r.status_code == 422
 
 
-def test_protokollzeilen_der_app_landen_in_der_datei(client, monkeypatch, tmp_path):
-    datei = tmp_path / "protokoll.txt"
-    monkeypatch.setenv("DOLMETSCHER_PROTOKOLL", str(datei))
+def test_protokoll_der_app_wird_nicht_mehr_angenommen(client, monkeypatch, tmp_path):
+    # Gespräche bleiben nicht auf dem Server: kein Protokoll mit erkanntem Text und Übersetzungen.
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("HOME", str(tmp_path))
     c, _ = client
-    for zeilen in (["23:14:25 SATZENDE", "23:14:26 ERKANNT Ich rede jetzt."], ["23:14:28 ÜBERSETZT Sad govorim."]):
-        r = c.post("/protokoll", json={"zeilen": zeilen}, headers={"Authorization": "Bearer geheim"})
-        assert r.status_code == 200
-    assert datei.read_text().splitlines() == [
-        "23:14:25 SATZENDE", "23:14:26 ERKANNT Ich rede jetzt.", "23:14:28 ÜBERSETZT Sad govorim."]
+    r = c.post("/protokoll", json={"zeilen": ["23:14:26 ERKANNT Ich rede jetzt."]},
+               headers={"Authorization": "Bearer geheim"})
+    assert r.status_code == 404
+    assert list(tmp_path.iterdir()) == []
 
 
-def test_protokoll_ohne_token_abgelehnt(client, monkeypatch, tmp_path):
-    datei = tmp_path / "protokoll.txt"
-    monkeypatch.setenv("DOLMETSCHER_PROTOKOLL", str(datei))
-    c, _ = client
-    assert c.post("/protokoll", json={"zeilen": ["x"]}).status_code == 401
-    assert not datei.exists()
+def test_beenden_schliesst_die_sitzung_der_app(client):
+    c, falsch = client
+    beendet = []
+
+    async def beenden(sitzung):
+        beendet.append(sitzung)
+
+    falsch.beenden = beenden
+    h = {"Authorization": "Bearer geheim"}
+    assert c.post("/beenden", json={"sitzung": "a"}).status_code == 401
+    assert c.post("/beenden", json={"sitzung": "a"}, headers=h).status_code == 200
+    assert beendet == ["a"]
+
+
+def test_beendete_sitzung_ist_weg_und_getrennt():
+    import asyncio
+
+    class FalscherClient:
+        getrennt = False
+
+        async def disconnect(self):
+            self.getrennt = True
+
+    abo = dienst.ClaudeAbo()
+    fc = FalscherClient()
+    abo.sitzungen["x"] = (fc, asyncio.Lock(), 1e12)
+    asyncio.run(abo.beenden("x"))
+    asyncio.run(abo.beenden("gibt-es-nicht"))
+    assert "x" not in abo.sitzungen
+    assert fc.getrennt
+
+
+def test_claude_speichert_keine_abschrift_auf_dem_server(monkeypatch):
+    # Ohne --no-session-persistence legt Claude Code jede Sitzung als JSONL unter ~/.claude/projects ab.
+    import asyncio
+    import claude_agent_sdk
+
+    optionen = []
+
+    class FalscherClient:
+        def __init__(self, options):
+            optionen.append(options)
+
+        async def connect(self):
+            pass
+
+    monkeypatch.setattr(claude_agent_sdk, "ClaudeSDKClient", FalscherClient)
+    asyncio.run(dienst.ClaudeAbo()._client("s", "sr"))
+    assert "no-session-persistence" in optionen[0].extra_args
 
 
 def test_anweisung_verlangt_nur_die_uebersetzung():

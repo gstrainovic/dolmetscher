@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.media.AudioDeviceInfo
 
 /** Ein Audio-Ausgang des Handys, wie ihn `AudioManager.getDevices` meldet. */
-data class Ausgang(val id: Int, val typ: Int)
+data class Ausgang(val id: Int, val typ: Int, val adresse: String = "")
 
 /** Schritte des Einrichtungs-Assistenten; [FERTIG] gibt die Hauptseite frei. */
 enum class Schritt { BLUETOOTH, KOPPELN, TEST, FERTIG }
@@ -34,6 +34,10 @@ object Assistent {
      * @param geprueft Kennung des Geräts, dessen Funktionstest in dieser Sitzung bestanden ist, sonst null.
      * @param laeuft Die Übersetzung läuft schon (App geschlossen und wieder geöffnet): kein neuer Test, damit der
      *   Stopp-Knopf erreichbar bleibt. Ohne Gerät läuft der Dienst nie, der Test vor dem Start genügt.
+     * @param gepruefteAdresse Bluetooth-Adresse des geprüften Geräts: Stopp trennt die Brille und Start verbindet
+     *   sie wieder, dabei vergibt Android eine neue Kennung; dieselbe Brille braucht keinen neuen Test.
+     * @param brilleGetrennt Stopp hat die gekoppelte Brille getrennt: Hauptseite statt Assistent, Start verbindet
+     *   sie wieder (`audio/Brille.kt`).
      */
     fun schritt(
         bluetoothAn: Boolean,
@@ -41,13 +45,18 @@ object Assistent {
         geprueft: Int?,
         entwickler: Boolean,
         laeuft: Boolean = false,
+        gepruefteAdresse: String? = null,
+        brilleGetrennt: Boolean = false,
     ): Schritt {
         if (entwickler) return Schritt.FERTIG
         val geraet = kopfhoerer(ausgaenge)
+        val schonGeprueft = geraet != null &&
+            (geraet.id == geprueft || (geraet.adresse.isNotEmpty() && geraet.adresse == gepruefteAdresse))
         return when {
             geraet == null && !bluetoothAn -> Schritt.BLUETOOTH
+            geraet == null && brilleGetrennt -> Schritt.FERTIG
             geraet == null -> Schritt.KOPPELN
-            geraet.id != geprueft && !laeuft -> Schritt.TEST
+            !schonGeprueft && !laeuft -> Schritt.TEST
             else -> Schritt.FERTIG
         }
     }

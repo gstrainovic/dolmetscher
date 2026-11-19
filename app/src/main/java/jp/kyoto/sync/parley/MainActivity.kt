@@ -25,7 +25,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
+import jp.kyoto.sync.parley.audio.Brille
 import jp.kyoto.sync.parley.audio.Geraete
+import jp.kyoto.sync.parley.core.Datenschutz
 import jp.kyoto.sync.parley.core.AppSettings
 import jp.kyoto.sync.parley.core.Assistent
 import jp.kyoto.sync.parley.core.Oberflaeche
@@ -34,7 +36,6 @@ import jp.kyoto.sync.parley.core.Schritt
 import jp.kyoto.sync.parley.core.SessionBus
 import jp.kyoto.sync.parley.core.Status
 import jp.kyoto.sync.parley.ui.AssistentScreen
-import jp.kyoto.sync.parley.ui.HistoryScreen
 import jp.kyoto.sync.parley.ui.SettingsScreen
 import jp.kyoto.sync.parley.ui.TranslationScreen
 import jp.kyoto.sync.parley.ui.TranslationViewModel
@@ -71,6 +72,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Datenschutz.aufraeumen(filesDir, BuildConfig.ENTWICKLER)
+        Brille.laden(this)
         requestNeededPermissions()
         geraeteLesen()
         (getSystemService(AUDIO_SERVICE) as AudioManager)
@@ -83,10 +86,15 @@ class MainActivity : ComponentActivity() {
                 var screen by rememberSaveable { mutableStateOf("main") }
                 // Gerät, dessen Funktionstest seit dem Öffnen der App bestanden ist.
                 var geprueft by rememberSaveable { mutableStateOf<Int?>(null) }
+                var gepruefteAdresse by rememberSaveable { mutableStateOf<String?>(null) }
                 // Läuft die Übersetzung im Hintergrund weiter, gleich zur Hauptseite mit dem Stopp-Knopf.
                 val status by SessionBus.status.collectAsState()
                 val laeuft = status == Status.RUNNING || status == Status.CONNECTING
-                val schritt = Assistent.schritt(bluetoothAn, ausgaenge, geprueft, BuildConfig.ENTWICKLER, laeuft)
+                // Stopp hat die Brille getrennt: Hauptseite bleibt, Start verbindet sie wieder.
+                val brilleGetrennt by Brille.getrennt.collectAsState()
+                val schritt = Assistent.schritt(
+                    bluetoothAn, ausgaenge, geprueft, BuildConfig.ENTWICKLER, laeuft, gepruefteAdresse, brilleGetrennt,
+                )
 
                 when {
                     schritt != Schritt.FERTIG -> {
@@ -97,7 +105,10 @@ class MainActivity : ComponentActivity() {
                             geraetId = geraet?.id,
                             onBluetoothEin = ::bluetoothEinschalten,
                             onKoppeln = { startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS)) },
-                            onTestBestanden = { geprueft = it },
+                            onTestBestanden = { id ->
+                                geprueft = id
+                                gepruefteAdresse = ausgaenge.firstOrNull { it.id == id }?.adresse?.ifEmpty { null }
+                            },
                         )
                     }
                     screen == "settings" -> SettingsScreen(
@@ -109,11 +120,9 @@ class MainActivity : ComponentActivity() {
                         },
                         onDone = { screen = "main" },
                     )
-                    screen == "history" -> HistoryScreen(vm = vm, onBack = { screen = "main" })
                     else -> TranslationScreen(
                         vm = vm,
                         onOpenSettings = { screen = "settings" },
-                        onOpenHistory = { screen = "history" },
                     )
                 }
             }

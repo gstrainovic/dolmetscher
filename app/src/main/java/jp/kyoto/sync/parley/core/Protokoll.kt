@@ -9,14 +9,13 @@ import java.util.Locale
  * Laufprotokoll für die Auswertung von Tests (`files/protokoll.txt`, per `adb exec-out run-as … cat`):
  * gewählte Variante, Satzende, erkannter Text, erster hörbarer Ton, Übersetzung, Verbindungen, Fehler.
  * Die Zeit nach «+» zählt ab dem letzten gesprochenen Wort (Satzende der Sprecherkennung minus Nachlauf).
- * Höchstens [maxBytes]; darüber bleibt die neuere Hälfte.
+ * Höchstens [maxBytes]; darüber bleibt die neuere Hälfte. Ohne [datei] schreibt es nichts (Benutzerversion,
+ * [Datenschutz.protokoll]).
  */
 class Protokoll(
-    private val datei: File,
+    private val datei: File?,
     private val maxBytes: Int = 1_000_000,
     private val uhr: () -> Long = System::currentTimeMillis,
-    /** Bekommt jede fertige Zeile, etwa für [ProtokollUpload]. */
-    private val weiter: (String) -> Unit = {},
 ) {
     private var letztesWort = 0L
     private var tonSeitSatz = true
@@ -49,8 +48,8 @@ class Protokoll(
 
     @Synchronized
     private fun schreib(zeile: String) {
+        val datei = datei ?: return
         val fertig = "${format.format(Date(uhr()))} $zeile"
-        runCatching { weiter(fertig) }
         runCatching {
             datei.appendText("$fertig\n")
             if (datei.length() > maxBytes) {

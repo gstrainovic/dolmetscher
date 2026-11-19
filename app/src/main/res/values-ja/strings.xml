@@ -4,12 +4,9 @@
 
     <!-- 共通 -->
     <string name="action_back">戻る</string>
-    <string name="action_delete">削除</string>
-    <string name="action_cancel">キャンセル</string>
 
     <!-- メイン画面 -->
     <string name="cd_stop">停止</string>
-    <string name="cd_history">履歴</string>
     <string name="cd_settings">設定</string>
     <string name="label_you">あなた</string>
     <string name="label_partner">相手</string>
@@ -29,18 +26,6 @@
 
     <!-- API キー設定画面 -->
 
-    <!-- 履歴画面 -->
-    <string name="history_title">会話履歴</string>
-    <string name="cd_delete_all">すべて削除</string>
-    <string name="history_empty">まだ履歴はありません</string>
-    <string name="delete_all_title">すべて削除</string>
-    <string name="delete_all_message">保存した会話履歴をすべて削除します。よろしいですか？</string>
-    <string name="delete_one_title">削除</string>
-    <string name="delete_one_message">この会話を削除しますか？</string>
-    <string name="history_langs">あなた: %1$s  ・  相手: %2$s</string>
-    <string name="detail_partner">相手 → %1$s</string>
-    <string name="detail_you">あなた → %1$s</string>
-    <string name="empty_text">（なし）</string>
 
     <!-- 通知 / サービス -->
     <string name="notif_channel_name">同時通訳</string>
@@ -51,8 +36,6 @@
     <string name="cd_select_language">言語を選択</string>
     <string name="label_original">原文</string>
     <string name="transcription_model_label">文字起こしモデル（原文字幕用）</string>
-    <string name="detail_partner_source">相手（原文）</string>
-    <string name="detail_you_source">あなた（原文）</string>
     <string name="recognition_label">音声認識</string>
     <string name="translation_label">翻訳</string>
     <string name="voice_label">音声</string>

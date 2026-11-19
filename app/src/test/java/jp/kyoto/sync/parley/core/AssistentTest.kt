@@ -62,6 +62,36 @@ class AssistentTest {
         assertEquals(Schritt.BLUETOOTH, schritt(bluetoothAn = false, ausgaenge = listOf(lautsprecher)))
     }
 
+    /** Stopp trennt die Brille, Start verbindet sie wieder: Android vergibt eine neue Kennung, die Adresse bleibt. */
+    @Test
+    fun dieselbeBrilleNachNeuverbindenBrauchtKeinenNeuenTest() {
+        val vorher = Ausgang(id = 7, typ = AudioDeviceInfo.TYPE_BLUETOOTH_A2DP, adresse = "AA:BB")
+        val nachher = Ausgang(id = 12, typ = AudioDeviceInfo.TYPE_BLUETOOTH_A2DP, adresse = "AA:BB")
+        val andere = Ausgang(id = 13, typ = AudioDeviceInfo.TYPE_BLUETOOTH_A2DP, adresse = "CC:DD")
+        assertEquals(
+            Schritt.FERTIG,
+            Assistent.schritt(true, listOf(lautsprecher, nachher), vorher.id, false, gepruefteAdresse = "AA:BB"),
+        )
+        assertEquals(
+            Schritt.TEST,
+            Assistent.schritt(true, listOf(lautsprecher, andere), vorher.id, false, gepruefteAdresse = "AA:BB"),
+        )
+    }
+
+    /** Nach dem Stopp ist die Brille getrennt; die Hauptseite bleibt, Start verbindet sie wieder. */
+    @Test
+    fun vonDerAppGetrennteBrilleLaesstDieHauptseiteStehen() {
+        assertEquals(
+            Schritt.FERTIG,
+            Assistent.schritt(true, listOf(lautsprecher), null, false, brilleGetrennt = true),
+        )
+        // Bluetooth aus: Start kann nicht verbinden, also doch der Assistent.
+        assertEquals(
+            Schritt.BLUETOOTH,
+            Assistent.schritt(false, listOf(lautsprecher), null, false, brilleGetrennt = true),
+        )
+    }
+
     @Test
     fun einAnderesGeraetMussNeuGetestetWerden() {
         val andere = Ausgang(id = 9, typ = AudioDeviceInfo.TYPE_BLUETOOTH_A2DP)

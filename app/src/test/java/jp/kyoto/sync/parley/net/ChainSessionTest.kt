@@ -29,6 +29,35 @@ class ChainSessionTest {
         },
     )
 
+    /** Stopp beendet auch das Gespräch beim Übersetzer, damit der Server den Verlauf nicht behält. */
+    @Test
+    fun stopEndsTheConversationAtTheTranslator() {
+        var beendet = false
+        val s = ChainSession(
+            makeRecognizer = {
+                object : Recognizer {
+                    override fun connect() = Unit
+                    override fun sendAudio(pcm24k: ByteArray) = Unit
+                    override fun endOfSpeech() = Unit
+                    override fun close() = Unit
+                }
+            },
+            gemini = null,
+            translator = object : TextTranslator {
+                override fun translate(text: String) = text
+                override fun close() { beendet = true }
+            },
+            voice = null,
+            listener = object : TranslationSession.Listener {
+                override fun onTranslatedAudio(pcm16: ByteArray) = Unit
+                override fun onOutputTranscript(text: String) = Unit
+                override fun onError(t: Throwable) = Unit
+            },
+        )
+        s.close()
+        org.junit.Assert.assertTrue(beendet)
+    }
+
     @Test
     fun aLateRecognitionAfterStopIsIgnored() {
         session.close()

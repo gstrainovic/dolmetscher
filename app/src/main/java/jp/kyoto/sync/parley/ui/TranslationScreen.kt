@@ -27,7 +27,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Headphones
-import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Stop
@@ -75,7 +74,6 @@ import jp.kyoto.sync.parley.ui.theme.ParleySky
 fun TranslationScreen(
     vm: TranslationViewModel,
     onOpenSettings: () -> Unit,
-    onOpenHistory: () -> Unit,
 ) {
     val status by vm.status.collectAsState()
     val conv by vm.conversation.collectAsState()
@@ -105,9 +103,6 @@ fun TranslationScreen(
                         IconButton(onClick = vm::stop) {
                             Icon(Icons.Filled.Stop, contentDescription = stringResource(R.string.cd_stop))
                         }
-                    }
-                    IconButton(onClick = onOpenHistory) {
-                        Icon(Icons.Filled.History, contentDescription = stringResource(R.string.cd_history))
                     }
                     IconButton(onClick = onOpenSettings) {
                         Icon(Icons.Filled.Settings, contentDescription = stringResource(R.string.cd_settings))

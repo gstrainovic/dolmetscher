@@ -4,12 +4,9 @@
 
     <!-- Allgemein -->
     <string name="action_back">Zurück</string>
-    <string name="action_delete">Löschen</string>
-    <string name="action_cancel">Abbrechen</string>
 
     <!-- Hauptbildschirm -->
     <string name="cd_stop">Stopp</string>
-    <string name="cd_history">Verlauf</string>
     <string name="cd_settings">Einstellungen</string>
     <string name="label_you">Ich</string>
     <string name="label_partner">Gegenüber</string>
@@ -29,18 +26,6 @@
 
     <!-- API-Schlüssel -->
 
-    <!-- Verlauf -->
-    <string name="history_title">Gesprächsverlauf</string>
-    <string name="cd_delete_all">Alles löschen</string>
-    <string name="history_empty">Noch kein Verlauf</string>
-    <string name="delete_all_title">Alles löschen</string>
-    <string name="delete_all_message">Den ganzen gespeicherten Verlauf löschen?</string>
-    <string name="delete_one_title">Löschen</string>
-    <string name="delete_one_message">Dieses Gespräch löschen?</string>
-    <string name="history_langs">Ich: %1$s  ・  Gegenüber: %2$s</string>
-    <string name="detail_partner">Gegenüber → %1$s</string>
-    <string name="detail_you">Ich → %1$s</string>
-    <string name="empty_text">(nichts)</string>
 
     <!-- Benachrichtigung und Dienst -->
     <string name="notif_channel_name">Live-Übersetzung</string>
@@ -51,8 +36,6 @@
     <string name="cd_select_language">Sprache wählen</string>
     <string name="label_original">Original</string>
     <string name="transcription_model_label">Erkennungsmodell (für den Originaltext)</string>
-    <string name="detail_partner_source">Gegenüber (Original)</string>
-    <string name="detail_you_source">Ich (Original)</string>
     <string name="recognition_label">Erkennung</string>
     <string name="translation_label">Übersetzung</string>
     <string name="voice_label">Stimme</string>

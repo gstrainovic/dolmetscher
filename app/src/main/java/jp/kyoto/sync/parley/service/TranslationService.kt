@@ -36,8 +36,9 @@ import jp.kyoto.sync.parley.core.AppSettings
 import jp.kyoto.sync.parley.core.Keys
 import jp.kyoto.sync.parley.core.Config
 import jp.kyoto.sync.parley.core.Oberflaeche
+import jp.kyoto.sync.parley.audio.Brille
+import jp.kyoto.sync.parley.core.Datenschutz
 import jp.kyoto.sync.parley.core.Protokoll
-import jp.kyoto.sync.parley.core.ProtokollUpload
 import jp.kyoto.sync.parley.core.SessionBus
 import jp.kyoto.sync.parley.core.Status
 import jp.kyoto.sync.parley.net.TranslationSession
@@ -49,10 +50,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
 /**
@@ -76,14 +74,6 @@ class TranslationService : Service() {
     private var protokoll: Protokoll? = null
     private var mitschnitt: Mitschnitt? = null
 
-    /** Protokoll zusätzlich auf den eigenen Server, alle 5 s gebündelt. */
-    private val upload = ProtokollUpload { zeilen ->
-        val body = org.json.JSONObject().put("zeilen", org.json.JSONArray(zeilen)).toString()
-            .toRequestBody("application/json".toMediaType())
-        val req = Request.Builder().url(Keys.claudeServerUrl.trimEnd('/') + "/protokoll")
-            .addHeader("Authorization", "Bearer ${Keys.claudeServerToken}").post(body).build()
-        http.newCall(req).execute().use { it.isSuccessful }
-    }
     private var earphonePlayer: AudioPlayer? = null // incoming → 自分の耳
 
     private var incoming: Translator? = null // 相手→自分
@@ -107,7 +97,12 @@ class TranslationService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
             ACTION_START -> start()
-            ACTION_STOP -> stopSelf()
+            // Stopp durch die Benutzerin (Knopf oder Benachrichtigung): Sitzung endet ganz, Text weg, Brille getrennt.
+            ACTION_STOP -> {
+                SessionBus.clearCurrent()
+                Brille.trennen(applicationContext)
+                stopSelf()
+            }
             // intent == null（START_NOT_STICKY 後の異常再起動など）や未知の action は何もしない。
         }
         // リアルタイム通訳はマイクとユーザー操作が前提。OS に勝手に再起動させない。
@@ -157,13 +152,8 @@ class TranslationService : Service() {
                 val transcriptionModel = AppSettings(this@TranslationService).transcriptionModel.id
                 val conv = SessionBus.conversation.value
                 val wiedergabe = PlaybackClock()
-                val log = Protokoll(java.io.File(filesDir, "protokoll.txt"), weiter = upload::add).also { protokoll = it }
-                scope.launch(Dispatchers.IO) {
-                    while (isActive) {
-                        delay(5_000)
-                        upload.flush()
-                    }
-                }
+                // Protokoll nur im Entwickler-Build; Benutzerversionen speichern keine Gespräche.
+                val log = Datenschutz.protokoll(filesDir, BuildConfig.ENTWICKLER).also { protokoll = it }
                 log.start("${setup.encode()} ${conv.partnerLang.code}->${conv.incomingTarget.code}")
                 // Untertitel kommen stückweise; ins Protokoll ganze Zeilen.
                 val eingang = StringBuilder()
@@ -211,8 +201,8 @@ class TranslationService : Service() {
                 ).also { it.connect() }
 
                 // Nur Ton schicken, wenn jemand spricht (Kosten).
-                // Aufnahmen nur in Testversionen: sie enthalten echte Gespräche.
-                val aufnahme = SatzAufnahme(java.io.File(filesDir, "aufnahmen")).takeIf { BuildConfig.DEBUG }
+                // Aufnahmen nur im Entwickler-Build: sie enthalten echte Gespräche.
+                val aufnahme = SatzAufnahme(java.io.File(filesDir, "aufnahmen")).takeIf { BuildConfig.ENTWICKLER }
                 // Silero mit 24 dB Verstärkung, Schwellen 0.3 und 0.15 in SpeechGate (messungen/vad_simulation.py).
                 val silero = runCatching { SileroSprache.ausAssets(assets) }
                     .onSuccess { log.info("Sprecherkennung: Silero VAD, 24 dB verstärkt, Start 0.3, Halten 0.15") }
@@ -234,7 +224,7 @@ class TranslationService : Service() {
                     },
                 )
                 val roh = Mitschnitt(java.io.File(filesDir, "aufnahmen/mitschnitt.pcm"))
-                    .takeIf { BuildConfig.DEBUG }.also { mitschnitt = it }
+                    .takeIf { BuildConfig.ENTWICKLER }.also { mitschnitt = it }
                 capturer = AudioCapturer(
                     onFrame = { frame ->
                         roh?.add(frame)
@@ -316,7 +306,6 @@ class TranslationService : Service() {
         }
         teardown()
         scope.cancel()
-        Thread { upload.flush() }.start() // letzte Zeilen (Fehler, Stopp) nicht verlieren
         runCatching {
             http.dispatcher.executorService.shutdown()
             http.connectionPool.evictAll()

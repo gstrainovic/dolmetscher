@@ -79,6 +79,7 @@ class ChainSession(
         recognizer.close()
         gemini?.close()
         worker.shutdownNow()
+        runCatching { translator?.close() }
         voice?.close()
     }
 

@@ -4,12 +4,9 @@
 
     <!-- Common -->
     <string name="action_back">Back</string>
-    <string name="action_delete">Delete</string>
-    <string name="action_cancel">Cancel</string>
 
     <!-- Main screen -->
     <string name="cd_stop">Stop</string>
-    <string name="cd_history">History</string>
     <string name="cd_settings">Settings</string>
     <string name="label_you">You</string>
     <string name="label_partner">Partner</string>
@@ -29,18 +26,6 @@
 
     <!-- API key setup screen -->
 
-    <!-- History screen -->
-    <string name="history_title">Conversation history</string>
-    <string name="cd_delete_all">Delete all</string>
-    <string name="history_empty">No history yet</string>
-    <string name="delete_all_title">Delete all</string>
-    <string name="delete_all_message">This will delete all saved conversation history. Are you sure?</string>
-    <string name="delete_one_title">Delete</string>
-    <string name="delete_one_message">Delete this conversation?</string>
-    <string name="history_langs">You: %1$s  ・  Partner: %2$s</string>
-    <string name="detail_partner">Partner → %1$s</string>
-    <string name="detail_you">You → %1$s</string>
-    <string name="empty_text">(none)</string>
 
     <!-- Notification / service -->
     <string name="notif_channel_name">Live translation</string>
@@ -51,8 +36,6 @@
     <string name="cd_select_language">Select language</string>
     <string name="label_original">Original</string>
     <string name="transcription_model_label">Transcription model (for original captions)</string>
-    <string name="detail_partner_source">Partner (original)</string>
-    <string name="detail_you_source">You (original)</string>
     <string name="recognition_label">Recognition</string>
     <string name="translation_label">Translation</string>
     <string name="voice_label">Voice</string>

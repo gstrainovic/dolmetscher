@@ -18,6 +18,9 @@ interface TextTranslator {
 
     /** Verbindung oder Sitzung schon vor dem ersten Satz aufbauen. */
     fun warmUp() {}
+
+    /** Gespräch beenden: der Übersetzer behält danach keinen Verlauf. */
+    fun close() {}
 }
 
 /** Gemini Flash über die API, mit den letzten Sätzen als Zusammenhang. */
@@ -88,6 +91,17 @@ class ClaudeServerTranslator(
         val req = Request.Builder().url(url.trimEnd('/') + "/vorwaermen").addHeader("Authorization", "Bearer $token")
             .post(ClaudeServerProtocol.request(session, target, "-").toRequestBody(JSON)).build()
         runCatching { http.newCall(req).execute().close() }
+    }
+
+    /** Stopp: der Server verwirft die Claude-Sitzung samt Verlauf sofort statt nach 30 Minuten Leerlauf. */
+    override fun close() {
+        val body = org.json.JSONObject().put("sitzung", session).toString().toRequestBody(JSON)
+        val req = Request.Builder().url(url.trimEnd('/') + "/beenden").addHeader("Authorization", "Bearer $token")
+            .post(body).build()
+        http.newCall(req).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: java.io.IOException) = Unit
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) = response.close()
+        })
     }
 }
 

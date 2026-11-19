@@ -2,13 +2,17 @@ package jp.kyoto.sync.parley.ui
 
 import android.app.Application
 import android.media.AudioManager
+import jp.kyoto.sync.parley.BuildConfig
+import jp.kyoto.sync.parley.audio.Brille
+import jp.kyoto.sync.parley.audio.Geraete
 import jp.kyoto.sync.parley.audio.VolumeLevel
+import jp.kyoto.sync.parley.core.Status
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import jp.kyoto.sync.parley.core.AppSettings
-import jp.kyoto.sync.parley.core.ChatSession
 import jp.kyoto.sync.parley.core.Conversation
-import jp.kyoto.sync.parley.core.HistoryRepository
 import jp.kyoto.sync.parley.core.Lang
 import jp.kyoto.sync.parley.core.SessionBus
 import jp.kyoto.sync.parley.core.Setup
@@ -21,12 +25,11 @@ import kotlinx.coroutines.launch
 /**
  * 画面の状態は [SessionBus] の StateFlow をそのまま公開し、
  * 操作は [TranslationService] への Intent として送る。
- * Schlüssel sind fest eingebaut ([jp.kyoto.sync.parley.core.Keys]); Einstellungen in [AppSettings],
- * Verlauf in [HistoryRepository].
+ * Schlüssel sind fest eingebaut ([jp.kyoto.sync.parley.core.Keys]); Einstellungen in [AppSettings].
+ * Gespräche werden nicht gespeichert ([jp.kyoto.sync.parley.core.Datenschutz]).
  */
 class TranslationViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val history = HistoryRepository(app)
     private val settings = AppSettings(app)
 
     private val _setup = MutableStateFlow(settings.setupFuer(SessionBus.conversation.value.partnerLang))
@@ -42,9 +45,6 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
     private fun setupNachladen() {
         _setup.value = settings.setupFuer(SessionBus.conversation.value.partnerLang)
     }
-
-    private val _sessions = MutableStateFlow<List<ChatSession>>(emptyList())
-    val sessions: StateFlow<List<ChatSession>> = _sessions
 
     private val _transcriptionModel = MutableStateFlow(settings.transcriptionModel)
     val transcriptionModel: StateFlow<TranscriptionModel> = _transcriptionModel
@@ -114,65 +114,42 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
 
     // --- セッション制御 ---
 
+    private var anlauf: Job? = null
+
+    /**
+     * Hat Stopp die Brille getrennt, verbindet Start sie zuerst wieder (bis [BRILLE_WARTEN_MS]) und startet dann den
+     * Dienst; fehlt sie danach, meldet der Dienst den fehlenden Kopfhörer und der Assistent erscheint.
+     */
     fun start() {
-        persistCurrent()                            // 直前の会話を履歴へ
-        TranslationService.start(getApplication())  // 内部で beginSession() しクリア
+        val app = getApplication<Application>()
+        if (BuildConfig.ENTWICKLER || Geraete.hatKopfhoerer(app) || !Brille.getrennt.value) {
+            TranslationService.start(app) // 内部で beginSession() しクリア
+            return
+        }
+        SessionBus.status.value = Status.CONNECTING
+        anlauf = viewModelScope.launch {
+            Brille.verbinden(app)
+            val bis = System.currentTimeMillis() + BRILLE_WARTEN_MS
+            while (!Geraete.hatKopfhoerer(app) && System.currentTimeMillis() < bis) delay(250)
+            Brille.vergessen(app)
+            SessionBus.status.value = Status.IDLE
+            TranslationService.start(app)
+        }
     }
 
+    /** Stopp beendet die Sitzung: Text weg, Brille getrennt (im Dienst, auch beim Stopp aus der Benachrichtigung). */
     fun stop() {
-        persistCurrent()                            // 停止時に履歴へ
+        if (anlauf?.isActive == true) {
+            anlauf?.cancel()
+            SessionBus.status.value = Status.IDLE
+        }
         TranslationService.stop(getApplication())
     }
 
-    /** 新しい会話: 直前を履歴へ保存してから画面をクリア。 */
-    fun newConversation() {
-        persistCurrent()
-        SessionBus.clearCurrent()
+    private companion object {
+        const val BRILLE_WARTEN_MS = 10_000L
     }
 
-    // --- 履歴 ---
-
-    fun loadHistory() {
-        viewModelScope.launch { _sessions.value = history.list() }
-    }
-
-    fun deleteSession(id: String) {
-        viewModelScope.launch {
-            history.delete(id)
-            _sessions.value = history.list()
-        }
-    }
-
-    fun clearAllHistory() {
-        viewModelScope.launch {
-            history.clearAll()
-            _sessions.value = emptyList()
-        }
-    }
-
-    /**
-     * 現在の会話を履歴へ保存する。値は同期的に読み取ってから書き込むので、
-     * 直後にセッションがクリアされても取りこぼさない。空なら何もしない。
-     * ID は開始時刻なので upsert により重複しない。
-     */
-    private fun persistCurrent() {
-        val startedAt = SessionBus.currentStartedAt
-        val partner = SessionBus.partnerTranscript.value
-        val partnerSource = SessionBus.partnerSourceTranscript.value
-        if (startedAt == 0L || (partner.isBlank() && partnerSource.isBlank())) return
-        val conv = SessionBus.conversation.value
-        val session = ChatSession(
-            id = startedAt.toString(),
-            startedAt = startedAt,
-            myLang = conv.myLang.code,
-            partnerLang = conv.partnerLang.code,
-            partnerText = partner,
-            myText = "", // eigene Sätze werden nicht übersetzt; gefüllt nur in älteren Gesprächen
-            partnerSourceText = partnerSource,
-        )
-        viewModelScope.launch {
-            history.upsert(session)
-            _sessions.value = history.list()
-        }
-    }
+    /** Nach einem Abbruch (Fehler, Kopfhörer getrennt) den Text vom Bildschirm nehmen. */
+    fun newConversation() = SessionBus.clearCurrent()
 }

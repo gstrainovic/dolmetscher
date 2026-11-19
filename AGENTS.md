@@ -21,11 +21,16 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   Die App läuft nie ohne Kopfhörer oder Brille. `MainActivity` zeigt statt jeder anderen Seite den Assistenten,
   solange `Assistent.schritt` nicht `FERTIG` ist: Bluetooth einschalten (Systemdialog), Gerät koppeln
   (Bluetooth-Einstellungen), Funktionstest (Ton im Gerät gehört und Stimme im Mikrofon erkannt). Der Test gilt für
-  das verbundene Gerät bis zum nächsten Öffnen der App; Android vergibt nach einem Neuverbinden eine neue Kennung,
-  dann kommt der Test wieder. Läuft die Übersetzung beim Öffnen schon (App geschlossen, Dienst läuft weiter),
+  das verbundene Gerät bis zum nächsten Öffnen der App, erkannt an der Bluetooth-Adresse (die Kennung von Android
+  wechselt bei jedem Neuverbinden). Läuft die Übersetzung beim Öffnen schon (App geschlossen, Dienst läuft weiter),
   entfällt der Test, damit der Stopp-Knopf erreichbar ist. Die Benachrichtigung des Dienstes öffnet die App und hat
   einen Knopf «Stopp». Als Kopfhörer zählen Bluetooth A2DP und LE, Kabel- und USB-Kopfhörer, nie
-  Lautsprecher oder Hörkapsel des Handys. Trennt sich das Gerät im Betrieb, hält `TranslationService` die
+  Lautsprecher oder Hörkapsel des Handys. Stopp (Knopf oder Benachrichtigung) trennt die Brille vom Handy, die
+  Kopplung bleibt; die Hauptseite bleibt dann stehen, und Start verbindet die Brille wieder (bis 10 s warten,
+  `audio/Brille.kt`). Verbunden wird die zuletzt getrennte Brille, sonst das einzige gekoppelte Audiogerät, nie
+  eines von mehreren. Android hat dafür keine öffentliche Schnittstelle: `BluetoothA2dp.connect` und `disconnect`
+  sind versteckt, aber für Apps freigegeben (`@UnsupportedAppUsage`, nur `BLUETOOTH_CONNECT`) und laufen per
+  Reflexion. Trennt sich das Gerät im Betrieb, hält `TranslationService` die
   Übersetzung an (`geraeteWache`) und der Assistent erscheint; ohne Gerät startet der Dienst gar nicht. Der Testton
   geht nur an den Kopfhörer und entfällt, wenn keiner verbunden ist. Benutzer können nichts überspringen; nur ein
   Entwickler-Build (`-Pentwickler=true`, `BuildConfig.ENTWICKLER`) kommt ohne Gerät durch, etwa im Emulator. Nicht
@@ -64,7 +69,9 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   Werkzeuge) offen; Modell aus `DOLMETSCHER_MODELL`, im Betrieb `opus`: im Vergleich mit zwölf fehlerhaften
   Voxtral-Umschriften Sinn richtig bei Opus 10, Sonnet 9, Haiku 6, erstes Stück im Median 0.9 bis 1.3 s bei allen
   (`docs/schweizerdeutsch-erkennung.md`). `/uebersetzen/strom` liefert Teilantworten, `/vorwaermen` legt die Sitzung
-  an und lässt sie einmal antworten, `/protokoll` nimmt das Laufprotokoll der App entgegen. Schwer deutbare Sätze
+  an und lässt sie einmal antworten, `/beenden` verwirft sie beim Stopp. Gespräche bleiben nur im Speicher: Claude
+  Code läuft mit `--no-session-persistence` (sonst landet jede Sitzung als JSONL unter `~/.claude/projects`), der
+  Dienst schreibt keinen Text auf die Platte und loggt nur Pfad und Statuscode. Schwer deutbare Sätze
   dauern länger (Opus bis 5 s), und dieselbe Umschrift wird nicht immer gleich gedeutet. Zugang nur mit
   `DOLMETSCHER_TOKEN`. Vorlagen für den Betrieb hinter Caddy als systemd-Dienst: `deploy/`.
 - Ton: Aufnahme über das Handymikrofon, Wiedergabe als Medienton (`USAGE_MEDIA`) über Bluetooth A2DP. Deshalb gilt
@@ -81,9 +88,14 @@ deutsch. Die App-Kennung ist `ch.strainovic.dolmetscher`.
   sherpa-onnx; `werkzeuge/sherpa.sh` lädt das Paket (49 MB, nicht im Repo) nach `app/libs` und die Modelle nach
   `app/src/main/assets`, vor dem ersten Bau ausführen. Jeder Satz geht auf volle Lautstärke gebracht an Voxtral
   (`audio/Lautheit.kt`). Kosten in `docs/varianten.md`.
-- Testhilfen nur in Debug-Versionen (`BuildConfig.DEBUG`): jeder Satz als WAV in `files/aufnahmen`, der ganze
-  Mikrofonton in `files/aufnahmen/mitschnitt.pcm` (16 kHz, höchstens 10 Minuten), die VAD-Wahrscheinlichkeit alle
-  5 s im Protokoll. Holen mit `adb exec-out run-as ch.strainovic.dolmetscher cat files/aufnahmen/<datei>`.
+- Datenschutz (`core/Datenschutz.kt`): Gespräche bleiben nur bis zum Stopp im Speicher der App. Stopp leert den
+  Bildschirm, es gibt keinen Verlauf, kein Protokoll und keine Aufnahmen auf dem Gerät und nichts davon auf dem
+  Server; Logcat bekommt nur Verbindungsfehler ohne Text. Beim Öffnen löscht die App Reste früherer Versionen
+  (`sessions.json`, `protokoll.txt`, `aufnahmen/`).
+- Testhilfen nur im Entwickler-Build (`BuildConfig.ENTWICKLER`, nie an Benutzer): Protokoll in
+  `files/protokoll.txt`, jeder Satz als WAV in `files/aufnahmen`, der ganze Mikrofonton in
+  `files/aufnahmen/mitschnitt.pcm` (16 kHz, höchstens 10 Minuten), die VAD-Wahrscheinlichkeit alle 5 s im
+  Protokoll. Holen mit `adb exec-out run-as ch.strainovic.dolmetscher cat files/aufnahmen/<datei>`.
 - Suisse Speech (`SuisseProtocol`): live, 16 kHz, `finalize_on_pause`, bei Satzende der Sprecherkennung
   `finalize`, Mundart-Wortschatz; liefert hochdeutschen Text. Verrechnet nur geschickte Tonsekunden (CHF 2.20 je
   Stunde live).
@@ -139,11 +151,10 @@ Schrägstrichen (`sdk.dir=C:/Users/<name>/scoop/apps/android-clt/current`), dann
 - **Anbieterprobe ohne App:** Die Dolmetscher-Anweisung lässt sich mit einer Aufnahme direkt gegen die API prüfen
   (Gemini: Setup-Nachricht aus `GeminiProtocol.setup`, Ton als `realtimeInput` mit `audio/pcm;rate=24000`).
 
-Testläufe auswerten: Die App schreibt `files/protokoll.txt` (Variante, Satzende, erkannter Text, Übersetzung mit
-Sekunden seit Satzende, Fehler; `core/Protokoll.kt`), lesen mit
-`adb exec-out run-as ch.strainovic.dolmetscher cat files/protokoll.txt`. Logcat hält auf dem Handy nur wenige
-Minuten. Gespeicherte Gespräche stehen in `files/sessions.json` (nur Gespräche, die mit Stopp oder Neustart
-beendet wurden).
+Testläufe auswerten: Der Entwickler-Build (`./gradlew installDebug -Pentwickler=true`) schreibt
+`files/protokoll.txt` (Variante, Satzende, erkannter Text, Übersetzung mit Sekunden seit Satzende, Fehler;
+`core/Protokoll.kt`), lesen mit `adb exec-out run-as ch.strainovic.dolmetscher cat files/protokoll.txt`. Die
+Benutzerversion schreibt kein Protokoll.
 
 Für die Fernsteuerung durch Claude: `adb exec-out uiautomator dump /dev/tty` liefert die Elemente mit Text und
 Koordinaten, `adb shell input tap x y` tippt, `adb shell input text` schreibt.

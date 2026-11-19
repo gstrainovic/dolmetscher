@@ -11,7 +11,9 @@ import jp.kyoto.sync.parley.core.Ausgang
 object Geraete {
 
     fun ausgaenge(ctx: Context): List<Ausgang> =
-        audioManager(ctx).getDevices(AudioManager.GET_DEVICES_OUTPUTS).map { Ausgang(it.id, it.type) }
+        audioManager(ctx).getDevices(AudioManager.GET_DEVICES_OUTPUTS).map {
+            Ausgang(it.id, it.type, if (android.os.Build.VERSION.SDK_INT >= 28) it.address.orEmpty() else "")
+        }
 
     /** Der Kopfhörer als Android-Gerät, damit ein Ton gezielt dorthin geht; null, wenn keiner verbunden ist. */
     fun kopfhoerer(ctx: Context): AudioDeviceInfo? {
