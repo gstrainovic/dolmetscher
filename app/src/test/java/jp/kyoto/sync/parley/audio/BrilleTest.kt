@@ -26,6 +26,14 @@ class BrilleTest {
         assertNull(Brille.wahl(listOf(brille, auto), gemerkt = null))
     }
 
+    /** Fest eingerichtet: ist die Brille einmal mit der App verbunden, merkt die App sie sich ohne Stopp. */
+    @Test
+    fun merktSichDieVerbundeneBrille() {
+        assertEquals("AA:BB", Brille.zuMerken(listOf(Gekoppelt("", audio = false), Gekoppelt("AA:BB", audio = true)), gemerkt = null))
+        assertNull(Brille.zuMerken(listOf(Gekoppelt("AA:BB", audio = true)), gemerkt = "AA:BB"))
+        assertNull(Brille.zuMerken(listOf(Gekoppelt("", audio = true)), gemerkt = null))
+    }
+
     @Test
     fun istDieGemerkteBrilleEntkoppeltGiltDieRegelOhneGemerkte() {
         assertEquals("CC:DD", Brille.wahl(listOf(auto, uhr), gemerkt = "AA:BB"))

@@ -26,6 +26,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
 import jp.kyoto.sync.parley.audio.Brille
+import jp.kyoto.sync.parley.audio.Gekoppelt
 import jp.kyoto.sync.parley.audio.Geraete
 import jp.kyoto.sync.parley.core.Datenschutz
 import jp.kyoto.sync.parley.core.AppSettings
@@ -143,6 +144,7 @@ class MainActivity : ComponentActivity() {
     private fun geraeteLesen() {
         bluetoothAn = Geraete.bluetoothAn(this)
         ausgaenge = Geraete.ausgaenge(this)
+        Brille.merken(this, ausgaenge.map { Gekoppelt(it.adresse, it.typ == AudioDeviceInfo.TYPE_BLUETOOTH_A2DP) })
     }
 
     /** Systemdialog «Bluetooth einschalten»; ohne Berechtigung dafür die Bluetooth-Einstellungen. */

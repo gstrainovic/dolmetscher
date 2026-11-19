@@ -52,6 +52,19 @@ object Brille {
         return gekoppelt.filter { it.audio }.singleOrNull()?.adresse
     }
 
+    /** Welche verbundene Brille neu gemerkt wird (nur Bluetooth mit Adresse); null, wenn sie schon gemerkt ist. */
+    fun zuMerken(verbunden: List<Gekoppelt>, gemerkt: String?): String? =
+        verbunden.firstOrNull { it.audio && it.adresse.isNotEmpty() }?.adresse?.takeIf { it != gemerkt }
+
+    /**
+     * Fest einrichten: Jede Brille, die mit dem Handy verbunden ist, während die App offen ist, wird zur Brille der
+     * App; Start verbindet danach genau diese, ohne zu suchen.
+     */
+    fun merken(ctx: Context, verbunden: List<Gekoppelt>) {
+        val adresse = zuMerken(verbunden, gemerkt(ctx)) ?: return
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putString(ADRESSE, adresse).apply()
+    }
+
     /** Trennt alle per A2DP verbundenen Geräte und merkt sich die Adresse für den nächsten Start. */
     fun trennen(ctx: Context) = mitA2dp(ctx) { a2dp ->
         val verbunden = a2dp.connectedDevices
@@ -71,13 +84,16 @@ object Brille {
         val gekoppelt = geraete.map {
             Gekoppelt(it.address, it.bluetoothClass?.majorDeviceClass == BluetoothClass.Device.Major.AUDIO_VIDEO)
         }
-        val ziel = wahl(gekoppelt, gemerkt(ctx)) ?: return@mitA2dp
+        val ziel = wahl(gekoppelt, gemerkt(ctx))
+        android.util.Log.i("Brille", "verbinden: ${gekoppelt.size} gekoppelt, Ziel ${if (ziel == null) "keines" else "gefunden"}")
+        if (ziel == null) return@mitA2dp
         geraete.firstOrNull { it.address == ziel }?.let { aufruf(a2dp, "connect", it) }
     }
 
+    /** Ergebnis im Logcat (ohne Gesprächsinhalt), damit sich am Gerät prüfen lässt, ob Android den Aufruf zulässt. */
     private fun aufruf(a2dp: BluetoothProfile, methode: String, geraet: BluetoothDevice) = runCatching {
         a2dp.javaClass.getMethod(methode, BluetoothDevice::class.java).invoke(a2dp, geraet)
-    }
+    }.also { android.util.Log.i("Brille", "A2DP $methode: ${it.getOrNull() ?: it.exceptionOrNull()}") }
 
     /** Holt den A2DP-Dienst (kommt asynchron), führt [tun] aus und gibt ihn wieder frei. Ohne Berechtigung nichts. */
     @SuppressLint("MissingPermission")

@@ -3,6 +3,7 @@ package jp.kyoto.sync.parley.ui
 import android.app.Application
 import android.media.AudioManager
 import jp.kyoto.sync.parley.BuildConfig
+import jp.kyoto.sync.parley.R
 import jp.kyoto.sync.parley.audio.Brille
 import jp.kyoto.sync.parley.audio.Geraete
 import jp.kyoto.sync.parley.audio.VolumeLevel
@@ -133,7 +134,13 @@ class TranslationViewModel(app: Application) : AndroidViewModel(app) {
             while (!Geraete.hatKopfhoerer(app) && System.currentTimeMillis() < bis) delay(250)
             Brille.vergessen(app)
             SessionBus.status.value = Status.IDLE
-            TranslationService.start(app)
+            // Ohne Gerät nie den Dienst starten: er hielte vor startForeground an, und Android beendet dann die App.
+            if (Geraete.hatKopfhoerer(app)) {
+                TranslationService.start(app)
+            } else {
+                SessionBus.errorMessage.value = app.getString(R.string.error_no_headset)
+                SessionBus.status.value = Status.ERROR
+            }
         }
     }
 
